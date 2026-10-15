@@ -95,6 +95,10 @@ body{background:var(--bg);color:var(--ink);font-family:"Segoe UI",Tahoma,Arial,s
 @media(max-width:760px){.brand h1{font-size:39px!important}.brand h1:after{width:86px!important;height:32px!important;bottom:-6px!important}}
 
 
+/* Qalam wordmark refinement: join the meem terminal to a single flowing stroke */
+.qalam-wordmark-svg{overflow:visible}
+.brand h1.qalam-wordmark{width:160px!important}
+@media(max-width:760px){.brand h1.qalam-wordmark{width:142px!important}}
 /* FINAL: custom Arabic calligraphy wordmark, no badge or feather */
 .brand{gap:12px!important;align-items:center!important}
 .brand .logo,.qalam-mark{display:none!important}
@@ -114,9 +118,9 @@ body{background:var(--bg);color:var(--ink);font-family:"Segoe UI",Tahoma,Arial,s
 <title id="qalamLogoTitle">قَلَم — شعار خط عربي</title>
 <defs><linearGradient id="qalamInk" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#d5ad65"/><stop offset=".38" stop-color="#315b46"/><stop offset="1" stop-color="#183b2c"/></linearGradient></defs>
 <text x="207" y="82" text-anchor="middle" direction="rtl" font-family="Aref Ruqaa, Amiri, serif" font-size="83" font-weight="700" fill="url(#qalamInk)">قَلَم</text>
-<path d="M132 81 C111 94 91 106 64 108 C48 109 35 103 28 94 C44 98 60 97 77 91 C96 84 111 72 124 61" fill="none" stroke="url(#qalamInk)" stroke-width="3.1" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M30 94 C22 91 18 84 20 77 C25 82 30 86 38 88" fill="none" stroke="#c99a4b" stroke-width="2.1" stroke-linecap="round"/>
-<path d="M124 61 C130 55 135 48 138 41" fill="none" stroke="#c99a4b" stroke-width="1.8" stroke-linecap="round"/>
+<path d="M153 77 C145 79 139 84 132 89 C112 104 91 113 67 113 C50 113 35 106 25 94 C43 103 62 102 82 94 C105 85 124 70 137 55" fill="none" stroke="url(#qalamInk)" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M27 94 C21 90 17 84 18 78 C23 83 29 87 36 89" fill="none" stroke="#c99a4b" stroke-width="1.8" stroke-linecap="round"/>
+<path d="M135 57 C141 51 146 44 150 36" fill="none" stroke="#c99a4b" stroke-width="1.5" stroke-linecap="round"/>
 </svg></h1><p>مساحة العمل القانونية — تنظيم، بحث، ومراجعة</p></div></div><div class="actions"><button id="exportBtn">تصدير نسخة احتياطية</button><button id="importBtn">استيراد نسخة</button><input id="importFile" type="file" accept="application/json" class="hide"></div></header>
 <main class="wrap">
 <section class="hero"><div style="position:relative;z-index:1;color:#3978e8;font-size:11px;font-weight:800;letter-spacing:1.5px">QALAM · WORKSPACE JURIDIQUE</div><h2>كل أدواتك القانونية، في مساحة واحدة.</h2><p>مكتبة منظمة، ملفات القضايا، المذكرات والمراجع. ابدأ من موردك المفضل، وواصل بناء مكتبتك القانونية خطوة بخطوة.</p><div class="searchrow"><input id="search" placeholder="ابحث في عناوين مكتبتك ونصوصك وأرقام المواد…"><button id="clearSearch" class="secondary">مسح البحث</button></div></section>
