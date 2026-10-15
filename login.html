@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#123f32"><title>تسجيل الدخول | قلم</title>
+<style>
+*{box-sizing:border-box}html,body{margin:0;min-height:100%;font-family:"Segoe UI",Tahoma,Arial,sans-serif;color:#173c31}
+body{min-height:100vh;display:grid;place-items:center;padding:28px 16px;background:#21180f;background-image:linear-gradient(90deg,rgba(23,15,9,.22),rgba(20,16,12,.50)),url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1600 1000'%3E%3Cdefs%3E%3ClinearGradient id='wall' x2='0' y2='1'%3E%3Cstop stop-color='%231b1712'/%3E%3Cstop offset='.55' stop-color='%23472c19'/%3E%3Cstop offset='1' stop-color='%23150f0b'/%3E%3C/linearGradient%3E%3ClinearGradient id='wood' x2='0' y2='1'%3E%3Cstop stop-color='%23a76a32'/%3E%3Cstop offset='.18' stop-color='%235d3218'/%3E%3Cstop offset='1' stop-color='%231e1009'/%3E%3C/linearGradient%3E%3ClinearGradient id='gold' x2='1' y2='1'%3E%3Cstop stop-color='%23fff0ad'/%3E%3Cstop offset='.5' stop-color='%23c38b37'/%3E%3Cstop offset='1' stop-color='%237a4b18'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='1600' height='1000' fill='url(%23wall)'/%3E%3Crect x='750' y='30' width='810' height='560' fill='%23130f0c' stroke='%236e4826' stroke-width='20'/%3E%3Cg stroke='%237c542d' stroke-width='14'%3E%3Cpath d='M760 200H1550M760 375H1550M760 550H1550'/%3E%3C/g%3E%3Cg%3E%3C!-- law books on shelves --%3E%3Cg fill='%232b4535' stroke='%23c29448' stroke-width='3'%3E%3Crect x='780' y='55' width='50' height='138' rx='4'/%3E%3Crect x='837' y='43' width='64' height='150' rx='4' fill='%233d2518'/%3E%3Crect x='908' y='62' width='44' height='131' rx='4' fill='%232c4938'/%3E%3Crect x='960' y='38' width='62' height='155' rx='4' fill='%234d2c1a'/%3E%3Crect x='1030' y='52' width='48' height='141' rx='4'/%3E%3Crect x='1086' y='43' width='65' height='150' rx='4' fill='%233a2417'/%3E%3Crect x='1159' y='60' width='47' height='133' rx='4'/%3E%3Crect x='1215' y='39' width='65' height='154' rx='4' fill='%234b2d1a'/%3E%3Crect x='1288' y='52' width='51' height='141' rx='4'/%3E%3Crect x='1348' y='44' width='61' height='149' rx='4' fill='%232c4938'/%3E%3Crect x='1417' y='57' width='52' height='136' rx='4' fill='%23442a19'/%3E%3C/g%3E%3Cg stroke='%23d0a75b' stroke-width='4' opacity='.8'%3E%3Cpath d='M787 85h36m-36 15h36m-36 70h36M847 75h44m-44 15h44m-44 80h44M971 76h40m-40 15h40m-40 82h40M1096 78h44m-44 15h44m-44 77h44M1225 75h44m-44 15h44m-44 83h44M1358 78h42m-42 15h42m-42 77h42'/%3E%3C/g%3E%3C/g%3E%3C!-- balance --%3E%3Cg transform='translate(120 160)' fill='none' stroke='url(%23gold)' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath stroke-width='12' d='M210 35V390M80 95H340M210 35l-22 35h44zM210 390h-85m85 0h85M150 390l-30 30h180l-30-30'/%3E%3Cpath stroke-width='6' d='M95 95 35 230m60-135 60 135M325 95l-60 135m60-135 60 135'/%3E%3Cpath stroke-width='8' d='M10 230q85 95 170 0M230 230q85 95 170 0'/%3E%3C/g%3E%3C!-- desk --%3E%3Cpath d='M0 650Q500 600 1000 650T1600 625V1000H0Z' fill='url(%23wood)'/%3E%3Cpath d='M0 710Q450 670 900 710T1600 690M0 815Q600 785 1200 820T1600 805M0 930Q500 900 1000 935T1600 925' fill='none' stroke='%23d69a4b' stroke-opacity='.35' stroke-width='6'/%3E%3C!-- books on desk --%3E%3Cg stroke='%23c08d43' stroke-width='5'%3E%3Cpath d='M80 630l460-25 28 75-470 28z' fill='%232c2018'/%3E%3Cpath d='M110 690l460-20 25 75-470 22z' fill='%233d291b'/%3E%3Cpath d='M1100 610l390-10 35 75-400 15z' fill='%232b1c12'/%3E%3Cpath d='M1080 680l420-10 35 80-425 10z' fill='%233c2517'/%3E%3C/g%3E%3C/svg%3E");background-size:cover;background-position:center;background-attachment:fixed}
+.shell{width:min(100%,590px);display:flex;flex-direction:column;align-items:center;gap:18px}
+.logo{width:min(300px,65vw);height:auto;max-height:130px;object-fit:contain;filter:drop-shadow(0 6px 18px #0008)}
+.card{width:100%;padding:32px 34px 30px;background:rgba(255,252,245,.95);border:1px solid rgba(255,255,255,.65);border-radius:20px;box-shadow:0 24px 75px #0008;backdrop-filter:blur(12px)}
+h1{margin:0 0 8px;text-align:center;font-size:23px;color:#173f34}.sub{text-align:center;color:#847968;font-size:13px;margin:0 0 24px}
+.field{display:flex;align-items:center;gap:12px;margin:0 0 15px;padding:0 15px;border:1px solid #ded4c5;border-radius:11px;background:rgba(255,255,255,.65);height:56px}.field span{font-size:19px;color:#9a8a71}.field input{width:100%;min-width:0;border:0;outline:0;background:transparent;font:inherit;color:#173c31}.show{border:0;background:transparent;color:#6f786e;padding:5px}
+.primary,.digital{width:100%;height:56px;border-radius:11px;font:700 16px inherit;cursor:pointer}.primary{margin-top:7px;border:1px solid #c49a54;color:#fff;background:linear-gradient(120deg,#0b3b34,#052b29);box-shadow:0 6px 16px #09382e25}.divider{display:flex;align-items:center;gap:12px;margin:15px 0;color:#938777;font-size:13px}.divider:before,.divider:after{content:"";height:1px;background:#d8cebf;flex:1}.digital{border:1px solid #244b43;background:transparent;color:#21483f}.note{margin:15px 0 0;text-align:center;color:#897d6b;font-size:11px;line-height:1.7}.back{color:#f8edda;text-decoration:none;font-size:13px;text-shadow:0 1px 6px #000}.back:hover{text-decoration:underline}
+@media(max-width:520px){body{padding:20px 12px;background-attachment:scroll}.card{padding:26px 20px 23px}.logo{max-height:105px}.shell{gap:13px}}
+</style>
+<style id="qalam-login-polish">
+:root{color-scheme:light}
+body{position:relative;background-color:#20180f;background-image:linear-gradient(90deg,rgba(13,27,21,.48),rgba(18,19,15,.28) 48%,rgba(15,22,17,.58)),url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1600 1000'%3E%3Cdefs%3E%3ClinearGradient id='w' x2='0' y2='1'%3E%3Cstop stop-color='%23231c14'/%3E%3Cstop offset='1' stop-color='%23502f18'/%3E%3C/linearGradient%3E%3ClinearGradient id='d' x2='0' y2='1'%3E%3Cstop stop-color='%23b17a43'/%3E%3Cstop offset='1' stop-color='%2325140b'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='1600' height='1000' fill='url(%23w)'/%3E%3Cg stroke='%23734e2b' stroke-width='16'%3E%3Cpath d='M760 60H1550V600H760ZM760 220H1550M760 400H1550' fill='%2318120d'/%3E%3C/g%3E%3Cg fill='%232a4637' stroke='%23c59a50' stroke-width='3'%3E%3Crect x='790' y='80' width='48' height='128' rx='3'/%3E%3Crect x='845' y='72' width='60' height='136' rx='3' fill='%23452a19'/%3E%3Crect x='912' y='87' width='45' height='121' rx='3'/%3E%3Crect x='965' y='68' width='61' height='140' rx='3' fill='%23452a19'/%3E%3Crect x='1034' y='80' width='48' height='128' rx='3'/%3E%3Crect x='1090' y='73' width='60' height='135' rx='3' fill='%23452a19'/%3E%3Crect x='1158' y='84' width='48' height='124' rx='3'/%3E%3Crect x='1214' y='69' width='61' height='139' rx='3' fill='%23452a19'/%3E%3Crect x='1282' y='80' width='50' height='128' rx='3'/%3E%3Crect x='1340' y='72' width='60' height='136' rx='3' fill='%23452a19'/%3E%3Crect x='1408' y='84' width='48' height='124' rx='3'/%3E%3C/g%3E%3Cg transform='translate(120 150)' fill='none' stroke='%23d7b16b' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath stroke-width='12' d='M210 35V390M80 95H340M210 35l-22 35h44zM210 390h-85m85 0h85M150 390l-30 30h180l-30-30'/%3E%3Cpath stroke-width='6' d='M95 95 35 230m60-135 60 135M325 95l-60 135m60-135 60 135'/%3E%3Cpath stroke-width='8' d='M10 230q85 95 170 0M230 230q85 95 170 0'/%3E%3C/g%3E%3Cpath d='M0 660Q500 600 1000 655T1600 630V1000H0Z' fill='url(%23d)'/%3E%3Cpath d='M0 735Q500 690 1000 735T1600 715M0 850Q500 815 1000 855T1600 835M0 940Q500 905 1000 945T1600 925' stroke='%23e0ad62' stroke-opacity='.3' stroke-width='5' fill='none'/%3E%3Cg stroke='%23c99b4e' stroke-width='5'%3E%3Cpath d='M90 620l440-24 30 65-450 30z' fill='%232b2018'/%3E%3Cpath d='M110 680l450-20 25 68-455 25z' fill='%233d291b'/%3E%3Cpath d='M1110 610l380-10 35 70-395 15z' fill='%232b1c12'/%3E%3Cpath d='M1090 680l410-10 35 75-415 12z' fill='%233c2517'/%3E%3C/g%3E%3C/svg%3E");
+background-size:cover;background-position:center;isolation:isolate}
+body:before{content:"";position:fixed;inset:0;z-index:-1;background:radial-gradient(ellipse at 15% 15%,rgba(211,170,99,.16),transparent 36%),linear-gradient(0deg,rgba(12,20,14,.22),transparent 48%)}
+.shell{width:min(100%,540px);gap:16px}
+.logo{max-height:112px;width:min(270px,62vw);object-fit:contain}
+.card{padding:clamp(23px,5vw,36px);background:rgba(255,252,246,.96);border:1px solid rgba(235,218,185,.85);border-radius:22px;box-shadow:0 28px 85px rgba(0,0,0,.48),0 0 0 5px rgba(255,255,255,.04);backdrop-filter:blur(18px)}
+h1{font-size:26px;letter-spacing:-.3px}
+.sub{line-height:1.8}
+.field{height:58px;background:#fffdf9;border-color:#e5d9c7;transition:border-color .18s,box-shadow .18s}
+.field:focus-within{border-color:#b99a5d;box-shadow:0 0 0 4px rgba(185,154,93,.15)}
+.field input{font-size:15px}
+.primary,.digital{height:54px;border-radius:12px;transition:transform .15s,box-shadow .15s,background .15s}
+.primary{background:linear-gradient(120deg,#174b3c,#092f29);box-shadow:0 8px 20px rgba(12,58,43,.2);font-family:inherit}
+.primary:hover{box-shadow:0 10px 24px rgba(12,58,43,.28);filter:brightness(1.04)}
+.primary:disabled{opacity:.7;cursor:wait}
+.digital{font-family:inherit;background:rgba(255,255,255,.5)}
+.digital:hover{background:#f7f2e8}
+button:focus-visible,a:focus-visible,input:focus-visible{outline:3px solid #c49a54;outline-offset:3px}
+.note{min-height:20px;overflow-wrap:anywhere}
+.back{padding:7px 12px;border-radius:20px;background:rgba(13,28,21,.3);border:1px solid rgba(255,255,255,.2);backdrop-filter:blur(8px)}
+@media(max-width:520px){.card{padding:25px 19px 22px}.logo{max-height:96px}.shell{gap:12px}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{transition:none!important}}
+</style>
+
+</head>
+<body><main class="shell">
+<img class="logo" src="https://raw.githubusercontent.com/zoulouti-cell/Kalam/main/assets/qalam-logo.png" alt="شعار قلم">
+<section class="card" aria-labelledby="loginTitle"><h1 id="loginTitle">تسجيل الدخول</h1><p class="sub">مرحبًا بك في مساحة العمل القانونية «قلم»</p>
+<form id="loginForm">
+<label class="field"><span aria-hidden="true">♙</span><input id="username" autocomplete="username" placeholder="اسم المستخدم" required aria-label="اسم المستخدم"></label>
+<label class="field"><span aria-hidden="true">▣</span><input id="password" type="password" autocomplete="current-password" placeholder="كلمة المرور" required aria-label="كلمة المرور"><button class="show" type="button" id="showPassword" aria-label="إظهار كلمة المرور">◉</button></label>
+<button class="primary" type="submit">تسجيل الدخول　↪</button>
+<div class="divider">أو</div><button class="digital" type="button" id="digitalLogin">♙　الدخول عبر الهوية الرقمية</button>
+<p class="note" id="notice">واجهة الدخول جاهزة بصريًا؛ يلزم ربطها بخادم مصادقة آمن لتفعيل تسجيل الدخول الفعلي.</p>
+</form></section><a class="back" href="./index.html">العودة إلى الصفحة الرئيسية</a>
+</main><script>
+const pw=document.querySelector('#password');document.querySelector('#showPassword').addEventListener('click',()=>{pw.type=pw.type==='password'?'text':'password'});
+document.querySelector('#loginForm').addEventListener('submit',e=>{e.preventDefault();document.querySelector('#notice').textContent='لم يُفعّل التحقق من بيانات الدخول بعد. يجب ربط الصفحة بخادم مصادقة آمن.'});
+document.querySelector('#digitalLogin').addEventListener('click',()=>{document.querySelector('#notice').textContent='الدخول عبر الهوية الرقمية غير مفعّل بعد ويحتاج إلى تكامل رسمي مع مزوّد الهوية.'});
+</script></body></html>

@@ -1,10 +1,10 @@
 {
-  "name": "كلام — المكتبة القانونية",
-  "short_name": "كلام",
+  "name": "قلم — المكتبة القانونية",
+  "short_name": "قلم",
   "lang": "ar",
   "dir": "rtl",
   "start_url": "./",
   "display": "standalone",
-  "background_color": "#f4f6f5",
-  "theme_color": "#123d36"
+  "background_color": "#ffffff",
+  "theme_color": "#315b4d"
 }

@@ -2,33 +2,317 @@
 <html lang="ar" dir="rtl">
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="theme-color" content="#102b28"><meta name="description" content="كلام — مكتبة قانونية عربية لتنظيم النصوص والمواد والمذكرات والقرارات">
+<meta name="theme-color" content="#102b28"><meta name="description" content="قلم — مكتبة قانونية عربية لتنظيم النصوص والمواد والمذكرات والقرارات">
 <link rel="manifest" href="manifest.webmanifest">
-<title>كلام | المكتبة القانونية</title>
+<title>قلم | المكتبة القانونية</title>
 <style>
 :root{--bg:#f4f6f5;--panel:#fff;--ink:#182724;--muted:#657570;--brand:#123d36;--accent:#c49a54;--line:#dfe7e3;--soft:#eaf1ee;--danger:#a33b37;--shadow:0 10px 30px #163c3210}
 *{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:Tahoma,Arial,sans-serif;line-height:1.7}button,input,textarea,select{font:inherit}button{cursor:pointer;border:0;border-radius:10px;padding:10px 14px;background:var(--brand);color:#fff}button.secondary{background:var(--soft);color:var(--brand);border:1px solid var(--line)}button.ghost{background:transparent;color:var(--brand)}button.danger{background:#fff0ef;color:var(--danger)}.app{min-height:100vh}.top{background:var(--brand);color:#fff;padding:18px max(18px,calc((100vw - 1180px)/2));display:flex;gap:18px;align-items:center;justify-content:space-between;flex-wrap:wrap}.brand{display:flex;align-items:center;gap:12px}.logo{width:44px;height:44px;border-radius:14px;background:#ffffff1c;display:grid;place-items:center;font-size:24px}.brand h1{font-size:20px;margin:0}.brand p{margin:0;color:#d4e3dd;font-size:12px}.top .actions{display:flex;gap:8px;flex-wrap:wrap}.top button{background:#ffffff18;border:1px solid #ffffff30}.wrap{max-width:1180px;margin:22px auto;padding:0 16px}.hero{background:linear-gradient(120deg,#fff,#edf4f0);border:1px solid var(--line);border-radius:18px;padding:22px;box-shadow:var(--shadow)}.hero h2{margin:0 0 5px;font-size:24px}.hero p{color:var(--muted);margin:0 0 16px}.searchrow{display:flex;gap:8px}.searchrow input{flex:1;min-width:0}.field,input,textarea,select{width:100%;padding:11px 12px;border:1px solid var(--line);border-radius:10px;background:#fff;color:var(--ink);outline-color:#6e9b8b}.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:16px 0}.stat,.panel,.card{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:16px;box-shadow:var(--shadow)}.stat small{color:var(--muted)}.stat strong{display:block;font-size:24px;color:var(--brand)}.layout{display:grid;grid-template-columns:265px minmax(0,1fr);gap:16px}.panel h3{margin:0 0 12px;font-size:16px}.navlist{display:grid;gap:7px}.navitem{width:100%;text-align:right;background:transparent;color:var(--ink);border:1px solid transparent}.navitem.active,.navitem:hover{background:var(--soft);border-color:var(--line)}.crumb{font-size:13px;color:var(--muted);margin-bottom:12px}.crumb button{padding:0;background:transparent;color:var(--brand);border-radius:0}.sectionhead{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-bottom:14px}.sectionhead h2{margin:0;font-size:21px}.list{display:grid;gap:10px}.item{border:1px solid var(--line);border-radius:12px;padding:14px;background:#fff}.item h3{margin:0 0 5px;font-size:17px}.item p{white-space:pre-wrap;margin:8px 0;color:#35453f}.meta{font-size:12px;color:var(--muted)}.itemactions{display:flex;gap:7px;flex-wrap:wrap;margin-top:10px}.itemactions button{font-size:13px;padding:7px 10px}.empty{padding:32px 12px;text-align:center;color:var(--muted)}.formgrid{display:grid;grid-template-columns:1fr 1fr;gap:10px}.formgrid .full{grid-column:1/-1}.label{display:block;font-size:13px;margin-bottom:5px;color:var(--muted)}.notice{padding:11px 13px;background:#fff8e8;border:1px solid #f1dfb8;border-radius:10px;color:#6c552a;font-size:13px;margin-top:12px}.footer{text-align:center;color:var(--muted);font-size:12px;padding:25px}.hide{display:none!important}@media(max-width:760px){.layout{grid-template-columns:1fr}.stats{gap:8px}.stat{padding:12px}.stat strong{font-size:20px}.top{align-items:flex-start}.formgrid{grid-template-columns:1fr}.formgrid .full{grid-column:auto}.hero h2{font-size:21px}}
 @media print{.top,.hero,.stats,aside,.no-print,.footer{display:none!important}.wrap{max-width:none;margin:0;padding:0}.layout{display:block}.panel,.item{box-shadow:none;border:0}.item{break-inside:avoid}body{background:#fff}}
-</style></head>
+
+/* قلم visual refresh: airy legal dashboard inspired by the supplied reference */
+:root{--bg:#fbfcfb;--panel:#fff;--ink:#294a40;--muted:#82918a;--brand:#315b4d;--accent:#3676e8;--line:#edf0ed;--soft:#f0f6f2;--danger:#b65353;--shadow:0 5px 20px rgba(35,72,57,.055)}
+body{background:#fff;color:#38594d;font-family:"Segoe UI",Tahoma,Arial,sans-serif;line-height:1.75}
+.top{background:#fff;color:#315b4d;padding:16px max(18px,calc((100vw - 1320px)/2));border-bottom:1px solid #f0f2ef;box-shadow:0 2px 14px rgba(28,63,49,.035)}
+.brand{gap:13px}.logo{background:#3676e8;color:white;border-radius:12px;width:46px;height:46px;box-shadow:0 5px 12px #3676e822}.brand h1{font-size:23px;font-weight:800;letter-spacing:.1px}.brand p{color:#87968f}
+.top button{background:#f2f6f3;color:#315b4d;border:1px solid #e6eee8}.wrap{max-width:1320px;margin:26px auto;padding:0 22px}
+.hero{border:0;border-radius:0;background:#fff;box-shadow:none;text-align:center;padding:26px 12px 18px}.hero h2{font-size:27px;color:#315b4d;font-weight:800}.hero p{color:#8a9991;margin-bottom:20px}
+.searchrow{max-width:760px;margin:0 auto 15px}.searchrow input{border:1px solid #edf0e8;border-radius:15px;background:#fbfff5;padding:14px 17px;box-shadow:0 4px 12px #1d46300c}
+button{border-radius:11px;background:#3676e8;box-shadow:none}button.secondary{background:#f3f7f4;color:#426d5b;border:1px solid #e8eee9}button.ghost{color:#426d5b}button.danger{background:#fff2f1;color:#b65353;border:1px solid #f7e4e2}
+.stats{max-width:850px;margin:14px auto 24px;gap:14px}.stat{border:1px solid #eff2ee;border-radius:15px;box-shadow:0 4px 16px #274b3907}.stat strong{color:#3676e8}
+.layout{grid-template-columns:275px minmax(0,1fr);gap:22px;align-items:start}
+.panel{border:1px solid #f0f2ef;border-radius:16px;box-shadow:0 5px 22px rgba(35,72,57,.045);padding:20px}
+.layout>aside{position:sticky;top:14px}.panel h3{color:#38594d}
+.navlist{gap:5px}.navitem{padding:10px 12px;border-radius:11px;color:#65786f}.navitem.active,.navitem:hover{background:#f0f6f2;border-color:#e5eee8;color:#315b4d;font-weight:700}
+.notice{background:#f4f8f5;border-color:#e5eee8;color:#698074;border-radius:12px}
+.sectionhead h2{font-size:22px;color:#315b4d}.crumb{color:#91a097}.crumb button{color:#4f7b67}
+.list{gap:13px}.item{border:1px solid #eef1ed;border-radius:15px;padding:17px 18px;box-shadow:0 5px 17px rgba(36,72,57,.035);transition:transform .15s ease,box-shadow .15s ease}.item:hover{box-shadow:0 8px 24px rgba(36,72,57,.075);transform:translateY(-1px)}.item h3{color:#315b4d;font-size:18px}.meta{color:#8a9991}
+.itemactions button{border-radius:9px}.formgrid input,.formgrid textarea,.formgrid select{border-color:#e7eee8;border-radius:11px}.footer{color:#a0aaa4}
+@media(max-width:760px){.wrap{padding:0 12px}.hero{padding-top:18px}.hero h2{font-size:22px}.layout{gap:12px}.layout>aside{position:static}.stats{margin:10px 0 18px}}
+
+
+/* QALAM STUDIO — redesigned legal workspace */
+:root{--bg:#f5f7f5;--panel:#fff;--ink:#203d33;--muted:#7d8d84;--brand:#234c3d;--accent:#3978e8;--line:#e8eee9;--soft:#eef5f0;--gold:#d9b778;--shadow:0 12px 35px rgba(28,65,47,.055)}
+body{background:var(--bg);color:var(--ink);font-family:"Segoe UI",Tahoma,Arial,sans-serif;line-height:1.75}
+.top{background:#fff;color:var(--brand);padding:15px max(20px,calc((100vw - 1380px)/2));border-bottom:1px solid var(--line);box-shadow:0 3px 16px #1d44300a}
+.brand h1{font-size:25px;letter-spacing:-.5px}.brand p{color:#839187;font-size:12px}.logo{width:48px;height:48px;background:linear-gradient(145deg,#3978e8,#285bcb);border-radius:15px;box-shadow:0 8px 18px #3978e82b}
+.top button{background:#f5f8f5;color:var(--brand);border:1px solid var(--line);border-radius:10px}.wrap{max-width:1380px;margin:24px auto;padding:0 22px}
+.hero{position:relative;overflow:hidden;text-align:right;padding:35px 36px;border:1px solid #e9eee9;border-radius:24px;background:radial-gradient(ellipse at 5% 0%,#eaf2ff 0,transparent 36%),linear-gradient(115deg,#fff 0%,#fbfdfb 68%,#f2f7f3 100%);box-shadow:0 14px 38px #254d3808}
+.hero:after{content:none!important}
+.hero h2{font-size:clamp(26px,3vw,38px);line-height:1.35;color:#234c3d;font-weight:850;margin:9px 0 9px;max-width:760px;position:relative;z-index:1}
+.hero p{color:#718279;font-size:15px;max-width:700px;margin:0 0 22px;position:relative;z-index:1}
+.hero .searchrow{position:relative;z-index:1;max-width:800px;margin:0;display:flex;gap:10px}
+.hero .searchrow input{background:#fff;border:1px solid #e4ebe5;border-radius:13px;padding:15px 17px;box-shadow:0 5px 16px #284d3708}
+.hero .searchrow button{min-width:92px;border-radius:12px}
+.stats{max-width:none;margin:18px 0 24px;gap:14px}.stat{display:flex;align-items:center;gap:13px;border:1px solid var(--line);border-radius:16px;padding:15px 18px;box-shadow:0 5px 18px #1d443006}.stat:before{content:"";width:4px;height:38px;border-radius:8px;background:var(--accent)}.stat strong{color:var(--brand);font-size:25px}.stat small{color:var(--muted)}
+.layout{grid-template-columns:255px minmax(0,1fr);gap:22px;align-items:start}.panel{border:1px solid var(--line);border-radius:18px;box-shadow:0 8px 26px #1d443006;padding:21px}.layout>aside{position:sticky;top:15px}.panel h3{color:var(--brand);font-weight:750}.navlist{gap:6px}.navitem{padding:11px 12px;border-radius:11px;color:#63756b;font-weight:550}.navitem.active,.navitem:hover{background:#edf5ef;border-color:#dfebe2;color:#244f3d;font-weight:750}.notice{background:#f6f9f6;border:1px solid #e6eee7;color:#728378;border-radius:12px}.sectionhead h2{font-size:23px;color:var(--brand)}.list{gap:14px}.item{border:1px solid var(--line);border-radius:15px;padding:18px;background:#fff;box-shadow:0 5px 17px #1d443005}.item h3{font-size:18px;color:var(--brand)}.itemactions button{border-radius:9px}.footer{padding:28px;color:#91a096}
+.resource-heading{display:flex;justify-content:space-between;align-items:end;gap:12px;margin:28px 2px 13px}.resource-heading h2{margin:0;color:#244c3c;font-size:22px}.resource-heading p{margin:3px 0 0;color:#829187;font-size:13px}.resource-heading .eyebrow{color:#3978e8;font-size:11px;font-weight:800;letter-spacing:1px}
+.resource-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:13px;margin-bottom:26px}
+.resource-card{display:flex;flex-direction:column;align-items:flex-start;text-align:right;min-height:175px;background:#fff;border:1px solid #e8eee9;border-radius:17px;padding:17px;box-shadow:0 7px 20px #1d443006;transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease;color:var(--ink);text-decoration:none;position:relative;overflow:hidden}
+.resource-card:hover{transform:translateY(-3px);box-shadow:0 13px 27px #1d443010;border-color:#d4e4d8}
+.resource-icon{display:grid;place-items:center;width:43px;height:43px;border-radius:13px;background:#edf4ff;color:#3978e8;font-size:21px;margin-bottom:13px}
+.resource-card[data-tone="green"] .resource-icon{background:#edf6ef;color:#2f7953}.resource-card[data-tone="gold"] .resource-icon{background:#fbf4e8;color:#a8782b}.resource-card[data-tone="violet"] .resource-icon{background:#f3efff;color:#7957b7}
+.resource-card strong{font-size:15px;color:#294b3c;margin-bottom:4px}.resource-card small{font-size:12px;line-height:1.65;color:#819087}
+.resource-card .resource-status{font-size:10px;font-weight:750;color:#2e7950;background:#edf7ef;border-radius:20px;padding:3px 8px;margin-top:auto;margin-bottom:0}
+.resource-card.coming{background:#fafbfa;border-style:dashed;box-shadow:none}.resource-card.coming .resource-status{background:#f3f1eb;color:#8b7a55}
+.resource-card.coming:hover{transform:none;box-shadow:none}
+.resource-band{display:grid;grid-template-columns:1.4fr 1fr;gap:14px;margin:0 0 25px}
+.band-card{border-radius:18px;padding:20px 22px;border:1px solid var(--line);background:#fff;display:flex;align-items:center;justify-content:space-between;gap:18px;box-shadow:0 7px 20px #1d443006}
+.band-card.primary{background:linear-gradient(120deg,#234c3d,#2e6650);color:#fff;border:0}.band-card h3{margin:0 0 4px;font-size:17px}.band-card p{margin:0;font-size:12px;opacity:.78}.band-card .band-icon{font-size:28px;opacity:.8}.band-card button{white-space:nowrap}
+@media(max-width:1000px){.resource-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.layout{grid-template-columns:220px minmax(0,1fr)}.resource-band{grid-template-columns:1fr}}
+@media(max-width:760px){.wrap{padding:0 12px;margin:14px auto}.hero{padding:25px 19px;border-radius:19px}.hero:after{font-size:150px;left:8px;top:-12px}.hero h2{font-size:26px;max-width:85%}.hero p{font-size:13px;max-width:85%}.hero .searchrow{flex-direction:column}.hero .searchrow button{width:100%}.layout{grid-template-columns:1fr;gap:14px}.layout>aside{position:static}.stats{grid-template-columns:1fr;gap:8px;margin:13px 0}.stat{padding:11px 14px}.stat strong{font-size:21px}.resource-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.resource-card{min-height:160px;padding:13px}.resource-card strong{font-size:13px}.resource-card small{font-size:11px}.resource-heading{margin-top:22px}.resource-heading h2{font-size:19px}.panel{padding:15px}.resource-band{gap:9px}.band-card{padding:16px;align-items:flex-start;flex-direction:column}}
+@media(max-width:380px){.resource-grid{grid-template-columns:1fr}.resource-card{min-height:135px}}
+@media print{.resource-grid,.resource-heading,.resource-band{display:none!important}}
+
+
+/* Arabic calligraphic identity — Qalam */
+@import url('https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Aref+Ruqaa:wght@400;700&display=swap');
+.brand{gap:14px}.brand h1{font-family:"Aref Ruqaa","Amiri","Noto Naskh Arabic",serif!important;font-size:35px!important;font-weight:700!important;line-height:1.15;letter-spacing:0;color:#234c3d;position:relative;display:inline-block;padding:0 4px 5px}
+.brand h1:after{content:none!important}
+.brand h1:before{content:none!important}
+.brand p{letter-spacing:.1px}.qalam-mark{width:51px;height:51px;display:grid;place-items:center;border-radius:16px;background:linear-gradient(145deg,#234c3d,#183a2d);box-shadow:0 7px 18px #234c3d24;border:1px solid #c99a4b66;position:relative;flex-shrink:0}
+.qalam-mark:after{content:"";position:absolute;inset:4px;border:1px solid #e0bd77;border-radius:12px;opacity:.65;pointer-events:none}.qalam-mark svg{width:40px;height:40px}
+@media(max-width:760px){.brand h1{font-size:31px!important}.qalam-mark{width:46px;height:46px}.qalam-mark svg{width:36px;height:36px}}
+
+
+/* Feather watermark and calligraphic pen flourish */
+.hero:after{content:"";position:absolute;left:38px;top:-20px;width:150px;height:270px;background-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20120%20240%22%3E%3Cdefs%3E%3ClinearGradient%20id%3D%22g%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%221%22%20y2%3D%221%22%3E%3Cstop%20stop-color%3D%22%23d9b778%22%2F%3E%3Cstop%20offset%3D%221%22%20stop-color%3D%22%233978e8%22%2F%3E%3C%2FlinearGradient%3E%3C%2Fdefs%3E%3Cpath%20d%3D%22M91%2012C52%2030%2015%2084%2020%20142c2%2028%2018%2044%2035%2031C94%20127%20104%2054%2091%2012Z%22%20fill%3D%22url(%23g)%22%20fill-opacity%3D%22.18%22%2F%3E%3Cpath%20d%3D%22M26%20177C50%20127%2072%2075%2089%2020%22%20fill%3D%22none%22%20stroke%3D%22%233978e8%22%20stroke-opacity%3D%22.28%22%20stroke-width%3D%223%22%20stroke-linecap%3D%22round%22%2F%3E%3Cpath%20d%3D%22M42%20143%2031%20108m24%207-1-31m14%202%2011-23M36%20158l26-19m-9-24%2024-18%22%20fill%3D%22none%22%20stroke%3D%22%23c99a4b%22%20stroke-opacity%3D%22.4%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%2F%3E%3Cpath%20d%3D%22M14%20212c20-10%2035-23%2047-41%22%20fill%3D%22none%22%20stroke%3D%22%23c99a4b%22%20stroke-opacity%3D%22.55%22%20stroke-width%3D%222.5%22%20stroke-linecap%3D%22round%22%2F%3E%3C%2Fsvg%3E");background-repeat:no-repeat;background-position:center;background-size:contain;opacity:.78;transform:rotate(7deg);pointer-events:none}
+@media(max-width:760px){.hero:after{width:95px;height:175px;left:0;top:-2px;opacity:.58}}
+.brand h1:before{content:"";position:absolute;right:auto;left:-19px;top:auto;bottom:-7px;width:17px;height:29px;background-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20120%20240%22%3E%3Cdefs%3E%3ClinearGradient%20id%3D%22g%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%221%22%20y2%3D%221%22%3E%3Cstop%20stop-color%3D%22%23d9b778%22%2F%3E%3Cstop%20offset%3D%221%22%20stop-color%3D%22%233978e8%22%2F%3E%3C%2FlinearGradient%3E%3C%2Fdefs%3E%3Cpath%20d%3D%22M91%2012C52%2030%2015%2084%2020%20142c2%2028%2018%2044%2035%2031C94%20127%20104%2054%2091%2012Z%22%20fill%3D%22url(%23g)%22%20fill-opacity%3D%22.18%22%2F%3E%3Cpath%20d%3D%22M26%20177C50%20127%2072%2075%2089%2020%22%20fill%3D%22none%22%20stroke%3D%22%233978e8%22%20stroke-opacity%3D%22.28%22%20stroke-width%3D%223%22%20stroke-linecap%3D%22round%22%2F%3E%3Cpath%20d%3D%22M42%20143%2031%20108m24%207-1-31m14%202%2011-23M36%20158l26-19m-9-24%2024-18%22%20fill%3D%22none%22%20stroke%3D%22%23c99a4b%22%20stroke-opacity%3D%22.4%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%2F%3E%3Cpath%20d%3D%22M14%20212c20-10%2035-23%2047-41%22%20fill%3D%22none%22%20stroke%3D%22%23c99a4b%22%20stroke-opacity%3D%22.55%22%20stroke-width%3D%222.5%22%20stroke-linecap%3D%22round%22%2F%3E%3C%2Fsvg%3E");background-repeat:no-repeat;background-size:contain;background-position:center;transform:rotate(28deg);opacity:.95}
+.brand h1:after{content:"";position:absolute;bottom:0;right:3px;width:83%;height:2px;background:linear-gradient(90deg,transparent,#c99a4b 18%,#c99a4b 78%,transparent);border-radius:100%}
+
+/* Qalam: larger hand-written wordmark, with the pen stroke trailing from the meem */
+.brand h1{font-family:"Aref Ruqaa","Amiri","Noto Naskh Arabic",serif!important;font-size:43px!important;font-weight:700!important;line-height:1.25;letter-spacing:0;color:#234c3d;display:inline-block;position:relative;padding:0 0 7px!important;margin:0}
+.brand h1:after{content:"";position:absolute;right:-11px;bottom:-8px;width:74px;height:35px;background-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20120%2090%22%3E%3Cdefs%3E%3ClinearGradient%20id%3D%22ink%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%221%22%20y2%3D%221%22%3E%3Cstop%20stop-color%3D%22%23c99a4b%22%2F%3E%3Cstop%20offset%3D%22.6%22%20stop-color%3D%22%23234c3d%22%2F%3E%3Cstop%20offset%3D%221%22%20stop-color%3D%22%233978e8%22%2F%3E%3C%2FlinearGradient%3E%3C%2Fdefs%3E%3Cg%20fill%3D%22none%22%20stroke%3D%22url(%23ink)%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22M8%2068C32%2052%2045%2037%2059%2020c3-4%208-1%206%203-5%2010-15%2024-22%2031-3%203-1%206%203%204C66%2048%2081%2027%2091%209%22%20stroke-width%3D%223.2%22%2F%3E%3Cpath%20d%3D%22M14%2076C37%2062%2056%2049%2072%2034%22%20stroke-width%3D%221.5%22%20opacity%3D%22.8%22%2F%3E%3Cpath%20d%3D%22M79%2049c7-6%2012-12%2017-21%203-5%208-2%206%202-5%2012-14%2024-25%2031%22%20stroke-width%3D%222.4%22%2F%3E%3Cpath%20d%3D%22M89%208l7%201-3%207%22%20stroke-width%3D%222%22%2F%3E%3Cpath%20d%3D%22M20%2078c28%201%2056-7%2083-25%22%20stroke-width%3D%221.4%22%20opacity%3D%22.65%22%2F%3E%3C%2Fg%3E%3Cpath%20d%3D%22M90%207l7%202-4%207-5-3Z%22%20fill%3D%22%23c99a4b%22%2F%3E%3C%2Fsvg%3E");background-repeat:no-repeat;background-position:center;background-size:contain;transform:rotate(-5deg);pointer-events:none}
+.qalam-mark{display:none!important}
+.hero:after{content:none!important}
+@media(max-width:760px){.brand h1{font-size:37px!important}.brand h1:after{width:58px;height:29px;right:-8px;bottom:-7px}}
+/* FINAL QALAM WORDMARK OVERRIDE */
+.brand h1{font-family:"Aref Ruqaa","Amiri",serif!important;font-size:46px!important;font-weight:700!important;line-height:1.3!important;display:inline-block!important;position:relative!important;padding:0 0 10px 0!important;color:#234c3d!important}
+.brand h1:before{content:none!important;display:none!important}
+.brand h1:after{content:"";display:block!important;position:absolute!important;right:-3px!important;bottom:-8px!important;width:112px!important;height:39px!important;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 180 64'%3E%3Cpath d='M5 46 C42 55 78 43 104 23 C119 11 128 9 139 13 C151 17 160 13 173 3' fill='none' stroke='%23c99a4b' stroke-width='2.5' stroke-linecap='round'/%3E%3Cpath d='M107 24 C128 31 144 28 161 18' fill='none' stroke='%23234c3d' stroke-width='1.2' stroke-linecap='round'/%3E%3Cpath d='M169 5 L176 2 L174 10' fill='none' stroke='%23c99a4b' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E")!important;background-repeat:no-repeat!important;background-position:center!important;background-size:contain!important;transform:rotate(-4deg)!important;pointer-events:none!important}
+.hero:after{content:none!important;display:none!important}
+@media(max-width:760px){.brand h1{font-size:39px!important}.brand h1:after{width:86px!important;height:32px!important;bottom:-6px!important}}
+
+
+/* Qalam wordmark refinement: join the meem terminal to a single flowing stroke */
+.qalam-wordmark-svg{overflow:visible}
+.brand h1.qalam-wordmark{width:160px!important}
+@media(max-width:760px){.brand h1.qalam-wordmark{width:142px!important}}
+/* FINAL: custom Arabic calligraphy wordmark, no badge or feather */
+.brand{gap:12px!important;align-items:center!important}
+.brand .logo,.qalam-mark{display:none!important}
+.brand-copy{display:flex;flex-direction:column;align-items:flex-start;gap:0}
+.brand h1.qalam-wordmark{width:154px!important;height:67px!important;margin:0!important;padding:0!important;display:block!important;position:relative!important;font-size:0!important;line-height:1!important;color:transparent!important}
+.brand h1.qalam-wordmark:before,.brand h1.qalam-wordmark:after{content:none!important;display:none!important;background:none!important}
+.qalam-wordmark-svg{display:block;width:154px;height:67px;overflow:visible}
+.brand-copy p{margin:-3px 0 0!important;font-size:12px!important;letter-spacing:0!important;color:#839187!important}
+@media(max-width:760px){.brand h1.qalam-wordmark{width:137px!important;height:61px!important}.qalam-wordmark-svg{width:137px;height:61px}}
+
+
+/* QALAM VISUAL IDENTITY — emerald, antique gold, ivory, legal-library atmosphere */
+:root{
+ --bg:#f6f1e7;--panel:#fffdf8;--ink:#173c31;--muted:#81796a;
+ --brand:#123f32;--accent:#b88b3d;--line:#e7dcc6;--soft:#f4ead7;
+ --gold:#c59a4e;--shadow:0 12px 32px rgba(65,45,17,.075)
+}
+body{background-color:var(--bg);color:var(--ink);
+ background-image:radial-gradient(ellipse at 90% 0%,rgba(197,154,78,.11),transparent 32%),
+ radial-gradient(ellipse at 0% 25%,rgba(27,83,61,.055),transparent 28%)}
+.top{background:rgba(255,253,248,.96);border-bottom:1px solid #d9c69f;box-shadow:0 5px 20px rgba(57,43,19,.06)}
+.brand h1.qalam-wordmark{filter:drop-shadow(0 2px 1px rgba(148,103,33,.10))}
+.brand-copy p{color:#87754f!important}
+.top button{background:#f7f0e2;color:#244b39;border-color:#e7d6b3}
+.hero{background:linear-gradient(115deg,rgba(255,253,248,.97),rgba(250,244,231,.95)),url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140' viewBox='0 0 140 140'%3E%3Cg fill='none' stroke='%23c5a76d' stroke-opacity='.17' stroke-width='1'%3E%3Cpath d='M70 8 86 38 116 54 86 70 70 100 54 70 24 54 54 38Z'/%3E%3Cpath d='M70 28 78 46 96 54 78 62 70 80 62 62 44 54 62 46Z'/%3E%3Ccircle cx='70' cy='54' r='38'/%3E%3C/g%3E%3C/svg%3E");
+ background-position:center,right top;background-repeat:no-repeat;background-size:auto,180px 180px;
+ border:1px solid #e5d6b8;border-radius:22px;box-shadow:0 14px 32px rgba(82,57,18,.055)}
+.hero h2{color:#173f31}
+.hero .searchrow input{background:#fffdf8;border-color:#e8dcc5;box-shadow:0 5px 15px rgba(77,57,22,.05)}
+.hero .searchrow button,button{background:linear-gradient(135deg,#1d503d,#123a2d);border:1px solid #b9924d}
+button.secondary{background:#f6eddd;color:#28513d;border:1px solid #e4d2ad}
+button.ghost{color:#28513d}
+.stat,.panel,.item,.resource-card,.band-card{background:rgba(255,253,248,.96);border-color:#e8ddc8;box-shadow:0 7px 22px rgba(71,51,20,.045)}
+.stat:before{background:linear-gradient(180deg,#d6b66f,#a87a2e)}
+.stat strong{color:#a67b34}
+.panel h3,.sectionhead h2,.item h3,.resource-heading h2{color:#1b4937}
+.navitem.active,.navitem:hover{background:#f5ead5;border-color:#e4d0a9;color:#1b4937}
+.notice{background:#fbf5e9;border-color:#ead8b5;color:#76613d}
+.resource-card{position:relative}
+.resource-card:after{content:"";position:absolute;inset:0 0 auto;height:3px;background:linear-gradient(90deg,transparent,#c8a15a,transparent);opacity:.72}
+.resource-icon{background:#f7edda;color:#a77b32}
+.resource-card[data-tone="green"] .resource-icon{background:#e8f0e8;color:#286347}
+.resource-card[data-tone="gold"] .resource-icon{background:#f7edda;color:#a77b32}
+.resource-card[data-tone="violet"] .resource-icon{background:#f1eadf;color:#8c6b39}
+.resource-card strong{color:#214a38}
+.resource-status{border:1px solid #e5d4b0}
+.band-card.primary{background:linear-gradient(115deg,#103c2e,#286044 70%,#94713b);position:relative;overflow:hidden}
+.band-card.primary:after{content:"";position:absolute;width:180px;height:180px;left:-45px;top:-70px;border:1px solid #e2c47e44;border-radius:50%;box-shadow:0 0 0 14px #e2c47e12,0 0 0 30px #e2c47e0b;pointer-events:none}
+.band-card.primary button{background:#f8efd9;color:#214b37;border-color:#c5a05d}
+.item{border-radius:14px}
+input:focus,textarea:focus,select:focus{outline:2px solid #c7a25e55;border-color:#bd9348}
+.footer{color:#8c806b}
+@media(max-width:760px){.hero{background-size:auto,115px 115px}.brand-copy p{font-size:11px!important}}
+
+
+/* VISUAL IDENTITY — inspired by the approved emerald-and-gold legal calligraphy artwork */
+:root{--bg:#f5f0e6;--panel:#fffdf8;--ink:#173b30;--muted:#7d786b;--brand:#123e31;--accent:#c59a4e;--line:#e8decb;--soft:#f2ead9;--shadow:0 12px 34px rgba(32,57,43,.09)}
+body{background-color:#f7f2e8;background-image:radial-gradient(ellipse at 90% 6%,rgba(197,154,78,.12),transparent 26%),radial-gradient(ellipse at 5% 45%,rgba(28,79,59,.055),transparent 30%),url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220' viewBox='0 0 220 220'%3E%3Cg fill='none' stroke='%23b99659' stroke-opacity='.10' stroke-width='.8'%3E%3Cpath d='M110 12 130 50 172 48 151 84 172 122 130 120 110 158 90 120 48 122 69 84 48 48 90 50Z'/%3E%3Cpath d='M110 35 122 61 150 60 136 84 150 108 122 107 110 133 98 107 70 108 84 84 70 60 98 61Z'/%3E%3Ccircle cx='110' cy='84' r='18'/%3E%3C/g%3E%3C/svg%3E");background-attachment:fixed}
+.top{background:rgba(255,253,248,.96);border-bottom:1px solid #e7d8b8;box-shadow:0 5px 22px rgba(32,57,43,.055)}
+.brand h1.qalam-wordmark{filter:drop-shadow(0 2px 1px rgba(180,133,52,.10))}
+.brand-copy p{color:#82775f!important}
+.hero{background:linear-gradient(110deg,rgba(255,253,248,.97),rgba(249,244,231,.94)),url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='360' height='220' viewBox='0 0 360 220'%3E%3Cpath d='M320 10C220 20 150 100 185 190c35-55 70-90 135-110' fill='none' stroke='%23c59a4e' stroke-opacity='.16' stroke-width='8'/%3E%3Cpath d='M300 22C220 50 180 110 195 172' fill='none' stroke='%23123e31' stroke-opacity='.08' stroke-width='2'/%3E%3C/svg%3E");border:1px solid #e9dfcc;box-shadow:0 14px 38px rgba(32,57,43,.07);border-radius:24px}
+.hero h2{color:#153f31}.hero p{color:#77715f}
+.hero .searchrow input{background:#fffdf8;border-color:#e5d9c2}
+.resource-heading .eyebrow{color:#b38a43}
+.stat,.panel,.item,.resource-card,.band-card{border-color:#e9dfce}
+.stat:before{background:linear-gradient(180deg,#d9b778,#1e5a43)}
+.resource-card{background:linear-gradient(145deg,#fffefa,#fbf7ee)}
+.resource-card .resource-icon{background:#f5ead3;color:#94702f}
+.resource-card[data-tone="green"] .resource-icon{background:#e9f1e8;color:#235a41}
+.resource-card[data-tone="gold"] .resource-icon{background:#f8eedb;color:#a4772c}
+.resource-card[data-tone="violet"] .resource-icon{background:#f2eee3;color:#786543}
+.resource-card strong,.sectionhead h2,.item h3,.panel h3{color:#214a38}
+button{background:linear-gradient(135deg,#1e5a43,#123e31)}
+button.secondary{background:#f6efdf;color:#254d3b;border-color:#e7d9bd}
+button.ghost{color:#315b46}
+.notice{background:#fbf5e8;border-color:#ead9b6;color:#786744}
+.band-card.primary{background:linear-gradient(120deg,#123e31,#286448);box-shadow:0 12px 28px rgba(18,62,49,.16)}
+@media(max-width:760px){body{background-attachment:scroll}.hero{border-radius:18px}}
+
+
+/* Header image-led brand and utility layout */
+.top{display:flex;align-items:center;justify-content:space-between;gap:18px}
+.top .actions{margin-inline-start:auto;display:flex;align-items:center}
+.login-btn{min-width:132px!important;background:linear-gradient(135deg,#c9a15a,#a77b35)!important;color:#fff!important;border:1px solid #e4c989!important;box-shadow:0 5px 16px #9b77351c!important}
+.backup-dock{max-width:1320px;margin:30px auto 0;padding:18px 22px;display:flex;align-items:center;justify-content:space-between;gap:18px;border:1px solid #e5d7bb;border-radius:18px;background:linear-gradient(110deg,#fffdf8,#f3ead7);box-shadow:0 8px 24px rgba(35,72,57,.06)}
+.backup-dock strong{color:#214a38;font-size:16px}.backup-dock p{margin:3px 0 0;color:#82765f;font-size:13px}
+.backup-actions{display:flex;gap:9px;flex-wrap:wrap;align-items:center}
+.login-dialog{border:1px solid #dfcba4;border-radius:22px;padding:26px;width:min(430px,calc(100% - 28px));box-shadow:0 25px 90px #142e2450;color:#254839;background:#fffdf8}
+.login-dialog::backdrop{background:#132b2380;backdrop-filter:blur(3px)}
+.login-dialog form{display:grid;gap:10px;position:relative}.login-dialog h2{margin:0;text-align:center;color:#174333}.login-dialog p{text-align:center;color:#83765f;font-size:13px;margin:0 0 8px}
+.login-emblem{margin:0 auto;width:56px;height:56px;border-radius:50%;display:grid;place-items:center;background:linear-gradient(145deg,#174b37,#0f3227);border:2px solid #c9a15a;color:#e6c578;font-family:Amiri,serif;font-size:32px}
+.dialog-close{position:absolute;left:0;top:0;background:transparent!important;color:#806a43!important;font-size:24px;padding:0 8px!important;box-shadow:none!important}
+@media(max-width:760px){.backup-dock{margin:22px 14px 0;padding:16px;align-items:stretch;flex-direction:column}.backup-actions>*{flex:1}.login-btn{min-width:112px!important}.top{align-items:center}.brand-copy p{max-width:210px}}
+
+
+/* Image-led header brand */
+.brand-copy{display:flex;flex-direction:column;align-items:flex-start;gap:0}
+.qalam-header-art{display:block;width:min(420px,44vw);height:auto;max-height:145px;object-fit:contain;object-position:right center;margin:-12px 0 -15px}
+.brand-copy p{margin:0!important;color:#82765f!important;font-size:12px!important}
+.top .actions{margin-inline-start:auto;display:flex;align-items:center}
+.login-btn{min-width:132px!important;background:linear-gradient(135deg,#c9a15a,#a77b35)!important;color:#fff!important;border:1px solid #e4c989!important}
+.backup-dock{margin-top:30px}
+@media(max-width:760px){.qalam-header-art{width:min(300px,58vw);max-height:110px;margin:-5px 0 -8px}.brand-copy p{font-size:11px!important}.top{gap:8px}}
+
+
+/* Hero legal-library artwork: golden balance scales and law books */
+.hero{position:relative;isolation:isolate;overflow:hidden;min-height:285px;padding:34px 36px 28px!important;background-color:#f7f0e2!important;background-image:linear-gradient(90deg,rgba(251,247,237,.98) 0%,rgba(251,247,237,.94) 48%,rgba(251,247,237,.50) 100%),url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='900' height='360' viewBox='0 0 900 360'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop stop-color='%23e3c276'/%3E%3Cstop offset='1' stop-color='%23916b2c'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cg opacity='.94' stroke='url(%23g)' stroke-width='5' stroke-linecap='round' stroke-linejoin='round' fill='none'%3E%3Cpath d='M580 64V222M520 91H640M580 64l-12 18h24zM540 91l-37 68m37-68 37 68M620 91l-37 68m37-68 37 68M490 159q50 48 100 0M570 159q50 48 100 0M540 222h80M552 238h56M565 252h30'/%3E%3C/g%3E%3Cg stroke='%238d672e' stroke-width='2'%3E%3Crect x='700' y='210' width='155' height='34' rx='4' fill='%232b4938'/%3E%3Crect x='715' y='174' width='140' height='34' rx='4' fill='%23533b28'/%3E%3Crect x='690' y='138' width='165' height='34' rx='4' fill='%233e6048'/%3E%3Cpath d='M713 143v24m12-24v24m12-24v24m12-24v24m12-24v24m12-24v24m12-24v24m12-24v24m12-24v24m12-24v24' stroke='%23d7b66a' opacity='.85'/%3E%3Cpath d='M730 179v24m12-24v24m12-24v24m12-24v24m12-24v24m12-24v24m12-24v24m12-24v24' stroke='%23cba45a' opacity='.8'/%3E%3C/g%3E%3C/svg%3E");background-position:center,right center;background-repeat:no-repeat;background-size:cover,auto 100%;}
+.hero:before{content:"";position:absolute;z-index:-1;right:0;top:0;bottom:0;width:46%;background:linear-gradient(90deg,transparent,rgba(197,154,78,.07));pointer-events:none}
+.hero h2,.hero p,.hero .searchrow,.hero>div{position:relative;z-index:1}
+@media(max-width:760px){.hero{padding:24px 18px!important;min-height:260px;background-image:linear-gradient(90deg,rgba(251,247,237,.96),rgba(251,247,237,.84)),url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='260' viewBox='0 0 400 260'%3E%3Cg fill='none' stroke='%23b88b3d' stroke-width='4'%3E%3Cpath d='M235 30V155M195 55H275M235 30l-9 13h18zM205 55l-25 48m25-48 25 48M265 55l-25 48m25-48 25 48M170 103q35 35 70 0M230 103q35 35 70 0'/%3E%3C/g%3E%3Cg stroke='%238d672e' stroke-width='2'%3E%3Crect x='285' y='160' width='100' height='25' rx='3' fill='%232b4938'/%3E%3Crect x='275' y='133' width='110' height='25' rx='3' fill='%23533b28'/%3E%3Crect x='290' y='106' width='95' height='25' rx='3' fill='%233e6048'/%3E%3C/g%3E%3C/svg%3E");background-position:center,right center;background-size:cover,auto 80%;}}
+
+</style><style id="qalam-refinement">
+/* Qalam refinement pass — accessible, calm, responsive legal workspace */
+:root{--bg:#f5f7f4;--panel:#fff;--ink:#203c31;--muted:#75867b;--brand:#234c3d;--accent:#c6a15b;--line:#e5ebe5;--soft:#eef4ef;--shadow:0 10px 28px rgba(29,65,47,.06)}
+html{scroll-behavior:smooth}
+body{background:linear-gradient(180deg,#fbfcfa 0,#f4f7f3 100%);color:var(--ink);font-family:"Segoe UI",Tahoma,Arial,sans-serif}
+button,input,textarea,select{transition:border-color .18s ease,box-shadow .18s ease,background-color .18s ease}
+button:focus-visible,a:focus-visible,input:focus-visible,textarea:focus-visible,select:focus-visible{outline:3px solid #c6a15b99;outline-offset:2px}
+.top{position:relative;z-index:5;background:rgba(255,255,255,.96);backdrop-filter:blur(14px);border-bottom:1px solid #e7ece6;box-shadow:0 4px 18px rgba(32,60,49,.035)}
+.top .actions{gap:9px}
+.top button{padding:9px 13px}
+.wrap{padding-inline:clamp(12px,2.4vw,28px)}
+.hero{isolation:isolate;background:radial-gradient(ellipse at 0% 0%,#edf4e8 0,transparent 42%),linear-gradient(125deg,#fff 0%,#fbfcf8 64%,#f0f5ed 100%);border:1px solid #e5ebe2;box-shadow:0 14px 36px rgba(35,76,61,.055)}
+.hero h2{letter-spacing:-.35px}
+.hero p{line-height:1.9}
+.searchrow input{min-height:49px}
+.searchrow input:focus,.formgrid input:focus,.formgrid textarea:focus,.formgrid select:focus{border-color:#8caf98;box-shadow:0 0 0 4px #dcebe0}
+button{font-weight:650;transition:transform .16s ease,box-shadow .16s ease,background .16s ease}
+button:hover{box-shadow:0 5px 13px rgba(35,76,61,.10)}
+button:active{transform:translateY(1px)}
+.stats{align-items:stretch}
+.stat{min-height:82px;background:linear-gradient(150deg,#fff,#fcfdfb)}
+.stat strong{font-variant-numeric:tabular-nums}
+.layout{gap:20px}
+.panel{background:rgba(255,255,255,.96)}
+.layout>aside{z-index:2}
+.navitem{display:flex;align-items:center;gap:9px;min-height:43px}
+.navitem.active{box-shadow:inset -3px 0 0 #c6a15b}
+.sectionhead{margin-bottom:17px}
+.sectionhead h2{letter-spacing:-.2px}
+.item{position:relative;overflow:hidden}
+.item:focus-within{border-color:#c7d8ca}
+.item h3{line-height:1.6}
+.meta{line-height:1.8}
+.itemactions{gap:8px}
+.itemactions button{min-height:35px}
+.formgrid{gap:13px}
+.label{font-weight:650;color:#687a6e}
+.field,input,textarea,select{min-height:44px}
+textarea{resize:vertical}
+.notice{line-height:1.9}
+.empty{border:1px dashed #dce6dc;border-radius:14px;background:#fbfcfa}
+.footer{border-top:1px solid #e8ede7;margin-top:28px}
+.resource-card{min-height:178px}
+.resource-card .resource-status{display:inline-flex;align-items:center;gap:5px}
+.resource-card .resource-status:before{content:"";width:6px;height:6px;border-radius:50%;background:currentColor}
+@media(max-width:760px){
+ .top{padding:12px 14px;gap:12px}
+ .top .actions{width:100%}
+ .top .actions button{flex:1}
+ .brand h1{font-size:30px!important}
+ .hero{padding:23px 17px}
+ .hero h2{font-size:24px;line-height:1.5}
+ .stat{min-height:68px}
+ .item{padding:15px}
+ .itemactions button{flex:0 0 auto}
+}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{transition:none!important;animation:none!important}}
+</style>
+</head>
 <body><div class="app">
-<header class="top"><div class="brand"><div class="logo">⚖</div><div><h1>كلام</h1><p>مساحة العمل القانونية — تنظيم، بحث، ومراجعة</p></div></div><div class="actions"><button id="exportBtn">تصدير نسخة احتياطية</button><button id="importBtn">استيراد نسخة</button><input id="importFile" type="file" accept="application/json" class="hide"></div></header>
+<header class="top"><div class="brand"><span class="qalam-mark" aria-label="قلم">
+<svg viewBox="0 0 64 64" role="img" aria-hidden="true"><defs><linearGradient id="qalamGold" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f4d99a"/><stop offset=".55" stop-color="#c99a4b"/><stop offset="1" stop-color="#936a2c"/></linearGradient></defs><path d="M47 8C34 12 17 26 13 42c-2 7 2 11 8 8C36 44 47 25 47 8Z" fill="url(#qalamGold)"/><path d="M17 48 43 15M22 38l-1-9m8 2 8-1m-3 12 8-1" fill="none" stroke="#fff7df" stroke-width="1.5" stroke-linecap="round"/><path d="M11 54c10-3 17-10 22-17" fill="none" stroke="#f4d99a" stroke-width="2" stroke-linecap="round"/><path d="M7 56c6-1 10-3 14-7" fill="none" stroke="#c99a4b" stroke-width="1.4" stroke-linecap="round"/></svg>
+</span><div class="brand-copy"><img class="qalam-header-art" src="https://raw.githubusercontent.com/zoulouti-cell/Kalam/main/assets/qalam-logo.png" alt="شعار قلم العربي المزخرف باللونين الأخضر والذهبي" width="420" height="160">
+</div></div><div class="actions"><a class="login-btn" href="login.html" style="display:inline-block;text-decoration:none;padding:10px 14px;border-radius:10px">تسجيل الدخول</a></div></header>
 <main class="wrap">
-<section class="hero"><h2>مرجعك القانوني في مكان واحد</h2><p>نظّم القوانين والمواد والمذكرات والقرارات، وابحث داخل مكتبتك بسرعة.</p><div class="searchrow"><input id="search" placeholder="ابحث بالعنوان أو رقم المادة أو الكلمات المفتاحية…"><button id="clearSearch" class="secondary">مسح</button></div></section>
+<section class="hero"><div style="position:relative;z-index:1;color:#3978e8;font-size:11px;font-weight:800;letter-spacing:1.5px">QALAM · WORKSPACE JURIDIQUE</div><h2>فضاءك القانوني المتكامل</h2><p>أربعة فضاءات رئيسية: المكتبة القانونية، فضاء المحامي، بوابة الموكل، والأدوات المهنية. واجهة عربية موحدة تتطور تدريجيًا مع الحفاظ على بياناتك.</p><div class="searchrow"><input id="search" placeholder="ابحث في عناوين مكتبتك ونصوصك وأرقام المواد…"><button id="clearSearch" class="secondary">مسح البحث</button></div></section>
+<section class="resource-heading"><div><div class="eyebrow">مساحة العمل</div><h2>ماذا تريد أن تنجز اليوم؟</h2><p>اختر الفضاء الذي تريد العمل فيه، ثم انتقل مباشرة إلى أدواته.</p></div></section>
+<section class="resource-grid" aria-label="الفضاءات الرئيسية">
+<button class="resource-card" data-quick="library" data-tone="green"><span class="resource-icon">⚖</span><strong>المكتبة القانونية</strong><small>النصوص القانونية، الاجتهادات القضائية، الأبحاث والدراسات.</small><span class="resource-status">الدخول إلى المكتبة ↗</span></button>
+<a class="resource-card" href="cases.html" data-tone="gold"><span class="resource-icon">▤</span><strong>فضاء المحامي</strong><small>حقائب القضايا والملفات والأرشيف، المفكرة المهنية، وقلم التحرير.</small><span class="resource-status">الملفات والجلسات متاحة ↗</span></a>
+<div class="resource-card coming" data-tone="violet"><span class="resource-icon">♧</span><strong>بوابة الموكل</strong><small>الاطلاع على مستجدات الملف والمراسلة وتبادل الوثائق وفق الصلاحيات.</small><span class="resource-status">قيد التطوير</span></div>
+<div class="resource-card coming" data-tone="blue"><span class="resource-icon">⌗</span><strong>الأدوات المهنية</strong><small>الحاسبة، حساب الآجال، وتنبيهات المواعيد.</small><span class="resource-status">قيد التطوير</span></div>
+<button class="resource-card" data-quick="documents" data-tone="violet"><span class="resource-icon">✎</span><strong>قلم التحرير</strong><small>ابدأ من المذكرات والقرارات المحفوظة، مع إعداد النماذج والرأسية المهنية ضمن التطوير.</small><span class="resource-status">الوثائق المحفوظة ↗</span></button>
+<button class="resource-card" data-quick="saved" data-tone="green"><span class="resource-icon">☆</span><strong>المراجع المحفوظة</strong><small>الوصول السريع إلى النصوص والوثائق التي حفظتها.</small><span class="resource-status">متاح الآن ↗</span></button>
+<button class="resource-card" data-quick="add" data-tone="gold"><span class="resource-icon">＋</span><strong>إضافة مرجع</strong><small>أضف نصًا قانونيًا أو مذكرة مع التصنيف والكلمات المفتاحية.</small><span class="resource-status">متاح الآن ↗</span></button>
+<button class="resource-card" data-quick="backup" data-tone="blue"><span class="resource-icon">⤓</span><strong>النسخ الاحتياطي</strong><small>صدّر نسخة من مكتبتك أو استعد بياناتك من ملف سابق.</small><span class="resource-status">متاح الآن ↗</span></button>
+</section>
+<section class="resource-band">
+<div class="band-card primary"><div><h3>ابدأ ببناء مكتبتك الخاصة</h3><p>أضف أول مرجع أو رتّب النصوص التي تعتمد عليها في عملك.</p></div><button id="quickAdd" style="background:#fff;color:#285541">＋ إضافة محتوى</button></div>
+<div class="band-card"><div><h3>حافظ على نسخة من بياناتك</h3><p>البيانات الحالية محفوظة محليًا في هذا المتصفح، وليست سحابة مشتركة.</p></div><button id="quickBackup" class="secondary">تصدير نسخة</button></div>
+</section>
 <section class="stats"><div class="stat"><small>النصوص القانونية</small><strong id="lawCount">0</strong></div><div class="stat"><small>المذكرات والقرارات</small><strong id="docCount">0</strong></div><div class="stat"><small>المحفوظات</small><strong id="savedCount">0</strong></div></section>
-<div class="layout"><aside class="panel"><h3>مساحة العمل</h3><div class="navlist" id="nav">
-<button class="navitem active" data-view="library">⚖ المكتبة القانونية</button><button class="navitem" data-view="documents">▤ المذكرات والقرارات</button><button class="navitem" data-view="saved">☆ المحفوظات</button><button class="navitem" data-view="add">＋ إضافة محتوى</button><button class="navitem" data-view="about">ⓘ حول التطبيق</button></div><div class="notice">تُحفظ البيانات التي تضيفها محليًا في هذا المتصفح. لا تُرفع تلقائيًا إلى خادم أو إلى GitHub.</div></aside>
+<div class="layout"><aside class="panel"><h3>الفضاءات الرئيسية</h3><div class="navlist" id="nav">
+<button class="navitem active" data-view="library">⚖ المكتبة القانونية</button><a class="navitem" href="cases.html" style="display:block;text-decoration:none">▣ فضاء المحامي</a><button class="navitem" data-view="documents">✎ قلم التحرير</button><button class="navitem" data-view="saved">☆ المراجع المحفوظة</button><button class="navitem" data-view="add">＋ إضافة محتوى</button><button class="navitem" data-view="about">ⓘ حول التطبيق</button></div><div class="notice">تُحفظ البيانات التي تضيفها محليًا في هذا المتصفح. لا تُرفع تلقائيًا إلى خادم أو إلى GitHub.</div></aside>
 <section class="panel" id="content" aria-live="polite"></section></div>
-</main><footer class="footer">كلام · نسخة ويب أولية · بياناتك المحلية تبقى في هذا المتصفح</footer></div>
+</main><section class="backup-dock no-print" aria-label="النسخ الاحتياطي"><div><strong>حماية مكتبتك القانونية</strong><p>صدّر نسخة من بياناتك أو استعد نسخة محفوظة على جهازك.</p></div><div class="backup-actions"><button id="exportBtn" type="button">تصدير نسخة احتياطية</button><button id="importBtn" class="secondary" type="button">استيراد نسخة</button><input id="importFile" type="file" accept="application/json" class="hide"></div></section><footer class="footer">قلم · نسخة ويب أولية · بياناتك المحلية تبقى في هذا المتصفح</footer><dialog id="loginDialog" class="login-dialog"><form method="dialog" id="loginForm"><button class="dialog-close" value="cancel" aria-label="إغلاق">×</button><div class="login-emblem">ق</div><h2>تسجيل الدخول إلى قلم</h2><p>واجهة الدخول قيد الإعداد. لا يوجد حتى الآن حساب مستخدم أو مصادقة خادمية.</p><label class="label" for="loginEmail">البريد الإلكتروني</label><input id="loginEmail" type="email" autocomplete="email" placeholder="name@example.com" disabled><label class="label" for="loginPassword">كلمة المرور</label><input id="loginPassword" type="password" autocomplete="current-password" placeholder="كلمة المرور" disabled><button class="secondary" value="cancel" type="submit">إغلاق</button></form></dialog></div>
+<script src="./js/core/storage.js"></script>
+<script src="./js/core/backup.js"></script>
+<script src="./js/library/model.js"></script>
 <script>
-const KEY='kalam_kalam_v1';
-const initial={laws:[],docs:[],saved:[]};let db=load();let view='library';let query='';let trail=[];
-function load(){try{return {...initial,...JSON.parse(localStorage.getItem(KEY)||'{}')}}catch{return structuredClone(initial)}}
-function persist(){localStorage.setItem(KEY,JSON.stringify(db));renderStats()}
+const KEY=window.KalamLibrary.storageKey;
+const initial=window.KalamLibrary.empty();const libraryLoad=window.KalamStorage.read(KEY,initial,window.KalamStorage.isLibrary);let storageHealthy=libraryLoad.ok;let db=window.KalamLibrary.normalize(libraryLoad.value);let view='library';let query='';let trail=[];
+function load(){return {...initial,...libraryLoad.value}}
+function persist(){if(!storageHealthy){alert('تعذر قراءة بيانات المكتبة السابقة. لم أكتب فوقها حفاظًا عليها؛ حدّث الصفحة أو استعد نسخة احتياطية.');return false}const result=window.KalamStorage.write(KEY,db,window.KalamStorage.isLibrary);if(!result.ok){alert(result.error==='quota'?'مساحة التخزين ممتلئة. صدّر نسخة احتياطية واحذف بعض البيانات.':'تعذر حفظ البيانات محليًا؛ صدّر نسخة احتياطية قبل المتابعة.');return false}renderStats();return true}
 function esc(s=''){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
 function id(){return Date.now().toString(36)+Math.random().toString(36).slice(2,7)}
 function renderStats(){document.querySelector('#lawCount').textContent=db.laws.length;document.querySelector('#docCount').textContent=db.docs.length;document.querySelector('#savedCount').textContent=db.saved.length}
 function setView(v){view=v;document.querySelectorAll('.navitem').forEach(b=>b.classList.toggle('active',b.dataset.view===v));render()}
 document.querySelector('#nav').addEventListener('click',e=>{const b=e.target.closest('[data-view]');if(b)setView(b.dataset.view)});
+document.querySelectorAll('[data-quick]').forEach(b=>b.addEventListener('click',()=>{const v=b.dataset.quick;if(v==='backup'){document.querySelector('#exportBtn').click();return}setView(v)}));
+document.querySelector('#quickAdd').addEventListener('click',()=>setView('add'));
+document.querySelector('#quickBackup').addEventListener('click',()=>document.querySelector('#exportBtn').click());
 document.querySelector('#search').addEventListener('input',e=>{query=e.target.value.trim().toLowerCase();render()});
 document.querySelector('#clearSearch').onclick=()=>{document.querySelector('#search').value='';query='';render()};
 function matches(x){return !query||[x.title,x.type,x.number,x.text,x.category,x.keywords,x.law,x.part,x.section,x.chapter].join(' ').toLowerCase().includes(query)}
@@ -36,7 +320,7 @@ function crumb(){return '<div class="crumb">الرئيسية '+(trail.length?' �
 function itemCard(x,kind){return '<article class="item"><div class="meta">'+esc(x.type||kind)+' · '+esc(x.category||x.law||'غير مصنف')+'</div><h3>'+esc(x.title||'دون عنوان')+'</h3>'+(x.number?'<div class="meta">رقم المادة/المرجع: '+esc(x.number)+'</div>':'')+'<p>'+esc((x.text||'').slice(0,700))+(x.text&&x.text.length>700?'…':'')+'</p>'+(x.keywords?'<div class="meta">كلمات مفتاحية: '+esc(x.keywords)+'</div>':'')+'<div class="itemactions"><button class="secondary" data-save="'+x.id+'" data-kind="'+kind+'">'+(db.saved.some(s=>s.id===x.id)?'★ محفوظ':'☆ حفظ')+'</button><button class="secondary" data-edit="'+x.id+'" data-kind="'+kind+'">تعديل</button><button class="secondary" data-print="'+x.id+'" data-kind="'+kind+'">طباعة</button><button class="danger" data-delete="'+x.id+'" data-kind="'+kind+'">حذف</button></div></article>'}
 function render(){renderStats();const el=document.querySelector('#content');
 if(view==='add'){el.innerHTML=addForm();return}
-if(view==='about'){el.innerHTML='<div class="sectionhead"><h2>حول كلام</h2></div><p>واجهة ويب عربية أولية لإدارة مكتبة قانونية شخصية. تدعم حاليًا إضافة النصوص والمذكرات والقرارات، والبحث، والحفظ، والتعديل، والطباعة، والنسخ الاحتياطي المحلي.</p><p>هذه النسخة لا تتضمن بعد مزامنة سحابية، أو استخراجًا آليًا للنصوص من PDF/Word، أو قاعدة بيانات قانونية جاهزة. يجب استيراد المحتوى أو إدخاله قبل البحث فيه.</p><button class="secondary" data-view="add">إضافة أول محتوى</button>';return}
+if(view==='about'){el.innerHTML='<div class="sectionhead"><h2>حول قلم</h2></div><p>واجهة ويب عربية أولية لإدارة مكتبة قانونية شخصية. تدعم حاليًا إضافة النصوص والمذكرات والقرارات، والبحث، والحفظ، والتعديل، والطباعة، والنسخ الاحتياطي المحلي.</p><p>هذه النسخة لا تتضمن بعد مزامنة سحابية، أو استخراجًا آليًا للنصوص من PDF/Word، أو قاعدة بيانات قانونية جاهزة. يجب استيراد المحتوى أو إدخاله قبل البحث فيه.</p><button class="secondary" data-view="add">إضافة أول محتوى</button>';return}
 let source=view==='documents'?db.docs:view==='saved'?db.saved:db.laws;
 let filtered=source.filter(matches);
 let heading=view==='documents'?'المذكرات والقرارات':view==='saved'?'المحفوظات':'المكتبة القانونية';
@@ -48,11 +332,13 @@ document.querySelector('#content').addEventListener('click',e=>{const b=e.target
 if(b.dataset.save){const kind=b.dataset.kind;let arr=kind==='docs'?db.docs:kind==='saved'?db.saved:db.laws;const x=arr.find(y=>y.id===b.dataset.save)||db.saved.find(y=>y.id===b.dataset.save);if(!x)return;const i=db.saved.findIndex(y=>y.id===x.id);if(i>=0)db.saved.splice(i,1);else db.saved.push({...x});persist();render()}
 if(b.dataset.delete){if(!confirm('هل تريد حذف هذا المحتوى؟'))return;const id=b.dataset.delete;db.laws=db.laws.filter(x=>x.id!==id);db.docs=db.docs.filter(x=>x.id!==id);db.saved=db.saved.filter(x=>x.id!==id);persist();render()}
 if(b.dataset.edit){const id=b.dataset.edit;const x=[...db.laws,...db.docs].find(x=>x.id===id);if(x){view='add';document.querySelector('#content').innerHTML=addForm(x,db.docs.some(y=>y.id===id)?'docs':'laws');}}
-if(b.dataset.print){const x=[...db.laws,...db.docs].find(x=>x.id===b.dataset.print);if(x){const w=window.open('','_blank');w.document.write('<html lang="ar" dir="rtl"><meta charset="utf-8"><title>'+esc(x.title)+'</title><body style="font-family:Tahoma,Arial;padding:35px;line-height:1.9"><h1>'+esc(x.title)+'</h1><p>'+esc(x.text).replace(/\n/g,'<br>')+'</p><script>if("serviceWorker" in navigator && location.protocol.startsWith("http")) navigator.serviceWorker.register("./sw.js").catch(function(){});</script></body></html>');w.document.close();w.print();}}
+if(b.dataset.print){const x=[...db.laws,...db.docs].find(x=>x.id===b.dataset.print);if(x){const w=window.open('','_blank');w.document.write('<html lang="ar" dir="rtl"><meta charset="utf-8"><title>'+esc(x.title)+'</title><body style="font-family:Tahoma,Arial;padding:35px;line-height:1.9"><h1>'+esc(x.title)+'</h1><p>'+esc(x.text).replace(/\n/g,'<br>')+'</p></body></html>');w.document.close();w.print();}}
 });
 document.querySelector('#content').addEventListener('submit',e=>{if(e.target.id!=='entryForm')return;e.preventDefault();const f=new FormData(e.target);const kind=f.get('kind');const idv=f.get('id')||id();const x={id:idv,type:kind==='docs'?'وثيقة':'نص قانوني',title:f.get('title').trim(),category:f.get('category').trim(),number:f.get('number').trim(),law:f.get('law').trim(),part:f.get('part').trim(),section:f.get('section').trim(),chapter:f.get('chapter').trim(),keywords:f.get('keywords').trim(),text:f.get('text').trim(),updatedAt:new Date().toISOString()};db.laws=db.laws.filter(y=>y.id!==idv);db.docs=db.docs.filter(y=>y.id!==idv);db[kind].push(x);db.saved=db.saved.map(y=>y.id===idv?{...x}:y);persist();setView(kind==='docs'?'documents':'library')});
-document.querySelector('#exportBtn').onclick=()=>{const blob=new Blob([JSON.stringify(db,null,2)],{type:'application/json'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='kalam-backup.json';a.click();URL.revokeObjectURL(a.href)};
+document.querySelector('#exportBtn').onclick=()=>window.KalamStorage.exportJson('kalam-backup.json',db);
 document.querySelector('#importBtn').onclick=()=>document.querySelector('#importFile').click();
-document.querySelector('#importFile').onchange=async e=>{const f=e.target.files[0];if(!f)return;try{const d=JSON.parse(await f.text());if(!Array.isArray(d.laws)||!Array.isArray(d.docs)||!Array.isArray(d.saved))throw Error();if(!confirm('سيتم استبدال البيانات الحالية بالنسخة المستوردة. متابعة؟'))return;db=d;persist();render();alert('تم استيراد النسخة.')}catch{alert('تعذر قراءة النسخة الاحتياطية.')}e.target.value=''};
+document.querySelector('#importFile').onchange=async e=>{const f=e.target.files[0];if(!f)return;try{const d=window.KalamBackup.parseLibrary(await f.text());if(!confirm('سيتم استبدال البيانات الحالية بالنسخة المستوردة. متابعة؟'))return;db=window.KalamLibrary.normalize(d);persist();render();alert('تم استيراد النسخة.')}catch{alert('تعذر قراءة النسخة الاحتياطية.')}e.target.value=''};
+document.querySelector("#loginBtn").addEventListener("click",()=>document.querySelector("#loginDialog").showModal());
 renderStats();render();
+if("serviceWorker" in navigator && location.protocol.startsWith("http")) navigator.serviceWorker.register("./sw.js").catch(()=>{});
 </script></body></html>
