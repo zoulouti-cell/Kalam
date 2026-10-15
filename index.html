@@ -194,11 +194,21 @@ button.ghost{color:#315b46}
 .dialog-close{position:absolute;left:0;top:0;background:transparent!important;color:#806a43!important;font-size:24px;padding:0 8px!important;box-shadow:none!important}
 @media(max-width:760px){.backup-dock{margin:22px 14px 0;padding:16px;align-items:stretch;flex-direction:column}.backup-actions>*{flex:1}.login-btn{min-width:112px!important}.top{align-items:center}.brand-copy p{max-width:210px}}
 
+
+/* Image-led header brand */
+.brand-copy{display:flex;flex-direction:column;align-items:flex-start;gap:0}
+.qalam-header-art{display:block;width:min(420px,44vw);height:auto;max-height:145px;object-fit:contain;object-position:right center;margin:-12px 0 -15px}
+.brand-copy p{margin:0!important;color:#82765f!important;font-size:12px!important}
+.top .actions{margin-inline-start:auto;display:flex;align-items:center}
+.login-btn{min-width:132px!important;background:linear-gradient(135deg,#c9a15a,#a77b35)!important;color:#fff!important;border:1px solid #e4c989!important}
+.backup-dock{margin-top:30px}
+@media(max-width:760px){.qalam-header-art{width:min(300px,58vw);max-height:110px;margin:-5px 0 -8px}.brand-copy p{font-size:11px!important}.top{gap:8px}}
+
 </style></head>
 <body><div class="app">
 <header class="top"><div class="brand"><span class="qalam-mark" aria-label="قلم">
 <svg viewBox="0 0 64 64" role="img" aria-hidden="true"><defs><linearGradient id="qalamGold" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f4d99a"/><stop offset=".55" stop-color="#c99a4b"/><stop offset="1" stop-color="#936a2c"/></linearGradient></defs><path d="M47 8C34 12 17 26 13 42c-2 7 2 11 8 8C36 44 47 25 47 8Z" fill="url(#qalamGold)"/><path d="M17 48 43 15M22 38l-1-9m8 2 8-1m-3 12 8-1" fill="none" stroke="#fff7df" stroke-width="1.5" stroke-linecap="round"/><path d="M11 54c10-3 17-10 22-17" fill="none" stroke="#f4d99a" stroke-width="2" stroke-linecap="round"/><path d="M7 56c6-1 10-3 14-7" fill="none" stroke="#c99a4b" stroke-width="1.4" stroke-linecap="round"/></svg>
-</span><div class="brand-copy"><h1 class="qalam-wordmark" aria-label="قَلَم">
+</span><div class="brand-copy"><img class="qalam-header-art" src="assets/qalam-brand.svg" alt="شعار قلم: سن قلم هندسي أخضر وذهبي داخل قوس زخرفي" width="420" height="160">
 <svg class="qalam-wordmark-svg" viewBox="0 0 360 132" role="img" aria-labelledby="qalamLogoTitle">
 <title id="qalamLogoTitle">قَلَم — شعار خط عربي</title>
 <defs><linearGradient id="qalamInk" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#d5ad65"/><stop offset=".38" stop-color="#315b46"/><stop offset="1" stop-color="#183b2c"/></linearGradient></defs>
