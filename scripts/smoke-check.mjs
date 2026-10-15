@@ -1,7 +1,8 @@
 import { readFileSync, existsSync } from "node:fs";
 import { resolve } from "node:path";
+import vm from "node:vm";
 
-const required = ["index.html", "cases.html", "login.html", "manifest.webmanifest", "sw.js"];
+const required = ["index.html", "cases.html", "login.html", "manifest.webmanifest", "sw.js", "js/core/storage.js"];
 const failures = [];
 for (const file of required) {
   if (!existsSync(resolve(file))) failures.push("Missing required file: " + file);
@@ -14,6 +15,14 @@ function checkHtml(file) {
   if (!/<html\b[^>]*dir=["']rtl["']/i.test(html)) failures.push(file + ": expected RTL document direction");
   if (!/<title>[^<]+<\/title>/i.test(html)) failures.push(file + ": missing page title");
   if (!/<meta\s+charset=["']utf-8["']/i.test(html)) failures.push(file + ": missing UTF-8 charset");
+
+  for (const script of html.matchAll(/<script(?![^>]*\bsrc=)[^>]*>([\s\S]*?)<\/script>/gi)) {
+    try {
+      new vm.Script(script[1], { filename: file });
+    } catch (error) {
+      failures.push(file + ": inline JavaScript syntax error: " + error.message);
+    }
+  }
 
   for (const match of html.matchAll(/(?:href|src)=["']([^"'#]+)["']/gi)) {
     const ref = match[1].trim();
@@ -43,4 +52,4 @@ if (failures.length) {
   for (const failure of failures) console.error(" - " + failure);
   process.exit(1);
 }
-console.log("Kalam smoke-check passed: required pages, RTL metadata, local references, manifest and service-worker strategy.");
+console.log("Kalam smoke-check passed: pages, RTL metadata, JavaScript syntax, local references, manifest and storage module.");
