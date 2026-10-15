@@ -32,9 +32,21 @@ function checkHtml(file) {
     if (!existsSync(resolve(path))) failures.push(file + ": local reference not found: " + ref);
   }
 }
+
+function checkStaticSelectors(file) {
+  if (!existsSync(file)) return;
+  const html = readFileSync(file, "utf8");
+  const ids = new Set([...html.matchAll(/\bid\s*=\s*["']([^"']+)["']/gi)].map((match) => match[1]));
+  const selectors = new Set([...html.matchAll(/(?:querySelector(?:All)?\(\s*["']|\$\(\s*["'])#([\w-]+)/g)].map((match) => match[1]));
+  for (const id of selectors) {
+    if (!ids.has(id)) failures.push(file + ": selector target not found: #" + id);
+  }
+}
 checkHtml("index.html");
 checkHtml("cases.html");
 checkHtml("login.html");
+checkStaticSelectors("index.html");
+checkStaticSelectors("cases.html");
 
 for (const file of ["js/core/storage.js", "js/core/backup.js", "js/library/model.js", "js/cases/model.js"]) {
   if (!existsSync(file)) continue;
