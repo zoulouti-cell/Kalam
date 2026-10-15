@@ -94,11 +94,30 @@ body{background:var(--bg);color:var(--ink);font-family:"Segoe UI",Tahoma,Arial,s
 .hero:after{content:none!important;display:none!important}
 @media(max-width:760px){.brand h1{font-size:39px!important}.brand h1:after{width:86px!important;height:32px!important;bottom:-6px!important}}
 
+
+/* FINAL: custom Arabic calligraphy wordmark, no badge or feather */
+.brand{gap:12px!important;align-items:center!important}
+.brand .logo,.qalam-mark{display:none!important}
+.brand-copy{display:flex;flex-direction:column;align-items:flex-start;gap:0}
+.brand h1.qalam-wordmark{width:154px!important;height:67px!important;margin:0!important;padding:0!important;display:block!important;position:relative!important;font-size:0!important;line-height:1!important;color:transparent!important}
+.brand h1.qalam-wordmark:before,.brand h1.qalam-wordmark:after{content:none!important;display:none!important;background:none!important}
+.qalam-wordmark-svg{display:block;width:154px;height:67px;overflow:visible}
+.brand-copy p{margin:-3px 0 0!important;font-size:12px!important;letter-spacing:0!important;color:#839187!important}
+@media(max-width:760px){.brand h1.qalam-wordmark{width:137px!important;height:61px!important}.qalam-wordmark-svg{width:137px;height:61px}}
+
 </style></head>
 <body><div class="app">
 <header class="top"><div class="brand"><span class="qalam-mark" aria-label="قلم">
 <svg viewBox="0 0 64 64" role="img" aria-hidden="true"><defs><linearGradient id="qalamGold" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f4d99a"/><stop offset=".55" stop-color="#c99a4b"/><stop offset="1" stop-color="#936a2c"/></linearGradient></defs><path d="M47 8C34 12 17 26 13 42c-2 7 2 11 8 8C36 44 47 25 47 8Z" fill="url(#qalamGold)"/><path d="M17 48 43 15M22 38l-1-9m8 2 8-1m-3 12 8-1" fill="none" stroke="#fff7df" stroke-width="1.5" stroke-linecap="round"/><path d="M11 54c10-3 17-10 22-17" fill="none" stroke="#f4d99a" stroke-width="2" stroke-linecap="round"/><path d="M7 56c6-1 10-3 14-7" fill="none" stroke="#c99a4b" stroke-width="1.4" stroke-linecap="round"/></svg>
-</span><div><h1>قَلَم</h1><p>مساحة العمل القانونية — تنظيم، بحث، ومراجعة</p></div></div><div class="actions"><button id="exportBtn">تصدير نسخة احتياطية</button><button id="importBtn">استيراد نسخة</button><input id="importFile" type="file" accept="application/json" class="hide"></div></header>
+</span><div class="brand-copy"><h1 class="qalam-wordmark" aria-label="قَلَم">
+<svg class="qalam-wordmark-svg" viewBox="0 0 360 132" role="img" aria-labelledby="qalamLogoTitle">
+<title id="qalamLogoTitle">قَلَم — شعار خط عربي</title>
+<defs><linearGradient id="qalamInk" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#d5ad65"/><stop offset=".38" stop-color="#315b46"/><stop offset="1" stop-color="#183b2c"/></linearGradient></defs>
+<text x="207" y="82" text-anchor="middle" direction="rtl" font-family="Aref Ruqaa, Amiri, serif" font-size="83" font-weight="700" fill="url(#qalamInk)">قَلَم</text>
+<path d="M132 81 C111 94 91 106 64 108 C48 109 35 103 28 94 C44 98 60 97 77 91 C96 84 111 72 124 61" fill="none" stroke="url(#qalamInk)" stroke-width="3.1" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M30 94 C22 91 18 84 20 77 C25 82 30 86 38 88" fill="none" stroke="#c99a4b" stroke-width="2.1" stroke-linecap="round"/>
+<path d="M124 61 C130 55 135 48 138 41" fill="none" stroke="#c99a4b" stroke-width="1.8" stroke-linecap="round"/>
+</svg></h1><p>مساحة العمل القانونية — تنظيم، بحث، ومراجعة</p></div></div><div class="actions"><button id="exportBtn">تصدير نسخة احتياطية</button><button id="importBtn">استيراد نسخة</button><input id="importFile" type="file" accept="application/json" class="hide"></div></header>
 <main class="wrap">
 <section class="hero"><div style="position:relative;z-index:1;color:#3978e8;font-size:11px;font-weight:800;letter-spacing:1.5px">QALAM · WORKSPACE JURIDIQUE</div><h2>كل أدواتك القانونية، في مساحة واحدة.</h2><p>مكتبة منظمة، ملفات القضايا، المذكرات والمراجع. ابدأ من موردك المفضل، وواصل بناء مكتبتك القانونية خطوة بخطوة.</p><div class="searchrow"><input id="search" placeholder="ابحث في عناوين مكتبتك ونصوصك وأرقام المواد…"><button id="clearSearch" class="secondary">مسح البحث</button></div></section>
 <section class="resource-heading"><div><div class="eyebrow">مساحة العمل</div><h2>ماذا تريد أن تنجز اليوم؟</h2><p>وصول سريع إلى الموارد القانونية والأدوات الأساسية.</p></div></section>
