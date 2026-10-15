@@ -30,11 +30,64 @@ button{border-radius:11px;background:#3676e8;box-shadow:none}button.secondary{ba
 .itemactions button{border-radius:9px}.formgrid input,.formgrid textarea,.formgrid select{border-color:#e7eee8;border-radius:11px}.footer{color:#a0aaa4}
 @media(max-width:760px){.wrap{padding:0 12px}.hero{padding-top:18px}.hero h2{font-size:22px}.layout{gap:12px}.layout>aside{position:static}.stats{margin:10px 0 18px}}
 
+
+/* QALAM STUDIO — redesigned legal workspace */
+:root{--bg:#f5f7f5;--panel:#fff;--ink:#203d33;--muted:#7d8d84;--brand:#234c3d;--accent:#3978e8;--line:#e8eee9;--soft:#eef5f0;--gold:#d9b778;--shadow:0 12px 35px rgba(28,65,47,.055)}
+body{background:var(--bg);color:var(--ink);font-family:"Segoe UI",Tahoma,Arial,sans-serif;line-height:1.75}
+.top{background:#fff;color:var(--brand);padding:15px max(20px,calc((100vw - 1380px)/2));border-bottom:1px solid var(--line);box-shadow:0 3px 16px #1d44300a}
+.brand h1{font-size:25px;letter-spacing:-.5px}.brand p{color:#839187;font-size:12px}.logo{width:48px;height:48px;background:linear-gradient(145deg,#3978e8,#285bcb);border-radius:15px;box-shadow:0 8px 18px #3978e82b}
+.top button{background:#f5f8f5;color:var(--brand);border:1px solid var(--line);border-radius:10px}.wrap{max-width:1380px;margin:24px auto;padding:0 22px}
+.hero{position:relative;overflow:hidden;text-align:right;padding:35px 36px;border:1px solid #e9eee9;border-radius:24px;background:radial-gradient(ellipse at 5% 0%,#eaf2ff 0,transparent 36%),linear-gradient(115deg,#fff 0%,#fbfdfb 68%,#f2f7f3 100%);box-shadow:0 14px 38px #254d3808}
+.hero:after{content:"ق";position:absolute;left:42px;top:-42px;font-family:Georgia,serif;font-size:245px;font-weight:700;line-height:1;color:#2e6b5020;pointer-events:none}
+.hero h2{font-size:clamp(26px,3vw,38px);line-height:1.35;color:#234c3d;font-weight:850;margin:9px 0 9px;max-width:760px;position:relative;z-index:1}
+.hero p{color:#718279;font-size:15px;max-width:700px;margin:0 0 22px;position:relative;z-index:1}
+.hero .searchrow{position:relative;z-index:1;max-width:800px;margin:0;display:flex;gap:10px}
+.hero .searchrow input{background:#fff;border:1px solid #e4ebe5;border-radius:13px;padding:15px 17px;box-shadow:0 5px 16px #284d3708}
+.hero .searchrow button{min-width:92px;border-radius:12px}
+.stats{max-width:none;margin:18px 0 24px;gap:14px}.stat{display:flex;align-items:center;gap:13px;border:1px solid var(--line);border-radius:16px;padding:15px 18px;box-shadow:0 5px 18px #1d443006}.stat:before{content:"";width:4px;height:38px;border-radius:8px;background:var(--accent)}.stat strong{color:var(--brand);font-size:25px}.stat small{color:var(--muted)}
+.layout{grid-template-columns:255px minmax(0,1fr);gap:22px;align-items:start}.panel{border:1px solid var(--line);border-radius:18px;box-shadow:0 8px 26px #1d443006;padding:21px}.layout>aside{position:sticky;top:15px}.panel h3{color:var(--brand);font-weight:750}.navlist{gap:6px}.navitem{padding:11px 12px;border-radius:11px;color:#63756b;font-weight:550}.navitem.active,.navitem:hover{background:#edf5ef;border-color:#dfebe2;color:#244f3d;font-weight:750}.notice{background:#f6f9f6;border:1px solid #e6eee7;color:#728378;border-radius:12px}.sectionhead h2{font-size:23px;color:var(--brand)}.list{gap:14px}.item{border:1px solid var(--line);border-radius:15px;padding:18px;background:#fff;box-shadow:0 5px 17px #1d443005}.item h3{font-size:18px;color:var(--brand)}.itemactions button{border-radius:9px}.footer{padding:28px;color:#91a096}
+.resource-heading{display:flex;justify-content:space-between;align-items:end;gap:12px;margin:28px 2px 13px}.resource-heading h2{margin:0;color:#244c3c;font-size:22px}.resource-heading p{margin:3px 0 0;color:#829187;font-size:13px}.resource-heading .eyebrow{color:#3978e8;font-size:11px;font-weight:800;letter-spacing:1px}
+.resource-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:13px;margin-bottom:26px}
+.resource-card{display:flex;flex-direction:column;align-items:flex-start;text-align:right;min-height:175px;background:#fff;border:1px solid #e8eee9;border-radius:17px;padding:17px;box-shadow:0 7px 20px #1d443006;transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease;color:var(--ink);text-decoration:none;position:relative;overflow:hidden}
+.resource-card:hover{transform:translateY(-3px);box-shadow:0 13px 27px #1d443010;border-color:#d4e4d8}
+.resource-icon{display:grid;place-items:center;width:43px;height:43px;border-radius:13px;background:#edf4ff;color:#3978e8;font-size:21px;margin-bottom:13px}
+.resource-card[data-tone="green"] .resource-icon{background:#edf6ef;color:#2f7953}.resource-card[data-tone="gold"] .resource-icon{background:#fbf4e8;color:#a8782b}.resource-card[data-tone="violet"] .resource-icon{background:#f3efff;color:#7957b7}
+.resource-card strong{font-size:15px;color:#294b3c;margin-bottom:4px}.resource-card small{font-size:12px;line-height:1.65;color:#819087}
+.resource-card .resource-status{font-size:10px;font-weight:750;color:#2e7950;background:#edf7ef;border-radius:20px;padding:3px 8px;margin-top:auto;margin-bottom:0}
+.resource-card.coming{background:#fafbfa;border-style:dashed;box-shadow:none}.resource-card.coming .resource-status{background:#f3f1eb;color:#8b7a55}
+.resource-card.coming:hover{transform:none;box-shadow:none}
+.resource-band{display:grid;grid-template-columns:1.4fr 1fr;gap:14px;margin:0 0 25px}
+.band-card{border-radius:18px;padding:20px 22px;border:1px solid var(--line);background:#fff;display:flex;align-items:center;justify-content:space-between;gap:18px;box-shadow:0 7px 20px #1d443006}
+.band-card.primary{background:linear-gradient(120deg,#234c3d,#2e6650);color:#fff;border:0}.band-card h3{margin:0 0 4px;font-size:17px}.band-card p{margin:0;font-size:12px;opacity:.78}.band-card .band-icon{font-size:28px;opacity:.8}.band-card button{white-space:nowrap}
+@media(max-width:1000px){.resource-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.layout{grid-template-columns:220px minmax(0,1fr)}.resource-band{grid-template-columns:1fr}}
+@media(max-width:760px){.wrap{padding:0 12px;margin:14px auto}.hero{padding:25px 19px;border-radius:19px}.hero:after{font-size:150px;left:8px;top:-12px}.hero h2{font-size:26px;max-width:85%}.hero p{font-size:13px;max-width:85%}.hero .searchrow{flex-direction:column}.hero .searchrow button{width:100%}.layout{grid-template-columns:1fr;gap:14px}.layout>aside{position:static}.stats{grid-template-columns:1fr;gap:8px;margin:13px 0}.stat{padding:11px 14px}.stat strong{font-size:21px}.resource-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.resource-card{min-height:160px;padding:13px}.resource-card strong{font-size:13px}.resource-card small{font-size:11px}.resource-heading{margin-top:22px}.resource-heading h2{font-size:19px}.panel{padding:15px}.resource-band{gap:9px}.band-card{padding:16px;align-items:flex-start;flex-direction:column}}
+@media(max-width:380px){.resource-grid{grid-template-columns:1fr}.resource-card{min-height:135px}}
+@media print{.resource-grid,.resource-heading,.resource-band{display:none!important}}
+
 </style></head>
 <body><div class="app">
 <header class="top"><div class="brand"><div class="logo">⚖</div><div><h1>قلم</h1><p>مساحة العمل القانونية — تنظيم، بحث، ومراجعة</p></div></div><div class="actions"><button id="exportBtn">تصدير نسخة احتياطية</button><button id="importBtn">استيراد نسخة</button><input id="importFile" type="file" accept="application/json" class="hide"></div></header>
 <main class="wrap">
-<section class="hero"><h2>مرجعك القانوني في مكان واحد</h2><p>نظّم القوانين والمواد والمذكرات والقرارات، وابحث داخل مكتبتك بسرعة.</p><div class="searchrow"><input id="search" placeholder="ابحث بالعنوان أو رقم المادة أو الكلمات المفتاحية…"><button id="clearSearch" class="secondary">مسح</button></div></section>
+<section class="hero"><div style="position:relative;z-index:1;color:#3978e8;font-size:11px;font-weight:800;letter-spacing:1.5px">QALAM · WORKSPACE JURIDIQUE</div><h2>كل أدواتك القانونية، في مساحة واحدة.</h2><p>مكتبة منظمة، ملفات القضايا، المذكرات والمراجع. ابدأ من موردك المفضل، وواصل بناء مكتبتك القانونية خطوة بخطوة.</p><div class="searchrow"><input id="search" placeholder="ابحث في عناوين مكتبتك ونصوصك وأرقام المواد…"><button id="clearSearch" class="secondary">مسح البحث</button></div></section>
+<section class="resource-heading"><div><div class="eyebrow">مساحة العمل</div><h2>ماذا تريد أن تنجز اليوم؟</h2><p>وصول سريع إلى الموارد القانونية والأدوات الأساسية.</p></div></section>
+<section class="resource-grid" aria-label="الموارد القانونية">
+<button class="resource-card" data-quick="library" data-tone="blue"><span class="resource-icon">⚖</span><strong>المكتبة القانونية</strong><small>نظّم القوانين والمواد والفصول وابحث في المحتوى المحفوظ.</small><span class="resource-status">متاح الآن ↗</span></button>
+<a class="resource-card" href="cases.html" data-tone="green"><span class="resource-icon">▤</span><strong>ملفاتي والقضايا</strong><small>ملفات الموكلين، المحاكم، الأطراف والجلسات والإجراءات.</small><span class="resource-status">متاح الآن ↗</span></a>
+<button class="resource-card" data-quick="documents" data-tone="violet"><span class="resource-icon">✎</span><strong>المذكرات والقرارات</strong><small>اجمع مذكراتك وقراراتك ووثائقك في مكان واحد.</small><span class="resource-status">متاح الآن ↗</span></button>
+<button class="resource-card" data-quick="add" data-tone="gold"><span class="resource-icon">＋</span><strong>إضافة مرجع جديد</strong><small>أضف نصًا قانونيًا أو مذكرة مع التصنيف والكلمات المفتاحية.</small><span class="resource-status">متاح الآن ↗</span></button>
+<button class="resource-card" data-quick="saved" data-tone="violet"><span class="resource-icon">☆</span><strong>المراجع المحفوظة</strong><small>احتفظ بالنصوص التي تحتاج إلى الرجوع إليها سريعًا.</small><span class="resource-status">متاح الآن ↗</span></button>
+<button class="resource-card" data-quick="backup" data-tone="green"><span class="resource-icon">⤓</span><strong>النسخ الاحتياطي</strong><small>صدّر نسخة من مكتبتك أو استعد بياناتك من ملف سابق.</small><span class="resource-status">متاح الآن ↗</span></button>
+<div class="resource-card coming" data-tone="blue"><span class="resource-icon">⌕</span><strong>البحث القانوني الذكي</strong><small>بحث بالمعنى والسؤال بدل الاقتصار على الكلمات المطابقة.</small><span class="resource-status">قيد التطوير</span></div>
+<div class="resource-card coming" data-tone="gold"><span class="resource-icon">▧</span><strong>مركز ملفات PDF وWord</strong><small>استخراج النصوص، تنظيم الأرشيف والفهرسة الموضوعية.</small><span class="resource-status">قيد التطوير</span></div>
+<div class="resource-card coming" data-tone="violet"><span class="resource-icon">⚖</span><strong>الاجتهادات القضائية</strong><small>مكتبة مخصصة للأحكام والقرارات مع بيانات المحكمة والموضوع.</small><span class="resource-status">قيد التطوير</span></div>
+<div class="resource-card coming" data-tone="green"><span class="resource-icon">▣</span><strong>النماذج القانونية</strong><small>نماذج قابلة للتعديل للمذكرات والطلبات والمراسلات المهنية.</small><span class="resource-status">قيد التطوير</span></div>
+<div class="resource-card coming" data-tone="gold"><span class="resource-icon">◷</span><strong>حساب الآجال القانونية</strong><small>أداة مساعدة لحساب المواعيد مع إظهار قواعد الحساب والتنبيهات.</small><span class="resource-status">قيد التطوير</span></div>
+<div class="resource-card coming" data-tone="violet"><span class="resource-icon">⇄</span><strong>مقارنة المستندات</strong><small>إبراز الفروق بين نسختين من وثيقة أو نص قانوني.</small><span class="resource-status">قيد التطوير</span></div>
+</section>
+<section class="resource-band">
+<div class="band-card primary"><div><h3>ابدأ ببناء مكتبتك الخاصة</h3><p>أضف أول مرجع أو رتّب النصوص التي تعتمد عليها في عملك.</p></div><button id="quickAdd" style="background:#fff;color:#285541">＋ إضافة محتوى</button></div>
+<div class="band-card"><div><h3>حافظ على نسخة من بياناتك</h3><p>البيانات الحالية محفوظة محليًا في هذا المتصفح، وليست سحابة مشتركة.</p></div><button id="quickBackup" class="secondary">تصدير نسخة</button></div>
+</section>
 <section class="stats"><div class="stat"><small>النصوص القانونية</small><strong id="lawCount">0</strong></div><div class="stat"><small>المذكرات والقرارات</small><strong id="docCount">0</strong></div><div class="stat"><small>المحفوظات</small><strong id="savedCount">0</strong></div></section>
 <div class="layout"><aside class="panel"><h3>مساحة العمل</h3><div class="navlist" id="nav">
 <button class="navitem active" data-view="library">⚖ المكتبة القانونية</button><a class="navitem" href="cases.html" style="display:block;text-decoration:none">▣ ملفاتي والقضايا</a><button class="navitem" data-view="documents">▤ المذكرات والقرارات</button><button class="navitem" data-view="saved">☆ المحفوظات</button><button class="navitem" data-view="add">＋ إضافة محتوى</button><button class="navitem" data-view="about">ⓘ حول التطبيق</button></div><div class="notice">تُحفظ البيانات التي تضيفها محليًا في هذا المتصفح. لا تُرفع تلقائيًا إلى خادم أو إلى GitHub.</div></aside>
@@ -50,6 +103,9 @@ function id(){return Date.now().toString(36)+Math.random().toString(36).slice(2,
 function renderStats(){document.querySelector('#lawCount').textContent=db.laws.length;document.querySelector('#docCount').textContent=db.docs.length;document.querySelector('#savedCount').textContent=db.saved.length}
 function setView(v){view=v;document.querySelectorAll('.navitem').forEach(b=>b.classList.toggle('active',b.dataset.view===v));render()}
 document.querySelector('#nav').addEventListener('click',e=>{const b=e.target.closest('[data-view]');if(b)setView(b.dataset.view)});
+document.querySelectorAll('[data-quick]').forEach(b=>b.addEventListener('click',()=>{const v=b.dataset.quick;if(v==='backup'){document.querySelector('#exportBtn').click();return}setView(v)}));
+document.querySelector('#quickAdd').addEventListener('click',()=>setView('add'));
+document.querySelector('#quickBackup').addEventListener('click',()=>document.querySelector('#exportBtn').click());
 document.querySelector('#search').addEventListener('input',e=>{query=e.target.value.trim().toLowerCase();render()});
 document.querySelector('#clearSearch').onclick=()=>{document.querySelector('#search').value='';query='';render()};
 function matches(x){return !query||[x.title,x.type,x.number,x.text,x.category,x.keywords,x.law,x.part,x.section,x.chapter].join(' ').toLowerCase().includes(query)}
