@@ -1,5 +1,5 @@
-const CACHE = "kalam-static-v11";
-const CORE_FILES = ["./", "./index.html", "./cases.html", "./login.html", "./manifest.webmanifest"];
+const CACHE = "kalam-static-v12";
+const CORE_FILES = ["./", "./index.html", "./workspace.html", "./cases.html", "./login.html", "./manifest.webmanifest"];
 
 // Install a new cache without letting an old HTML shell block future updates.
 self.addEventListener("install", event => {
