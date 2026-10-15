@@ -33,6 +33,7 @@ function checkHtml(file) {
   }
 }
 checkHtml("index.html");
+checkHtml("workspace.html");
 checkHtml("cases.html");
 checkHtml("login.html");
 
