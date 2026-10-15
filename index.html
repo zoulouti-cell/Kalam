@@ -346,7 +346,7 @@ document.querySelectorAll('[data-space]').forEach(b=>b.addEventListener('click',
  location.href='workspace.html?section='+encodeURIComponent(key);
 }));
 \nconst KEY=window.KalamLibrary.storageKey;
-const initial=window.KalamLibrary.empty();const libraryLoad=window.KalamStorage.read(KEY,initial,window.KalamStorage.isLibrary);let storageHealthy=libraryLoad.ok;let db=window.KalamLibrary.normalize(libraryLoad.value);let view='library';let query='';let trail=[];
+const initial=window.KalamLibrary.empty();const libraryLoad=window.KalamStorage.read(KEY,initial,window.KalamStorage.isLibrary);let storageHealthy=libraryLoad.ok;let db=window.KalamLibrary.normalize(libraryLoad.value);let view=new URLSearchParams(location.search).get('view')||'library';let query='';let trail=[];
 function load(){return {...initial,...libraryLoad.value}}
 function persist(){if(!storageHealthy){alert('تعذر قراءة بيانات المكتبة السابقة. لم أكتب فوقها حفاظًا عليها؛ حدّث الصفحة أو استعد نسخة احتياطية.');return false}const result=window.KalamStorage.write(KEY,db,window.KalamStorage.isLibrary);if(!result.ok){alert(result.error==='quota'?'مساحة التخزين ممتلئة. صدّر نسخة احتياطية واحذف بعض البيانات.':'تعذر حفظ البيانات محليًا؛ صدّر نسخة احتياطية قبل المتابعة.');return false}renderStats();return true}
 function esc(s=''){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
