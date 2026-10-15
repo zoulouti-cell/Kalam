@@ -340,7 +340,11 @@ spacePage.addEventListener('click',e=>{
  if(card.kind==='view'){closeSpace();setView(card.value);return}
  if(card.kind==='coming'){alert('هذا القسم قيد التطوير، وسيُفعّل في مرحلة لاحقة.');}
 });
-document.querySelectorAll('[data-space]').forEach(b=>b.addEventListener('click',()=>openSpace(b.dataset.space)));
+document.querySelectorAll('[data-space]').forEach(b=>b.addEventListener('click',()=>{
+ const key=b.dataset.space;
+ if(key==='lawyer'){openSpace(key);return}
+ location.href='workspace.html?section='+encodeURIComponent(key);
+}));
 \nconst KEY=window.KalamLibrary.storageKey;
 const initial=window.KalamLibrary.empty();const libraryLoad=window.KalamStorage.read(KEY,initial,window.KalamStorage.isLibrary);let storageHealthy=libraryLoad.ok;let db=window.KalamLibrary.normalize(libraryLoad.value);let view='library';let query='';let trail=[];
 function load(){return {...initial,...libraryLoad.value}}
