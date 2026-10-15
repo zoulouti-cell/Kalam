@@ -3,7 +3,7 @@ name: Deploy Kalam web app to GitHub Pages
 on:
   push:
     branches:
-      - web-app-v1
+      - main
   workflow_dispatch:
 
 permissions:
