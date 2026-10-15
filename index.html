@@ -342,8 +342,7 @@ spacePage.addEventListener('click',e=>{
 });
 document.querySelectorAll('[data-space]').forEach(b=>b.addEventListener('click',()=>{
  const key=b.dataset.space;
- if(key==='lawyer'){openSpace(key);return}
- location.href='workspace.html?section='+encodeURIComponent(key);
+ openSpace(key);
 }));
 \nconst KEY=window.KalamLibrary.storageKey;
 const initial=window.KalamLibrary.empty();const libraryLoad=window.KalamStorage.read(KEY,initial,window.KalamStorage.isLibrary);let storageHealthy=libraryLoad.ok;let db=window.KalamLibrary.normalize(libraryLoad.value);let view=new URLSearchParams(location.search).get('view')||'library';let query='';let trail=[];
