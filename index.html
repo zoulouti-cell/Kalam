@@ -304,9 +304,9 @@ textarea{resize:vertical}
 <script src="./js/core/storage.js"></script>
 <script>
 const KEY='kalam_kalam_v1';
-const initial={laws:[],docs:[],saved:[]};let db=load();let view='library';let query='';let trail=[];
-function load(){const result=window.KalamStorage.read(KEY,initial,window.KalamStorage.isLibrary);if(!result.ok&&result.error==='invalid-shape')console.warn('Kalam library data has an unexpected shape; keeping a safe empty view until backup is restored.');return {...initial,...result.value}}
-function persist(){const result=window.KalamStorage.write(KEY,db,window.KalamStorage.isLibrary);if(!result.ok){alert(result.error==='quota'?'مساحة التخزين ممتلئة. صدّر نسخة احتياطية واحذف بعض البيانات.':'تعذر حفظ البيانات محليًا؛ صدّر نسخة احتياطية قبل المتابعة.');return false}renderStats();return true}
+const initial={laws:[],docs:[],saved:[]};const libraryLoad=window.KalamStorage.read(KEY,initial,window.KalamStorage.isLibrary);let storageHealthy=libraryLoad.ok;let db={...initial,...libraryLoad.value};let view='library';let query='';let trail=[];
+function load(){return {...initial,...libraryLoad.value}}
+function persist(){if(!storageHealthy){alert('تعذر قراءة بيانات المكتبة السابقة. لم أكتب فوقها حفاظًا عليها؛ حدّث الصفحة أو استعد نسخة احتياطية.');return false}const result=window.KalamStorage.write(KEY,db,window.KalamStorage.isLibrary);if(!result.ok){alert(result.error==='quota'?'مساحة التخزين ممتلئة. صدّر نسخة احتياطية واحذف بعض البيانات.':'تعذر حفظ البيانات محليًا؛ صدّر نسخة احتياطية قبل المتابعة.');return false}renderStats();return true}
 function esc(s=''){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
 function id(){return Date.now().toString(36)+Math.random().toString(36).slice(2,7)}
 function renderStats(){document.querySelector('#lawCount').textContent=db.laws.length;document.querySelector('#docCount').textContent=db.docs.length;document.querySelector('#savedCount').textContent=db.saved.length}
