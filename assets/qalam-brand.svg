@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="330" viewBox="0 0 900 330" role="img" aria-labelledby="title desc">
+<title id="title">هوية قلم القانونية</title><desc id="desc">سن قلم هندسي أخضر زمردي بحواف ذهبية داخل قوس زخرفي عربي على خلفية عاجية.</desc>
+<defs>
+ <linearGradient id="ivory" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#fffaf0"/><stop offset="1" stop-color="#f0e4cb"/></linearGradient>
+ <linearGradient id="emerald" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#2a7254"/><stop offset=".5" stop-color="#124331"/><stop offset="1" stop-color="#092a20"/></linearGradient>
+ <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#f6df9e"/><stop offset=".45" stop-color="#c99a4b"/><stop offset="1" stop-color="#8c6429"/></linearGradient>
+ <pattern id="geo" width="28" height="28" patternUnits="userSpaceOnUse"><path d="M14 1 27 14 14 27 1 14Z M14 7 21 14 14 21 7 14Z" fill="none" stroke="#c49a54" stroke-width=".8" opacity=".45"/></pattern>
+ <filter id="shadow" x="-30%" y="-30%" width="160%" height="160%"><feDropShadow dx="0" dy="8" stdDeviation="7" flood-color="#123d2c" flood-opacity=".18"/></filter>
+</defs>
+<rect width="900" height="330" rx="28" fill="url(#ivory)"/>
+<path d="M0 0H900V330H0Z" fill="url(#geo)" opacity=".12"/>
+<path d="M720 25C840 25 872 99 850 168S783 289 670 289" fill="none" stroke="#d1b477" stroke-width="24" opacity=".22"/>
+<path d="M718 38C817 38 849 103 829 164S773 267 681 267" fill="none" stroke="url(#gold)" stroke-width="3" opacity=".8"/>
+<path d="M707 57C786 57 819 111 800 163S752 245 689 245" fill="none" stroke="#b18a49" stroke-width="1.3" stroke-dasharray="3 7" opacity=".7"/>
+<g transform="translate(430 20)" filter="url(#shadow)">
+ <path d="M70 10C55 54 40 74 40 103L40 242Q40 266 70 280Q100 266 100 242L100 103C100 74 85 54 70 10Z" fill="url(#emerald)" stroke="url(#gold)" stroke-width="4"/>
+ <path d="M70 10C61 45 57 61 57 83L83 83C83 61 79 45 70 10Z" fill="url(#gold)"/>
+ <path d="M70 15 70 85" stroke="#fff0c4" stroke-width="2" opacity=".9"/>
+ <circle cx="70" cy="72" r="7" fill="#113b2c" stroke="#e6c575" stroke-width="2"/>
+ <path d="M54 102H86M54 235H86" stroke="#d6b66c" stroke-width="2" opacity=".85"/>
+ <path d="M40 243Q70 255 100 243" fill="none" stroke="#f2d58b" stroke-width="2"/>
+</g>
+<g transform="translate(110 160)" fill="none" stroke="url(#gold)" stroke-width="2">
+ <path d="M0 0C50 -70 125 -85 185 -38S257 65 205 94C158 121 90 105 66 62C44 23 72 -19 111 -18C145 -17 160 15 146 39"/>
+ <path d="M20 0C62 -54 122 -62 170 -28S228 48 191 72C157 94 111 83 93 54C78 30 94 6 116 4"/>
+ <path d="M12 0 26 -14M201 94l13 12m-143-44-17 7"/>
+</g>
+<g fill="url(#emerald)" stroke="url(#gold)" stroke-width="2">
+ <path d="M247 69 261 83 247 97 233 83Z"/><path d="M286 69 300 83 286 97 272 83Z"/>
+</g>
+<path d="M325 278C390 302 510 302 570 278" fill="none" stroke="url(#gold)" stroke-width="2" opacity=".65"/>
+<circle cx="450" cy="307" r="3" fill="#c49a54"/>
+</svg>
