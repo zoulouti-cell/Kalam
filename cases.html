@@ -43,10 +43,11 @@ header h1:after{content:"";display:inline-block;width:62px;height:38px;backgroun
 <section class="panel"><h2 style="margin-top:0">ملفات القضايا</h2><div class="row"><input id="search" class="field" placeholder="ابحث برقم الملف أو العنوان أو المحكمة أو الأطراف"><select id="filterStatus" class="field" style="max-width:220px"><option value="">كل الحالات</option><option>قيد المعالجة</option><option>مؤجل</option><option>محجوز للمداولة</option><option>منتهٍ</option></select></div><div id="list" class="list" style="margin-top:12px"></div></section>
 </main>
 <script src="./js/core/storage.js"></script>
+<script src="./js/cases/model.js"></script>
 <script>
-const KEY='kalam_cases_v1';let currentTab='cases';
+const KEY=window.KalamCases.storageKey;let currentTab='cases';
 const storedCases=window.KalamStorage.read(KEY,[],window.KalamStorage.isCases);let storageHealthy=storedCases.ok;
-let cases=storedCases.value.map(c=>({...c,events:Array.isArray(c.events)?c.events:[]}));
+let cases=window.KalamCases.normalize(storedCases.value);
 if(!storedCases.ok&&storedCases.error==='invalid-shape')console.warn('Kalam case data has an unexpected shape; restore a valid backup if records are missing.');
 const $=s=>document.querySelector(s), esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])), uid=()=>Date.now().toString(36)+Math.random().toString(36).slice(2,8);
 const today=()=>{const d=new Date();return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0')};

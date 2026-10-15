@@ -2,7 +2,7 @@ import { readFileSync, existsSync } from "node:fs";
 import { resolve } from "node:path";
 import vm from "node:vm";
 
-const required = ["index.html", "cases.html", "login.html", "manifest.webmanifest", "sw.js", "js/core/storage.js"];
+const required = ["index.html", "cases.html", "login.html", "manifest.webmanifest", "sw.js", "js/core/storage.js", "js/library/model.js", "js/cases/model.js"];
 const failures = [];
 for (const file of required) {
   if (!existsSync(resolve(file))) failures.push("Missing required file: " + file);
@@ -36,6 +36,15 @@ checkHtml("index.html");
 checkHtml("cases.html");
 checkHtml("login.html");
 
+for (const file of ["js/core/storage.js", "js/library/model.js", "js/cases/model.js"]) {
+  if (!existsSync(file)) continue;
+  try {
+    new vm.Script(readFileSync(file, "utf8"), { filename: file });
+  } catch (error) {
+    failures.push(file + ": JavaScript syntax error: " + error.message);
+  }
+}
+
 try {
   const manifest = JSON.parse(readFileSync("manifest.webmanifest", "utf8"));
   if (!manifest.name || !manifest.start_url || manifest.dir !== "rtl") failures.push("manifest.webmanifest: missing required PWA fields");
@@ -53,3 +62,4 @@ if (failures.length) {
   process.exit(1);
 }
 console.log("Kalam smoke-check passed: pages, RTL metadata, JavaScript syntax, local references, manifest and storage module.");
+
