@@ -64,9 +64,21 @@ body{background:var(--bg);color:var(--ink);font-family:"Segoe UI",Tahoma,Arial,s
 @media(max-width:380px){.resource-grid{grid-template-columns:1fr}.resource-card{min-height:135px}}
 @media print{.resource-grid,.resource-heading,.resource-band{display:none!important}}
 
+
+/* Arabic calligraphic identity — Qalam */
+@import url('https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Aref+Ruqaa:wght@400;700&display=swap');
+.brand{gap:14px}.brand h1{font-family:"Aref Ruqaa","Amiri","Noto Naskh Arabic",serif!important;font-size:35px!important;font-weight:700!important;line-height:1.15;letter-spacing:0;color:#234c3d;position:relative;display:inline-block;padding:0 4px 5px}
+.brand h1:after{content:"";position:absolute;bottom:0;right:3px;width:83%;height:2px;background:linear-gradient(90deg,transparent,#c99a4b 18%,#c99a4b 78%,transparent);border-radius:100%}
+.brand h1:before{content:"✦";position:absolute;right:-14px;top:0;color:#c99a4b;font-size:10px}
+.brand p{letter-spacing:.1px}.qalam-mark{width:51px;height:51px;display:grid;place-items:center;border-radius:16px;background:linear-gradient(145deg,#234c3d,#183a2d);box-shadow:0 7px 18px #234c3d24;border:1px solid #c99a4b66;position:relative;flex-shrink:0}
+.qalam-mark:after{content:"";position:absolute;inset:4px;border:1px solid #e0bd77;border-radius:12px;opacity:.65;pointer-events:none}.qalam-mark svg{width:40px;height:40px}
+@media(max-width:760px){.brand h1{font-size:31px!important}.qalam-mark{width:46px;height:46px}.qalam-mark svg{width:36px;height:36px}}
+
 </style></head>
 <body><div class="app">
-<header class="top"><div class="brand"><div class="logo">⚖</div><div><h1>قلم</h1><p>مساحة العمل القانونية — تنظيم، بحث، ومراجعة</p></div></div><div class="actions"><button id="exportBtn">تصدير نسخة احتياطية</button><button id="importBtn">استيراد نسخة</button><input id="importFile" type="file" accept="application/json" class="hide"></div></header>
+<header class="top"><div class="brand"><span class="qalam-mark" aria-label="قلم">
+<svg viewBox="0 0 64 64" role="img" aria-hidden="true"><defs><linearGradient id="qalamGold" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f4d99a"/><stop offset=".55" stop-color="#c99a4b"/><stop offset="1" stop-color="#936a2c"/></linearGradient></defs><path d="M47 8C34 12 17 26 13 42c-2 7 2 11 8 8C36 44 47 25 47 8Z" fill="url(#qalamGold)"/><path d="M17 48 43 15M22 38l-1-9m8 2 8-1m-3 12 8-1" fill="none" stroke="#fff7df" stroke-width="1.5" stroke-linecap="round"/><path d="M11 54c10-3 17-10 22-17" fill="none" stroke="#f4d99a" stroke-width="2" stroke-linecap="round"/><path d="M7 56c6-1 10-3 14-7" fill="none" stroke="#c99a4b" stroke-width="1.4" stroke-linecap="round"/></svg>
+</span><div><h1>قَلَم</h1><p>مساحة العمل القانونية — تنظيم، بحث، ومراجعة</p></div></div><div class="actions"><button id="exportBtn">تصدير نسخة احتياطية</button><button id="importBtn">استيراد نسخة</button><input id="importFile" type="file" accept="application/json" class="hide"></div></header>
 <main class="wrap">
 <section class="hero"><div style="position:relative;z-index:1;color:#3978e8;font-size:11px;font-weight:800;letter-spacing:1.5px">QALAM · WORKSPACE JURIDIQUE</div><h2>كل أدواتك القانونية، في مساحة واحدة.</h2><p>مكتبة منظمة، ملفات القضايا، المذكرات والمراجع. ابدأ من موردك المفضل، وواصل بناء مكتبتك القانونية خطوة بخطوة.</p><div class="searchrow"><input id="search" placeholder="ابحث في عناوين مكتبتك ونصوصك وأرقام المواد…"><button id="clearSearch" class="secondary">مسح البحث</button></div></section>
 <section class="resource-heading"><div><div class="eyebrow">مساحة العمل</div><h2>ماذا تريد أن تنجز اليوم؟</h2><p>وصول سريع إلى الموارد القانونية والأدوات الأساسية.</p></div></section>
