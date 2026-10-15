@@ -2,7 +2,7 @@ import { readFileSync, existsSync } from "node:fs";
 import { resolve } from "node:path";
 import vm from "node:vm";
 
-const required = ["index.html", "cases.html", "login.html", "manifest.webmanifest", "sw.js", "js/core/storage.js", "js/library/model.js", "js/cases/model.js"];
+const required = ["index.html", "cases.html", "login.html", "manifest.webmanifest", "sw.js", "js/core/storage.js", "js/core/backup.js", "js/library/model.js", "js/cases/model.js"];
 const failures = [];
 for (const file of required) {
   if (!existsSync(resolve(file))) failures.push("Missing required file: " + file);
@@ -36,7 +36,7 @@ checkHtml("index.html");
 checkHtml("cases.html");
 checkHtml("login.html");
 
-for (const file of ["js/core/storage.js", "js/library/model.js", "js/cases/model.js"]) {
+for (const file of ["js/core/storage.js", "js/core/backup.js", "js/library/model.js", "js/cases/model.js"]) {
   if (!existsSync(file)) continue;
   try {
     new vm.Script(readFileSync(file, "utf8"), { filename: file });
