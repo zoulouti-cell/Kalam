@@ -211,7 +211,65 @@ button.ghost{color:#315b46}
 .hero h2,.hero p,.hero .searchrow,.hero>div{position:relative;z-index:1}
 @media(max-width:760px){.hero{padding:24px 18px!important;min-height:260px;background-image:linear-gradient(90deg,rgba(251,247,237,.96),rgba(251,247,237,.84)),url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='260' viewBox='0 0 400 260'%3E%3Cg fill='none' stroke='%23b88b3d' stroke-width='4'%3E%3Cpath d='M235 30V155M195 55H275M235 30l-9 13h18zM205 55l-25 48m25-48 25 48M265 55l-25 48m25-48 25 48M170 103q35 35 70 0M230 103q35 35 70 0'/%3E%3C/g%3E%3Cg stroke='%238d672e' stroke-width='2'%3E%3Crect x='285' y='160' width='100' height='25' rx='3' fill='%232b4938'/%3E%3Crect x='275' y='133' width='110' height='25' rx='3' fill='%23533b28'/%3E%3Crect x='290' y='106' width='95' height='25' rx='3' fill='%233e6048'/%3E%3C/g%3E%3C/svg%3E");background-position:center,right center;background-size:cover,auto 80%;}}
 
-</style></head>
+</style><style id="qalam-refinement">
+/* Qalam refinement pass — accessible, calm, responsive legal workspace */
+:root{--bg:#f5f7f4;--panel:#fff;--ink:#203c31;--muted:#75867b;--brand:#234c3d;--accent:#c6a15b;--line:#e5ebe5;--soft:#eef4ef;--shadow:0 10px 28px rgba(29,65,47,.06)}
+html{scroll-behavior:smooth}
+body{background:linear-gradient(180deg,#fbfcfa 0,#f4f7f3 100%);color:var(--ink);font-family:"Segoe UI",Tahoma,Arial,sans-serif}
+button,input,textarea,select{transition:border-color .18s ease,box-shadow .18s ease,background-color .18s ease}
+button:focus-visible,a:focus-visible,input:focus-visible,textarea:focus-visible,select:focus-visible{outline:3px solid #c6a15b99;outline-offset:2px}
+.top{position:relative;z-index:5;background:rgba(255,255,255,.96);backdrop-filter:blur(14px);border-bottom:1px solid #e7ece6;box-shadow:0 4px 18px rgba(32,60,49,.035)}
+.top .actions{gap:9px}
+.top button{padding:9px 13px}
+.wrap{padding-inline:clamp(12px,2.4vw,28px)}
+.hero{isolation:isolate;background:radial-gradient(ellipse at 0% 0%,#edf4e8 0,transparent 42%),linear-gradient(125deg,#fff 0%,#fbfcf8 64%,#f0f5ed 100%);border:1px solid #e5ebe2;box-shadow:0 14px 36px rgba(35,76,61,.055)}
+.hero h2{letter-spacing:-.35px}
+.hero p{line-height:1.9}
+.searchrow input{min-height:49px}
+.searchrow input:focus,.formgrid input:focus,.formgrid textarea:focus,.formgrid select:focus{border-color:#8caf98;box-shadow:0 0 0 4px #dcebe0}
+button{font-weight:650;transition:transform .16s ease,box-shadow .16s ease,background .16s ease}
+button:hover{box-shadow:0 5px 13px rgba(35,76,61,.10)}
+button:active{transform:translateY(1px)}
+.stats{align-items:stretch}
+.stat{min-height:82px;background:linear-gradient(150deg,#fff,#fcfdfb)}
+.stat strong{font-variant-numeric:tabular-nums}
+.layout{gap:20px}
+.panel{background:rgba(255,255,255,.96)}
+.layout>aside{z-index:2}
+.navitem{display:flex;align-items:center;gap:9px;min-height:43px}
+.navitem.active{box-shadow:inset -3px 0 0 #c6a15b}
+.sectionhead{margin-bottom:17px}
+.sectionhead h2{letter-spacing:-.2px}
+.item{position:relative;overflow:hidden}
+.item:focus-within{border-color:#c7d8ca}
+.item h3{line-height:1.6}
+.meta{line-height:1.8}
+.itemactions{gap:8px}
+.itemactions button{min-height:35px}
+.formgrid{gap:13px}
+.label{font-weight:650;color:#687a6e}
+.field,input,textarea,select{min-height:44px}
+textarea{resize:vertical}
+.notice{line-height:1.9}
+.empty{border:1px dashed #dce6dc;border-radius:14px;background:#fbfcfa}
+.footer{border-top:1px solid #e8ede7;margin-top:28px}
+.resource-card{min-height:178px}
+.resource-card .resource-status{display:inline-flex;align-items:center;gap:5px}
+.resource-card .resource-status:before{content:"";width:6px;height:6px;border-radius:50%;background:currentColor}
+@media(max-width:760px){
+ .top{padding:12px 14px;gap:12px}
+ .top .actions{width:100%}
+ .top .actions button{flex:1}
+ .brand h1{font-size:30px!important}
+ .hero{padding:23px 17px}
+ .hero h2{font-size:24px;line-height:1.5}
+ .stat{min-height:68px}
+ .item{padding:15px}
+ .itemactions button{flex:0 0 auto}
+}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{transition:none!important;animation:none!important}}
+</style>
+</head>
 <body><div class="app">
 <header class="top"><div class="brand"><span class="qalam-mark" aria-label="قلم">
 <svg viewBox="0 0 64 64" role="img" aria-hidden="true"><defs><linearGradient id="qalamGold" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f4d99a"/><stop offset=".55" stop-color="#c99a4b"/><stop offset="1" stop-color="#936a2c"/></linearGradient></defs><path d="M47 8C34 12 17 26 13 42c-2 7 2 11 8 8C36 44 47 25 47 8Z" fill="url(#qalamGold)"/><path d="M17 48 43 15M22 38l-1-9m8 2 8-1m-3 12 8-1" fill="none" stroke="#fff7df" stroke-width="1.5" stroke-linecap="round"/><path d="M11 54c10-3 17-10 22-17" fill="none" stroke="#f4d99a" stroke-width="2" stroke-linecap="round"/><path d="M7 56c6-1 10-3 14-7" fill="none" stroke="#c99a4b" stroke-width="1.4" stroke-linecap="round"/></svg>
