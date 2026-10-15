@@ -55,4 +55,5 @@ document.querySelector('#exportBtn').onclick=()=>{const blob=new Blob([JSON.stri
 document.querySelector('#importBtn').onclick=()=>document.querySelector('#importFile').click();
 document.querySelector('#importFile').onchange=async e=>{const f=e.target.files[0];if(!f)return;try{const d=JSON.parse(await f.text());if(!Array.isArray(d.laws)||!Array.isArray(d.docs)||!Array.isArray(d.saved))throw Error();if(!confirm('سيتم استبدال البيانات الحالية بالنسخة المستوردة. متابعة؟'))return;db=d;persist();render();alert('تم استيراد النسخة.')}catch{alert('تعذر قراءة النسخة الاحتياطية.')}e.target.value=''};
 renderStats();render();
+if("serviceWorker" in navigator && location.protocol.startsWith("http")) navigator.serviceWorker.register("./sw.js").catch(()=>{});
 </script></body></html>
