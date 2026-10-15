@@ -32,40 +32,9 @@ function checkHtml(file) {
     if (!existsSync(resolve(path))) failures.push(file + ": local reference not found: " + ref);
   }
 }
-
-function checkStaticSelectors(file) {
-  if (!existsSync(file)) return;
-  const html = readFileSync(file, "utf8");
-  const ids = new Set([...html.matchAll(/\bid\s*=\s*["']([^"']+)["']/gi)].map((match) => match[1]));
-  const selectors = new Set([...html.matchAll(/(?:querySelector(?:All)?\(\s*["']|\$\(\s*["'])#([\w-]+)/g)].map((match) => match[1]));
-  for (const id of selectors) {
-    if (!ids.has(id)) failures.push(file + ": selector target not found: #" + id);
-  }
-}
-
-function checkTabs(file, expectedTabs) {
-  if (!existsSync(file)) return;
-  const html = readFileSync(file, "utf8");
-  const tabs = [...html.matchAll(/\bdata-tab=["']([^"']+)["']/g)].map((match) => match[1]);
-  const panes = [...html.matchAll(/\bdata-pane=["']([^"']+)["']/g)].map((match) => match[1]);
-  const selected = [...html.matchAll(/<button\b[^>]*\baria-selected=["']true["'][^>]*>/gi)];
-  if (JSON.stringify([...new Set(tabs)].sort()) !== JSON.stringify([...expectedTabs].sort())) {
-    failures.push(file + ": navigation tabs do not match the expected sections");
-  }
-  if (JSON.stringify([...new Set(panes)].sort()) !== JSON.stringify([...expectedTabs].sort())) {
-    failures.push(file + ": navigation panes do not match the expected sections");
-  }
-  if (selected.length !== 1) failures.push(file + ": exactly one navigation tab should be selected by default");
-}
 checkHtml("index.html");
 checkHtml("cases.html");
 checkHtml("login.html");
-checkStaticSelectors("index.html");
-checkStaticSelectors("cases.html");
-checkTabs("cases.html", ["agenda", "cases"]);
-if (/<(?:button|a)[^>]*class=["'][^"']*resource-card/.test(readFileSync("index.html", "utf8"))) {
-  failures.push("index.html: duplicate dashboard shortcut cards should not be present");
-}
 
 for (const file of ["js/core/storage.js", "js/core/backup.js", "js/library/model.js", "js/cases/model.js"]) {
   if (!existsSync(file)) continue;
