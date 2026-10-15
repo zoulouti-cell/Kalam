@@ -109,6 +109,50 @@ body{background:var(--bg);color:var(--ink);font-family:"Segoe UI",Tahoma,Arial,s
 .brand-copy p{margin:-3px 0 0!important;font-size:12px!important;letter-spacing:0!important;color:#839187!important}
 @media(max-width:760px){.brand h1.qalam-wordmark{width:137px!important;height:61px!important}.qalam-wordmark-svg{width:137px;height:61px}}
 
+
+/* QALAM VISUAL IDENTITY — emerald, antique gold, ivory, legal-library atmosphere */
+:root{
+ --bg:#f6f1e7;--panel:#fffdf8;--ink:#173c31;--muted:#81796a;
+ --brand:#123f32;--accent:#b88b3d;--line:#e7dcc6;--soft:#f4ead7;
+ --gold:#c59a4e;--shadow:0 12px 32px rgba(65,45,17,.075)
+}
+body{background-color:var(--bg);color:var(--ink);
+ background-image:radial-gradient(ellipse at 90% 0%,rgba(197,154,78,.11),transparent 32%),
+ radial-gradient(ellipse at 0% 25%,rgba(27,83,61,.055),transparent 28%)}
+.top{background:rgba(255,253,248,.96);border-bottom:1px solid #d9c69f;box-shadow:0 5px 20px rgba(57,43,19,.06)}
+.brand h1.qalam-wordmark{filter:drop-shadow(0 2px 1px rgba(148,103,33,.10))}
+.brand-copy p{color:#87754f!important}
+.top button{background:#f7f0e2;color:#244b39;border-color:#e7d6b3}
+.hero{background:linear-gradient(115deg,rgba(255,253,248,.97),rgba(250,244,231,.95)),url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140' viewBox='0 0 140 140'%3E%3Cg fill='none' stroke='%23c5a76d' stroke-opacity='.17' stroke-width='1'%3E%3Cpath d='M70 8 86 38 116 54 86 70 70 100 54 70 24 54 54 38Z'/%3E%3Cpath d='M70 28 78 46 96 54 78 62 70 80 62 62 44 54 62 46Z'/%3E%3Ccircle cx='70' cy='54' r='38'/%3E%3C/g%3E%3C/svg%3E");
+ background-position:center,right top;background-repeat:no-repeat;background-size:auto,180px 180px;
+ border:1px solid #e5d6b8;border-radius:22px;box-shadow:0 14px 32px rgba(82,57,18,.055)}
+.hero h2{color:#173f31}
+.hero .searchrow input{background:#fffdf8;border-color:#e8dcc5;box-shadow:0 5px 15px rgba(77,57,22,.05)}
+.hero .searchrow button,button{background:linear-gradient(135deg,#1d503d,#123a2d);border:1px solid #b9924d}
+button.secondary{background:#f6eddd;color:#28513d;border:1px solid #e4d2ad}
+button.ghost{color:#28513d}
+.stat,.panel,.item,.resource-card,.band-card{background:rgba(255,253,248,.96);border-color:#e8ddc8;box-shadow:0 7px 22px rgba(71,51,20,.045)}
+.stat:before{background:linear-gradient(180deg,#d6b66f,#a87a2e)}
+.stat strong{color:#a67b34}
+.panel h3,.sectionhead h2,.item h3,.resource-heading h2{color:#1b4937}
+.navitem.active,.navitem:hover{background:#f5ead5;border-color:#e4d0a9;color:#1b4937}
+.notice{background:#fbf5e9;border-color:#ead8b5;color:#76613d}
+.resource-card{position:relative}
+.resource-card:after{content:"";position:absolute;inset:0 0 auto;height:3px;background:linear-gradient(90deg,transparent,#c8a15a,transparent);opacity:.72}
+.resource-icon{background:#f7edda;color:#a77b32}
+.resource-card[data-tone="green"] .resource-icon{background:#e8f0e8;color:#286347}
+.resource-card[data-tone="gold"] .resource-icon{background:#f7edda;color:#a77b32}
+.resource-card[data-tone="violet"] .resource-icon{background:#f1eadf;color:#8c6b39}
+.resource-card strong{color:#214a38}
+.resource-status{border:1px solid #e5d4b0}
+.band-card.primary{background:linear-gradient(115deg,#103c2e,#286044 70%,#94713b);position:relative;overflow:hidden}
+.band-card.primary:after{content:"";position:absolute;width:180px;height:180px;left:-45px;top:-70px;border:1px solid #e2c47e44;border-radius:50%;box-shadow:0 0 0 14px #e2c47e12,0 0 0 30px #e2c47e0b;pointer-events:none}
+.band-card.primary button{background:#f8efd9;color:#214b37;border-color:#c5a05d}
+.item{border-radius:14px}
+input:focus,textarea:focus,select:focus{outline:2px solid #c7a25e55;border-color:#bd9348}
+.footer{color:#8c806b}
+@media(max-width:760px){.hero{background-size:auto,115px 115px}.brand-copy p{font-size:11px!important}}
+
 </style></head>
 <body><div class="app">
 <header class="top"><div class="brand"><span class="qalam-mark" aria-label="قلم">
