@@ -11,11 +11,11 @@
   function normalize(value) {
     const fallback = empty();
     if (!value || typeof value !== "object") return fallback;
-    return {
+    return Object.assign({}, fallback, value, {
       laws: Array.isArray(value.laws) ? value.laws : fallback.laws,
       docs: Array.isArray(value.docs) ? value.docs : fallback.docs,
       saved: Array.isArray(value.saved) ? value.saved : fallback.saved
-    };
+    });
   }
 
   root.KalamLibrary = Object.freeze({ storageKey: STORAGE_KEY, empty: empty, normalize: normalize });
