@@ -44,7 +44,7 @@ header h1:after{content:"";display:inline-block;width:62px;height:38px;backgroun
 </main>
 <script src="./js/core/storage.js"></script>
 <script>
-const KEY='kalam_cases_v1';let cases=[];let currentTab='cases';
+const KEY='kalam_cases_v1';let currentTab='cases';
 const storedCases=window.KalamStorage.read(KEY,[],window.KalamStorage.isCases);
 let cases=storedCases.value.map(c=>({...c,events:Array.isArray(c.events)?c.events:[]}));
 if(!storedCases.ok&&storedCases.error==='invalid-shape')console.warn('Kalam case data has an unexpected shape; restore a valid backup if records are missing.');
