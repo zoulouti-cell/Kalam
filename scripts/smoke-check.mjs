@@ -25,6 +25,24 @@ function checkHtml(file) {
     if (!path || path.startsWith("/")) continue;
     if (!existsSync(resolve(path))) failures.push(file + ": local reference not found: " + ref);
   }
+
+  // Inline scripts run as one unit in the browser. Catch syntax errors here so an
+  // otherwise valid page cannot silently lose all of its click handlers.
+  for (const [index, match] of [...html.matchAll(/<script\b([^>]*)>([\s\S]*?)<\/script\s*>/gi)].entries()) {
+    if (/\bsrc\s*=/.test(match[1])) continue;
+    try {
+      new vm.Script(match[2], { filename: `${file} inline script ${index + 1}` });
+    } catch (error) {
+      failures.push(`${file}: inline JavaScript syntax error: ${error.message}`);
+    }
+  }
+
+  // querySelector(...).addEventListener() throws before the rest of page setup if
+  // the target was removed from the markup. Require statically named targets.
+  const ids = new Set([...html.matchAll(/\bid=["']([^"']+)["']/gi)].map(match => match[1]));
+  for (const match of html.matchAll(/querySelector\(["']#([\w-]+)["']\)\.addEventListener/gi)) {
+    if (!ids.has(match[1])) failures.push(`${file}: event listener target is missing: #${match[1]}`);
+  }
 }
 checkHtml("index.html");
 checkHtml("workspace.html");
