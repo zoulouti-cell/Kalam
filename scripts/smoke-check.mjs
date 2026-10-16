@@ -65,8 +65,18 @@ if (new Set(themeVersion.map(item => item.split(":")[1])).size > 1) {
 // case-management page, rather than both opening it at the top.
 const casesHtml = readFileSync("cases.html", "utf8");
 if (!/id=["']pageSectionTitle["']/.test(casesHtml)) failures.push("cases.html: visible lawyer section title is missing");
+if (!/\.case-heading h1\{font:700 38px/.test(casesHtml) || /قَلَم\s*<small[^>]*id=["']pageSectionTitle/.test(casesHtml)) {
+  failures.push("cases.html: lawyer section title should be prominent without a Qalam label above it");
+}
 if (!/class=["'][^"']*main-home-link[^"']*["'][^>]*href=["']\.\/index\.html["']/.test(casesHtml) || !casesHtml.includes("العودة إلى الصفحة الرئيسية")) {
   failures.push("cases.html: visible return-to-home link is missing");
+}
+const backupDockAt = casesHtml.indexOf('class="backup-dock');
+const exportAt = casesHtml.indexOf('id="export"');
+const importAt = casesHtml.indexOf('id="importBtn"');
+const mainEndAt = casesHtml.indexOf("</main>");
+if (backupDockAt < 0 || exportAt < backupDockAt || importAt < backupDockAt || exportAt > mainEndAt || importAt > mainEndAt) {
+  failures.push("cases.html: backup export/import controls should be grouped at the bottom of the page");
 }
 for (const section of ["cases", "agenda"]) {
   if (!new RegExp(`\\bid=["']${section}["']`, "i").test(casesHtml)) {
