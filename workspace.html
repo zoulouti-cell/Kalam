@@ -41,7 +41,7 @@ const P={
 };
 const params=new URLSearchParams(location.search);const key=params.get('section')||'library';const data=P[key]||P.library;
 document.title='قلم | '+data.title;document.querySelector('#brandTitle').textContent=data.title;document.querySelector('#title').textContent=data.title;document.querySelector('#subtitle').textContent=data.subtitle;document.querySelector('#sectionHeading').textContent='أقسام '+data.title;
-function routeHref(route){const direct={'cases-open':'cases.html','agenda-open':'cases.html','library-open':'index.html?view=library','documents-open':'index.html?view=documents','saved-open':'index.html?view=saved','add-reference':'index.html?view=add'};return direct[route]||('workspace.html?section='+encodeURIComponent(route))}
+function routeHref(route){const direct={'cases-open':'cases.html#cases','agenda-open':'cases.html#agenda','library-open':'index.html?view=library','documents-open':'index.html?view=documents','saved-open':'index.html?view=saved','add-reference':'index.html?view=add'};return direct[route]||('workspace.html?section='+encodeURIComponent(route))}
 document.querySelector('#grid').innerHTML=data.cards.map(c=>'<a class="card" href="'+routeHref(c[3])+'"><span class="icon">'+c[0]+'</span><strong>'+c[1]+'</strong><small>'+c[2]+'</small><span class="status">فتح القسم ↗</span></a>').join('');
 if(data.notice){const n=document.querySelector('#notice');n.textContent=data.notice;n.hidden=false}
 </script></body></html>

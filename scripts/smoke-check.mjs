@@ -49,6 +49,24 @@ checkHtml("workspace.html");
 checkHtml("cases.html");
 checkHtml("login.html");
 
+// Lawyer workspace links must land on their distinct sections in the unified
+// case-management page, rather than both opening it at the top.
+const casesHtml = readFileSync("cases.html", "utf8");
+for (const section of ["cases", "agenda"]) {
+  if (!new RegExp(`\\bid=["']${section}["']`, "i").test(casesHtml)) {
+    failures.push(`cases.html: missing lawyer workspace destination #${section}`);
+  }
+}
+const indexHtml = readFileSync("index.html", "utf8");
+const workspaceHtml = readFileSync("workspace.html", "utf8");
+for (const [file, html] of [["index.html", indexHtml], ["workspace.html", workspaceHtml]]) {
+  for (const section of ["cases", "agenda"]) {
+    if (!html.includes(`cases.html#${section}`)) {
+      failures.push(`${file}: lawyer destination cases.html#${section} is missing`);
+    }
+  }
+}
+
 for (const file of ["js/core/storage.js", "js/core/backup.js", "js/library/model.js", "js/cases/model.js"]) {
   if (!existsSync(file)) continue;
   try {
