@@ -2,7 +2,7 @@ import { readFileSync, existsSync } from "node:fs";
 import { resolve } from "node:path";
 import vm from "node:vm";
 
-const required = ["index.html", "workspace.html", "cases.html", "login.html", "manifest.webmanifest", "sw.js", "assets/qalam-letterhead-emblem.png", "js/core/storage.js", "js/core/backup.js", "js/library/model.js", "js/cases/model.js", "js/letterhead.js"];
+const required = ["index.html", "workspace.html", "cases.html", "login.html", "app.html", "portal.html", "apk/index.html", "data/lex/manifest.json", "lib/pdfjs/pdf.min.mjs", "manifest.webmanifest", "sw.js", "assets/qalam-letterhead-emblem.png", "js/core/storage.js", "js/core/backup.js", "js/library/model.js", "js/cases/model.js", "js/letterhead.js"];
 const failures = [];
 for (const file of required) {
   if (!existsSync(resolve(file))) failures.push("Missing required file: " + file);
@@ -48,9 +48,11 @@ checkHtml("index.html");
 checkHtml("workspace.html");
 checkHtml("cases.html");
 checkHtml("login.html");
+checkHtml("app.html");
+checkHtml("portal.html");
 
 const themeVersion = [];
-for (const file of ["index.html", "workspace.html", "cases.html", "login.html"]) {
+for (const file of ["index.html", "workspace.html", "cases.html", "login.html", "portal.html"]) {
   if (!existsSync(file)) continue;
   const html = readFileSync(file, "utf8");
   const themeLink = html.match(/href=["']assets\/qalam-theme\.css\?v=([^"']+)["']/i);
@@ -142,7 +144,7 @@ if (!/addEventListener\('popstate',restoreNavigation\)/.test(indexHtml) || !inde
   failures.push("index.html: browser back should restore the previous workspace level");
 }
 for (const [file, html] of [["index.html", indexHtml], ["workspace.html", workspaceHtml]]) {
-  for (const section of ["bags", "archive", "agenda"]) if (!html.includes(`cases.html#${section}`)) failures.push(`${file}: lawyer destination cases.html#${section} is missing`);
+  for (const section of ["files", "arch", "agenda"]) if (!html.includes(`app.html#${section}`)) failures.push(`${file}: lawyer destination app.html#${section} is missing`);
 }
 if (!casesHtml.includes('href="#cases"') || !casesHtml.includes('href="#documents"') || !casesHtml.includes('documents:old.documents||[]')) {
   failures.push("cases.html: case bags should contain file and document branches without dropping documents during case edits");
@@ -155,7 +157,7 @@ if (!casesHtml.includes('id="documentForm"') || !casesHtml.includes('data-case-d
 }
 
 const letterheadJs = readFileSync("js/letterhead.js", "utf8");
-if (!indexHtml.includes("workspace.html?section=letterhead") || !workspaceHtml.includes('id="letterheadApp"') || !workspaceHtml.includes('#letterheadApp [hidden]{display:none!important}') || !letterheadJs.includes("kalam_letterhead_v1") || !letterheadJs.includes("malafati-brand") || !letterheadJs.includes("window.print()") || !letterheadJs.includes("مكتب الزلوطي للمحاماة") || !letterheadJs.includes("01/5192") || !letterheadJs.includes('id="lhEditor"') || !letterheadJs.includes('contenteditable="true"') || !letterheadJs.includes("kalam_letterhead_draft_v1") || !letterheadJs.includes("sanitizeEditorHtml") || !letterheadJs.includes("data-command=\"bold\"") || !letterheadJs.includes("lhPaperHearing") || !letterheadJs.includes("qalam-letterhead-emblem.png")) {
+if (!indexHtml.includes("app.html#lh") || !workspaceHtml.includes('id="letterheadApp"') || !workspaceHtml.includes('#letterheadApp [hidden]{display:none!important}') || !letterheadJs.includes("kalam_letterhead_v1") || !letterheadJs.includes("malafati-brand") || !letterheadJs.includes("window.print()") || !letterheadJs.includes("مكتب الزلوطي للمحاماة") || !letterheadJs.includes("01/5192") || !letterheadJs.includes('id="lhEditor"') || !letterheadJs.includes('contenteditable="true"') || !letterheadJs.includes("kalam_letterhead_draft_v1") || !letterheadJs.includes("sanitizeEditorHtml") || !letterheadJs.includes("data-command=\"bold\"") || !letterheadJs.includes("lhPaperHearing") || !letterheadJs.includes("qalam-letterhead-emblem.png")) {
   failures.push("Letterhead: office identity, template emblem and case details, rich-text editing, local draft persistence, and print workflow should be available");
 }
 
@@ -179,6 +181,18 @@ const sw = existsSync("sw.js") ? readFileSync("sw.js", "utf8") : "";
 if (!/kalam-static-v\d+/.test(sw)) failures.push("sw.js: cache version is missing");
 if (!sw.includes("./assets/qalam-letterhead-emblem.png")) failures.push("sw.js: professional letterhead emblem should be precached");
 if (!/request\.mode === ["']navigate["']/.test(sw)) failures.push("sw.js: HTML navigation should use network-first strategy");
+
+// The office space and the client portal: no office's identity is published with Qalam, and their salts are Qalam's own.
+for (const file of ["app.html", "portal.html", "apk/index.html"]) {
+  const html = readFileSync(file, "utf8");
+  for (const word of ["الزلوطي", "0661410274", "01/5192", "zoulouti@", "zoulouti-data", "zerktouni"]) if (html.toLowerCase().includes(word.toLowerCase())) failures.push(`${file}: an office's own data is present (${word})`);
+}
+for (const file of ["app.html", "apk/index.html"]) {
+  const html = readFileSync(file, "utf8");
+  if (!html.includes("'qalam-portal-v1'") || !html.includes("'qalam-dossier-v1'")) failures.push(`${file}: the client portal keys must use Qalam's salts`);
+  if (!html.includes("var QID=")) failures.push(`${file}: office identity and other offices' letterheads are missing`);
+}
+if (!readFileSync("portal.html", "utf8").includes("'qalam-portal-v1'")) failures.push("portal.html: the client portal keys must use Qalam's salts");
 
 if (failures.length) {
   console.error("Kalam smoke-check failed:");

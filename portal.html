@@ -1,0 +1,260 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#234c3d"><meta name="description" content="بوابة الموكل في قلم: مرحلة الملف ومستجداته والوثائق التي يشاركها المكتب">
+<meta name="robots" content="noindex">
+<title>قلم | بوابة الموكل</title>
+<link rel="icon" href="icon.svg">
+<link rel="stylesheet" href="assets/qalam-theme.css?v=qalam-back-button-20261016">
+<style>
+:root{--bg:#f5f7f4;--panel:#fffefa;--ink:#203c31;--muted:#75867b;--brand:#234c3d;--accent:#c6a15b;--action:#3978e8;--line:#e5ebe5;--soft:#eef4ef}
+*{box-sizing:border-box}
+html:not([lang=ar]) body{font-family:Calibri,"Segoe UI",Arial,sans-serif}
+body{margin:0;min-height:100vh;color:var(--ink);background:radial-gradient(1000px 480px at 100% -10%,#edf3e7 0,rgba(237,243,231,0) 60%),var(--bg);font-family:Calibri,"Calibri Arabic","Segoe UI",Tahoma,Arial,sans-serif;line-height:1.75}
+.top{display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;padding:12px max(16px,calc((100vw - 980px)/2));background:rgba(255,254,250,.97);border-bottom:1px solid var(--line);box-shadow:0 4px 18px rgba(32,60,49,.045)}
+.top img{height:58px;width:auto;display:block}
+.top .lg-la{display:none;height:50px}html:not([lang=ar]) .top .lg-ar{display:none}html:not([lang=ar]) .top .lg-la{display:block}
+.tact{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.lang{display:flex;gap:2px;padding:3px;border:1px solid var(--line);border-radius:12px;background:#fff}
+.lang button{min-width:38px;height:34px;padding:0 8px;border:0!important;border-radius:9px!important;background:none!important;color:var(--brand)!important;box-shadow:none!important;font:700 13px inherit;font-family:inherit;cursor:pointer}
+.lang button[aria-pressed=true]{background:linear-gradient(145deg,#f3dc95,#c9a24a)!important;color:#2c2208!important}
+.back{color:var(--brand);text-decoration:none;font-weight:700;font-size:14px;padding:8px 14px;border:1px solid var(--line);border-radius:12px;background:var(--soft)}
+.wrap{max-width:980px;margin:0 auto;padding:22px 16px 40px}
+.hero{padding:26px 24px;border:1px solid var(--line);border-radius:22px;background:radial-gradient(ellipse at 0% 0%,#edf3e7 0,transparent 42%),linear-gradient(125deg,#fffefa 0%,#fbfcf8 65%,#f0f5ed 100%);box-shadow:0 10px 28px rgba(29,65,47,.065)}
+.eyebrow{color:var(--action);font-size:11px;font-weight:800;letter-spacing:1.5px;margin:0 0 6px}
+.hero h1{margin:0 0 6px;color:var(--brand);font-size:clamp(26px,6vw,34px);line-height:1.3}
+.hero p{margin:0;color:var(--muted)}
+.card{margin-top:18px;padding:22px 20px;background:var(--panel);border:1px solid var(--line);border-radius:18px;box-shadow:0 10px 28px rgba(29,65,47,.065);position:relative;overflow:hidden}
+.card::before{content:"";position:absolute;inset:0 0 auto;height:3px;background:linear-gradient(90deg,transparent,#c6a15b,transparent);opacity:.75}
+.lead{margin:0 0 12px;color:var(--muted)}
+.trf{display:grid;grid-template-columns:1fr 1fr auto;gap:12px;align-items:end}
+label{display:grid;gap:5px;font-weight:700;color:var(--brand);font-size:14px}
+input,select{width:100%;min-height:50px;padding:10px 14px;border:1px solid #dfe7df;border-radius:12px;background:#fff;color:var(--ink);font:inherit;font-size:16px}
+input:focus{outline:0;border-color:#b99a5d;box-shadow:0 0 0 4px rgba(185,154,93,.15)}
+input[type=file]{padding:10px;min-height:0}
+.btn{min-height:50px;padding:10px 20px;border-radius:12px;border:1px solid #d8e2d8;background:var(--soft);color:var(--brand);font:700 15px inherit;font-family:inherit;cursor:pointer}
+.btn.p{border-color:#c49a54;color:#fff;background:linear-gradient(120deg,#174b3c,#092f29);box-shadow:0 8px 20px rgba(12,58,43,.18)}
+.btn.o{background:#fff}
+.btn:disabled{opacity:.6;cursor:wait}
+.msg{margin:12px 0 0;color:#b65353;font-weight:700}
+.msg.ok{color:#2f7d57}
+.note{color:var(--muted);font-size:13.5px}
+.steps{display:flex;flex-wrap:wrap;gap:6px;margin:18px 0 8px;counter-reset:s}
+.step{flex:1 1 90px;text-align:center;padding:8px 6px;border-radius:10px;background:#f1f5ef;color:#8a998f;font-weight:700;font-size:13px;border:1px solid var(--line)}
+.step.on{background:#e3eee3;color:var(--brand);border-color:#cddccd}
+.step.cur{background:linear-gradient(120deg,#174b3c,#092f29);color:#fff;border-color:#c49a54}
+.upd{color:var(--muted);font-size:13.5px;margin:4px 0 0}
+.pcbox{margin-top:16px;border-top:1px solid var(--line);padding-top:12px}
+.pcbox h3,.pcsteps h3{margin:10px 0 8px;color:var(--brand);font-size:18px}
+.pcsteps{border:1px solid var(--line);border-radius:14px;padding:6px 14px 12px;background:#fbfcf9;margin-bottom:10px}
+.pvcourt{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:0 0 8px}
+.pvcourt div,.pcstep{display:flex;flex-direction:column;padding:8px 12px;border-radius:12px;background:#fff;border:1px solid var(--line);margin-bottom:6px}
+.pvcourt span,.pcstep span{color:var(--muted);font-size:12.5px}
+.pvcourt b,.pcstep b{color:var(--ink)}
+.pcstep.pvnext{border-color:#d9c08a;background:#fbf5e8}
+.pvmsg,.pvreq,.pvline,.pvfees{margin:10px 0;padding:10px 12px;border-radius:12px;border:1px solid var(--line);background:#fff}
+.pvmsg b,.pvreq b,.pvline b,.pvfees>b{color:var(--brand)}
+.pvmsg p{margin:4px 0 0;white-space:pre-wrap}
+.pvreq{background:#fbf5e8;border-color:#e8d6ad}
+.pvline ol{margin:6px 0 0;padding-inline-start:20px}
+.pvline li{display:flex;gap:10px}.pvd{color:var(--muted);direction:ltr;unicode-bidi:isolate;min-width:84px}
+.pvfg{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:6px}
+.pvf{display:flex;flex-direction:column;padding:6px 10px;border-radius:10px;background:#f5f8f4}
+.pvf span{font-size:12px;color:var(--muted)}
+.pcdoc{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:10px 12px;border:1px solid var(--line);border-radius:12px;background:#fff;margin-bottom:8px}
+.pcdoc small{display:block;color:var(--muted);font-size:12.5px}
+.pcsend{margin-top:12px;border:1px solid var(--line);border-radius:14px;padding:10px 14px;background:#fbfcf9}
+.pcsend summary{cursor:pointer;color:var(--brand);font-weight:700}
+.pcsend .trf{grid-template-columns:1fr 1fr}
+.row2{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}
+.office{display:flex;align-items:center;gap:10px;margin:0 0 12px;padding:10px 12px;border-radius:12px;background:var(--soft);color:var(--brand);font-size:14px}
+.office b{direction:ltr;unicode-bidi:isolate}
+.nooff{border:1px dashed #d9c08a;background:#fbf5e8;border-radius:14px;padding:12px 14px;margin:0 0 12px;color:#6d5a30}
+.nooff details{margin-top:6px}.nooff summary{cursor:pointer;font-weight:700}
+.foot{text-align:center;color:var(--muted);font-size:13px;padding:10px 0 30px}
+[hidden]{display:none!important}
+@media(max-width:640px){.trf{grid-template-columns:1fr}.pcsend .trf{grid-template-columns:1fr}.top img{height:48px}.pvfg{grid-template-columns:1fr 1fr 1fr}}
+</style>
+</head>
+<body>
+<header class="top"><a href="index.html" class="logo" aria-label="قلم — الصفحة الرئيسية"><img class="lg-ar" src="assets/qalam-logo.png" alt="قلم"><img class="lg-la" src="assets/qalam-latin.webp" alt="Qalam"></a><div class="tact"><div class="lang" role="group" aria-label="اللغة"><button type="button" data-lang="ar" lang="ar">ع</button><button type="button" data-lang="fr" lang="fr">FR</button><button type="button" data-lang="en" lang="en">EN</button></div><a class="back qalam-back-link" href="index.html" data-t="back">العودة إلى الصفحة الرئيسية</a></div></header>
+<main class="wrap">
+<section class="hero"><p class="eyebrow" data-t="eyebrow">QALAM · PORTAIL CLIENT</p><h1 data-t="h1">بوابة الموكل</h1><p data-t="hero">مرحلة ملفكم ومستجداته، والوثائق التي يشاركها مكتبكم معكم، وإرسال وثيقة إلى المكتب مشفّرة.</p></section>
+<section class="card" id="track">
+  <div class="office" id="offbox" hidden><span data-t="office">مكتبكم:</span> <b id="offname"></b></div>
+  <div class="nooff" id="nooff" hidden><span data-t="nooff">افتحوا الرابط الذي أرسله إليكم مكتبكم، فهو يحمل عنوان فضاء المكتب.</span>
+    <details><summary data-t="nooffs">لديّ عنوان فضاء المكتب</summary><div class="trf" style="grid-template-columns:1fr auto;margin-top:8px"><label><span data-t="offin">عنوان الفضاء (حساب/مستودع)</span><input id="offin" dir="ltr" autocomplete="off" placeholder="account/office-data"></label><button type="button" class="btn" id="offgo" data-t="offgo">اعتماد</button></div></details></div>
+  <p class="lead" data-t="lead">أدخلوا رقم الاطلاع ورمزه كما وصلاكم من المكتب.</p>
+  <div class="trf">
+    <label><span data-t="ref">رقم الاطلاع</span><input id="trref" dir="ltr" autocomplete="off" maxlength="40"></label>
+    <label><span data-t="code">رمز الاطلاع</span><input id="trcode" dir="ltr" autocomplete="off" maxlength="40"></label>
+    <button type="button" class="btn p" id="trgo" data-t="go">اطلاع</button>
+  </div>
+  <p class="msg" id="trnf" hidden data-t="nf">لا يوجد ملف مطابق. تحقّقوا من الرقم والرمز، أو تواصلوا مع المكتب.</p>
+  <div id="trres" hidden>
+    <div class="steps" id="steps"><div class="step" data-t="st1">قيد الدرس</div><div class="step" data-t="st2">مسطرة جارية</div><div class="step" data-t="st4">ابتدائي</div><div class="step" data-t="st5">استئنافي</div><div class="step" data-t="st6">النقض</div><div class="step" data-t="st3">ملف مغلق</div></div>
+    <p class="upd"><span data-t="upd">آخر تحديث</span>: <bdi id="trdate"></bdi></p><div class="pcbox" id="pcbox" hidden><div class="pcsteps" id="pcsteps" hidden></div><h3 data-t="pch">وثائق ملفكم</h3><p class="note" id="pcst"></p><div id="pclist"></div><details class="pcsend" id="send"><summary data-t="send">إرسال وثيقة إلى المكتب</summary><p class="note" data-t="sendn">تُشفَّر الوثيقة على جهازكم فلا يفتحها إلا المكتب، ثم ترسلون الملف الناتج عبر واتساب أو البريد.</p><div class="trf"><label><span data-t="file">الوثيقة</span><input type="file" id="pcfile"></label><label><span data-t="note">ملاحظة (اختيارية)</span><input id="pcnote" maxlength="120" autocomplete="off"></label></div><div class="row2"><button type="button" class="btn p" id="pcgo" data-t="pcgo">تشفير وإرسال</button></div><p class="msg" id="pcmsg"></p></details></div>
+  </div>
+  <p class="note" data-t="trnote">تُعرض هنا مرحلة الملف ومستجداته والوثائق التي يشاركها المكتب معكم؛ وللتفاصيل يرجى التواصل مع المكتب. لا يُرسل الرقم ولا الرمز إلى أي خادم: يُحسب أثرهما المشفّر على جهازكم.</p>
+</section>
+</main>
+<footer class="foot" data-t="foot">قلم · فضاء العمل القانوني</footer>
+<script>
+(function(){
+var $=function(id){return document.getElementById(id);},h=document.documentElement,lastD='',enc=new TextEncoder(),reg={v:1,items:{}};
+/* the office's data space, named by the link it sent: portal.html?o=account/repository */
+var OFFICE='';try{OFFICE=(new URLSearchParams(location.search).get('o')||'').trim();}catch(e){}
+if(!/^[\w.-]+\/[\w.-]+$/.test(OFFICE))OFFICE='';
+function office(){$('offbox').hidden=!OFFICE;$('nooff').hidden=!!OFFICE;$('offname').textContent=OFFICE;}
+office();
+$('offgo').addEventListener('click',function(){var v=$('offin').value.trim();if(!/^[\w.-]+\/[\w.-]+$/.test(v)){$('offin').focus();return;}OFFICE=v;regLoaded=false;reg.items={};
+  try{var u=new URL(location.href);u.searchParams.set('o',v);history.replaceState(null,'',u.pathname+u.search+u.hash);}catch(e){}office();});
+function fmt(d){try{return new Date(d+'T12:00:00').toLocaleDateString(h.lang==='ar'?'ar-u-nu-latn':h.lang,{year:'numeric',month:'long',day:'numeric'});}catch(x){return d;}}
+/* ع / FR / EN: the page in the client's language; «Qalam» in Latin letters in French and English */
+var TX={
+ fr:{title:'Qalam | Espace client',back:'Retour à l’accueil',eyebrow:'QALAM · ESPACE CLIENT',h1:'Espace client',hero:'L’étape de votre dossier et ses nouvelles, les documents que votre cabinet partage avec vous, et l’envoi chiffré d’un document au cabinet.',office:'Votre cabinet :',nooff:'Ouvrez le lien envoyé par votre cabinet : il porte l’adresse de l’espace du cabinet.',nooffs:'J’ai l’adresse de l’espace du cabinet',offin:'Adresse de l’espace (compte/dépôt)',offgo:'Valider',lead:'Saisissez le numéro et le code d’accès reçus du cabinet.',ref:'Numéro d’accès',code:'Code d’accès',go:'Consulter',nf:'Aucun dossier ne correspond. Vérifiez le numéro et le code, ou contactez le cabinet.',st1:'En étude',st2:'Procédure en cours',st4:'Première instance',st5:'Appel',st6:'Cassation',st3:'Dossier clos',upd:'Dernière mise à jour',pch:'Documents de votre dossier',send:'Envoyer un document au cabinet',sendn:'Le document est chiffré sur votre appareil : seul le cabinet peut l’ouvrir. Envoyez ensuite le fichier obtenu par WhatsApp ou par e-mail.',file:'Document',note:'Note (facultative)',pcgo:'Chiffrer et envoyer',trnote:'Vous voyez ici l’étape de votre dossier, ses nouvelles et les documents que le cabinet partage avec vous ; pour le détail, contactez le cabinet. Ni le numéro ni le code ne sont envoyés à un serveur : leur empreinte chiffrée est calculée sur votre appareil.',foot:'Qalam · Espace de travail juridique'},
+ en:{title:'Qalam | Client portal',back:'Back to home',eyebrow:'QALAM · CLIENT PORTAL',h1:'Client portal',hero:'Your case’s stage and news, the documents your law firm shares with you, and sending an encrypted document to the firm.',office:'Your firm:',nooff:'Open the link your firm sent you: it carries the address of the firm’s space.',nooffs:'I have the address of the firm’s space',offin:'Space address (account/repository)',offgo:'Use',lead:'Enter the access number and code you received from the firm.',ref:'Access number',code:'Access code',go:'View',nf:'No matching file. Check the number and the code, or contact the firm.',st1:'Under review',st2:'Proceedings ongoing',st4:'First instance',st5:'Appeal',st6:'Cassation',st3:'File closed',upd:'Last update',pch:'Your case documents',send:'Send a document to the firm',sendn:'The document is encrypted on your device so that only the firm can open it; then send the resulting file by WhatsApp or e-mail.',file:'Document',note:'Note (optional)',pcgo:'Encrypt and send',trnote:'Here you see your case’s stage, its news and the documents the firm shares with you; for details, please contact the firm. Neither the number nor the code is sent to any server: their encrypted fingerprint is computed on your device.',foot:'Qalam · Legal workspace'}};
+var AR={};[].forEach.call(document.querySelectorAll('[data-t]'),function(e){AR[e.getAttribute('data-t')]=e.textContent;});AR.title=document.title;
+function setLang(l){if(!TX[l])l='ar';h.lang=l;h.dir=l==='ar'?'rtl':'ltr';var D=TX[l]||AR;
+  [].forEach.call(document.querySelectorAll('[data-t]'),function(e){var k=e.getAttribute('data-t');e.textContent=(D[k]!=null?D[k]:AR[k]);});document.title=D.title||AR.title;
+  [].forEach.call(document.querySelectorAll('[data-lang]'),function(b){b.setAttribute('aria-pressed',b.getAttribute('data-lang')===l?'true':'false');});
+  if(lastD)$('trdate').textContent=fmt(lastD);try{localStorage.setItem('q_lang',l);}catch(e){}
+  if(typeof lookup==='function'&&!$('trres').hidden)lookup();}
+[].forEach.call(document.querySelectorAll('[data-lang]'),function(b){b.addEventListener('click',function(){setLang(b.getAttribute('data-lang'));});});
+var L0='ar';try{L0=new URLSearchParams(location.search).get('l')||localStorage.getItem('q_lang')||'ar';}catch(e){}setLang(L0);
+var regLoaded=false;
+function mergeReg(j){if(j&&j.items)Object.assign(reg.items,j.items);}
+async function loadReg(){
+  if(regLoaded)return;regLoaded=true;var repo=OFFICE;if(!repo)return;
+  try{var r=await fetch('https://api.github.com/repos/'+repo+'/contents/registry.json?t='+Date.now(),{headers:{Accept:'application/vnd.github+json'},cache:'no-store'});
+    if(r.ok){var j=await r.json();mergeReg(JSON.parse(decodeURIComponent(escape(atob(j.content.replace(/\s/g,''))))));return;}}catch(x){}
+  try{var w=await fetch('https://raw.githubusercontent.com/'+repo+'/HEAD/registry.json',{cache:'no-store'});if(w.ok){mergeReg(await w.json());return;}}catch(x){}
+}
+function hex(b){return Array.prototype.map.call(new Uint8Array(b),function(x){return ('0'+x.toString(16)).slice(-2);}).join('');}
+function norm(s){return String(s||'').toUpperCase().replace(/[\s\-]+/g,'');}
+/* the number and the code as typed: without the hidden marks a copy from WhatsApp may carry, and with their digits written either way */
+function variants(r,c){function base(x){x=String(x||'');try{x=x.normalize('NFKC');}catch(e){}return x.replace(/[\u200B-\u200F\u202A-\u202E\u2066-\u2069\uFEFF\u00AD]/g,'');}
+  function ascii(x){return x.replace(/[\u0660-\u0669]/g,function(d){return String.fromCharCode(d.charCodeAt(0)-0x630);}).replace(/[\u06F0-\u06F9]/g,function(d){return String.fromCharCode(d.charCodeAt(0)-0x6C0);});}
+  function ind(x){return x.replace(/[0-9]/g,function(d){return String.fromCharCode(0x660+(+d));});}
+  var R=base(r),C=base(c),out=[],seen={};[[r,c],[R,C],[ascii(R),ascii(C)],[ind(ascii(R)),ind(ascii(C))]].forEach(function(p){var k=norm(p[0])+'|'+norm(p[1]);if(!seen[k]&&norm(p[0])&&norm(p[1])){seen[k]=1;out.push(p);}});return out;}
+async function keyOf(ref,code){
+  var km=await crypto.subtle.importKey('raw',enc.encode(norm(ref)+'|'+norm(code)),'PBKDF2',false,['deriveBits']);
+  var bits=await crypto.subtle.deriveBits({name:'PBKDF2',salt:enc.encode('qalam-dossier-v1'),iterations:150000,hash:'SHA-256'},km,256);
+  return hex(bits);
+}
+var PVT_AR={sh:'مستجدات ملفكم',nx:'الجلسة المقبلة',ls:'آخر ما جرى في الملف',tm:'على الساعة',rm:'القاعة',nonew:'لا جديد مسجل في الملف بعد',court:'المحكمة',fno:'رقم الملف',
+  hist:'سجل الجلسات',proc:'الإجراءات المنجزة',msg:'رسالة من المكتب',req:'وثائق مطلوبة منكم',reqh:'أرسلوها من «إرسال وثيقة إلى المكتب» أسفله.',fees:'الأتعاب',fee:'المتفق عليه',paid:'المؤدى',rest:'الباقي',cur:'درهم'};
+function PVR(ix,t,box){
+  function E(tg,c,x){var e=document.createElement(tg);if(c)e.className=c;if(x!=null)e.textContent=x;return e;}
+  function dmy(s){return s?String(s).slice(0,10).split('-').reverse().join('/'):'';}
+  function bdi(v){var b=E('bdi',null,v);return b;}
+  var s=(ix&&ix.steps)||{},v=s.view||{};
+  box.appendChild(E('h3',null,t('sh')));
+  if(v.court){var c=E('div','pvcourt');[[t('court'),v.court.c],[t('fno'),v.court.no]].forEach(function(x){if(!x[1])return;var d=E('div');d.appendChild(E('span',null,x[0]));var b=E('b');b.appendChild(bdi(x[1]));d.appendChild(b);c.appendChild(d);});box.appendChild(c);}
+  function row(l,val,cls){var r=E('div','pcstep'+(cls?' '+cls:''));r.appendChild(E('span',null,l));var x=E('b');x.appendChild(bdi(val));r.appendChild(x);box.appendChild(r);}
+  if(s.next)row(t('nx'),dmy(s.next.d)+(s.next.t?' '+t('tm')+' '+s.next.t:'')+(s.next.r?' — '+t('rm')+' '+s.next.r:''),'pvnext');
+  if(s.last)row(t('ls'),dmy(s.last.d)+' — '+s.last.a);
+  if(!s.next&&!s.last&&!v.hist&&!v.proc)row(t('ls'),t('nonew'));
+  if(v.msg){var m=E('div','pvmsg');m.appendChild(E('b',null,t('msg')));m.appendChild(E('p',null,v.msg));box.appendChild(m);}
+  if(v.req&&v.req.length){var q=E('div','pvreq');q.appendChild(E('b',null,t('req')));var ul=E('ul');v.req.forEach(function(x){ul.appendChild(E('li',null,x));});q.appendChild(ul);q.appendChild(E('small',null,t('reqh')));box.appendChild(q);}
+  function line(title,list){var w=E('div','pvline');w.appendChild(E('b',null,title));var ol=E('ol');list.forEach(function(x){var li=E('li');li.appendChild(E('span','pvd',dmy(x.d)));li.appendChild(E('span','pva',x.a));ol.appendChild(li);});w.appendChild(ol);box.appendChild(w);}
+  if(v.hist&&v.hist.length)line(t('hist'),v.hist);
+  if(v.proc&&v.proc.length)line(t('proc'),v.proc);
+  if(v.fees){var f=E('div','pvfees');f.appendChild(E('b',null,t('fees')));var g=E('div','pvfg');[['fee',t('fee')],['paid',t('paid')],['rest',t('rest')]].forEach(function(k){if(v.fees[k[0]]==null)return;var c=E('div','pvf pvf-'+k[0]);c.appendChild(E('span',null,k[1]));var n=E('b');n.appendChild(bdi(Number(v.fees[k[0]]).toLocaleString('fr-FR')+' '+t('cur')));c.appendChild(n);g.appendChild(c);});f.appendChild(g);box.appendChild(f);}
+}
+var PC=(function(){
+  var ITER=310000,SALT='qalam-portal-v1',enc=new TextEncoder(),dec=new TextDecoder(),cur=null,repo=null,MAXB=10*1024*1024;
+  var L={
+    ar:{nonew:'لا جديد مسجل في الملف بعد',court:'المحكمة',fno:'رقم الملف',hist:'سجل الجلسات',proc:'الإجراءات المنجزة',msg:'رسالة من المكتب',req:'وثائق مطلوبة منكم',reqh:'أرسلوها من «إرسال وثيقة إلى المكتب» أسفله.',fees:'الأتعاب',fee:'المتفق عليه',paid:'المؤدى',rest:'الباقي',cur:'درهم',sh:'مستجدات ملفكم',nx:'الجلسة المقبلة',ls:'آخر ما جرى في الملف',tm:'على الساعة',rm:'القاعة',wait:'جارٍ فتح وثائق الملف…',none:'لا توجد وثائق مشتركة معكم حاليًا.',err:'تعذر جلب الوثائق الآن. أعيدوا المحاولة بعد قليل.',dl:'تنزيل',until:'متاحة حتى',busy:'جارٍ التنزيل…',bad:'تعذر فك الوثيقة.',pick:'اختاروا وثيقة أولًا.',big:'الحد الأقصى 10 م.ب.',nokey:'المكتب لم يفعّل استلام الوثائق بعد. تواصلوا معه.',made:'جاهز. أرسلوا الملف المشفر إلى المكتب عبر واتساب أو البريد.',shared:'أُرسل الملف المشفر.',encr:'جارٍ التشفير…'},
+    fr:{nonew:'Aucune nouvelle étape pour le moment',court:'Tribunal',fno:'N° du dossier',hist:'Historique des audiences',proc:'Actes accomplis',msg:'Message du cabinet',req:'Documents demandés',reqh:'Envoyez-les avec « Envoyer un document au cabinet » ci-dessous.',fees:'Honoraires',fee:'Convenus',paid:'Versés',rest:'Reste',cur:'DH',sh:'Suivi de votre dossier',nx:'Prochaine audience',ls:'Dernière étape',tm:'à',rm:'salle',wait:'Ouverture des documents…',none:'Aucun document partagé pour le moment.',err:'Impossible de récupérer les documents. Réessayez plus tard.',dl:'Télécharger',until:'Disponible jusqu’au',busy:'Téléchargement…',bad:'Impossible de déchiffrer le document.',pick:'Choisissez d’abord un document.',big:'10 Mo maximum.',nokey:'Le cabinet n’a pas encore activé la réception. Contactez-le.',made:'Prêt. Envoyez le fichier chiffré au cabinet par WhatsApp ou e-mail.',shared:'Fichier chiffré envoyé.',encr:'Chiffrement…'},
+    en:{nonew:'No new step recorded yet',court:'Court',fno:'File number',hist:'Hearing history',proc:'Steps completed',msg:'Message from the firm',req:'Documents requested',reqh:'Send them with “Send a document to the firm” below.',fees:'Fees',fee:'Agreed',paid:'Paid',rest:'Balance',cur:'MAD',sh:'Your case update',nx:'Next hearing',ls:'Latest step',tm:'at',rm:'room',wait:'Opening documents…',none:'No documents shared with you yet.',err:'Could not fetch documents now. Please retry later.',dl:'Download',until:'Available until',busy:'Downloading…',bad:'Could not decrypt the document.',pick:'Choose a document first.',big:'10 MB maximum.',nokey:'The firm has not enabled receiving yet. Please contact it.',made:'Ready. Send the encrypted file to the firm by WhatsApp or e-mail.',shared:'Encrypted file sent.',encr:'Encrypting…'}
+  };
+  function t(k){var l=document.documentElement.lang||'ar';return (L[l]||L.ar)[k]||L.ar[k];}
+  function $p(i){return document.getElementById(i);}
+  function E(tg,c,x){var e=document.createElement(tg);if(c)e.className=c;if(x!=null)e.textContent=x;return e;}
+  function nk(v){return String(v||'').toUpperCase().replace(/[\s\-]+/g,'');}
+  function hex(u){return [].map.call(new Uint8Array(u),function(x){return ('0'+x.toString(16)).slice(-2);}).join('');}
+  function b64(u8){u8=new Uint8Array(u8);var s='',CH=0x8000;for(var i=0;i<u8.length;i+=CH)s+=String.fromCharCode.apply(null,u8.subarray(i,i+CH));return btoa(s);}
+  function ub64(s){var b=atob(s),u=new Uint8Array(b.length);for(var i=0;i<b.length;i++)u[i]=b.charCodeAt(i);return u;}
+  function size(n){var ar=(document.documentElement.lang||'ar')==='ar',fr=document.documentElement.lang==='fr';return n>=1048576?(n/1048576).toFixed(1)+(ar?' م.ب':fr?' Mo':' MB'):Math.max(1,Math.round(n/1024))+(ar?' ك.ب':fr?' Ko':' KB');}
+  function dmy(s){return s?String(s).slice(0,10).split('-').reverse().join('/'):'';}
+  async function getRepo(){return OFFICE;}
+  async function getBin(path,fresh){
+    var r=await getRepo();if(!r)throw new Error('norepo');
+    var urls=fresh?['https://api.github.com/repos/'+r+'/contents/'+path+'?t='+Date.now(),'https://raw.githubusercontent.com/'+r+'/HEAD/'+path]:['https://raw.githubusercontent.com/'+r+'/HEAD/'+path,'https://api.github.com/repos/'+r+'/contents/'+path];
+    var nf=false;
+    for(var i=0;i<urls.length;i++){try{var x=await fetch(urls[i],{headers:urls[i].indexOf('api.github')>0?{Accept:'application/vnd.github.raw'}:{},cache:'no-store'});if(x.status===404){nf=true;continue;}if(x.ok)return new Uint8Array(await x.arrayBuffer());}catch(e){}}
+    if(nf)return null;throw new Error('net');
+  }
+  async function keysOf(ref,code){
+    var km=await crypto.subtle.importKey('raw',enc.encode(nk(ref)+'|'+nk(code)),'PBKDF2',false,['deriveBits']);
+    var bits=new Uint8Array(await crypto.subtle.deriveBits({name:'PBKDF2',salt:enc.encode(SALT),iterations:ITER,hash:'SHA-256'},km,512));
+    return {fid:hex(bits.slice(0,16)),key:await crypto.subtle.importKey('raw',bits.slice(32,64),'AES-GCM',false,['decrypt']),mac:await crypto.subtle.importKey('raw',bits.slice(16,32),{name:'HMAC',hash:'SHA-256'},false,['sign'])};
+  }
+  async function open(key,u8){return new Uint8Array(await crypto.subtle.decrypt({name:'AES-GCM',iv:u8.slice(0,12)},key,u8.slice(12)));}
+  /* the next hearing and the latest step, written by the office into the file's encrypted index */
+  function steps(ix){var b=$p('pcsteps');if(!b)return;b.textContent='';if(!ix){b.hidden=true;return;}PVR(ix,t,b);b.hidden=false;}
+  function st(x){var s=$p('pcst');if(s){s.textContent=x||'';s.hidden=!x;}}
+  async function load(list){
+    var box=$p('pcbox');if(!box)return {found:false};box.hidden=false;$p('pclist').textContent='';st(t('wait'));cur=null;
+    try{var raw=null,k=null,first=null;for(var i=0;i<list.length&&!raw;i++){k=await keysOf(list[i][0],list[i][1]);if(!first)first=k;raw=await getBin('portal/'+k.fid+'/i',true);}
+      cur=raw?k:first;
+      if(!raw){steps(null);st(t('none'));return {found:false};}
+      var ix=JSON.parse(dec.decode(await open(cur.key,raw)));steps(ix);var today=new Date().toISOString().slice(0,10),docs=(ix.docs||[]).filter(function(d){return !d.exp||d.exp>=today;});
+      if(!docs.length){st(t('none'));return {found:true};}st('');
+      docs.forEach(function(d){var r=E('div','pcdoc'),tx=E('div');var nb=E('b');nb.appendChild(E('bdi',null,d.name));tx.appendChild(nb);tx.appendChild(E('small',null,size(d.size)+' | '+t('until')+' '+dmy(d.exp)+(d.note?' | '+d.note:'')));r.appendChild(tx);
+        var b=E('button','btn o',t('dl'));b.type='button';b.addEventListener('click',async function(){b.disabled=true;var o=b.textContent;b.textContent=t('busy');
+          try{var c=await getBin('portal/'+cur.fid+'/'+d.id,false);if(!c)throw 0;var p=await open(cur.key,c),u=URL.createObjectURL(new Blob([p],{type:d.type||'application/octet-stream'})),a=E('a');a.href=u;a.download=d.name;document.body.appendChild(a);a.click();setTimeout(function(){a.remove();URL.revokeObjectURL(u);},4000);}
+          catch(e){alert(t('bad'));}b.disabled=false;b.textContent=o;});r.appendChild(b);$p('pclist').appendChild(r);});
+      return {found:true};
+    }catch(e){st(t('err'));return {found:false,err:true};}
+  }
+  async function send(){
+    var m=$p('pcmsg'),f=($p('pcfile').files||[])[0];function say(x,ok){m.textContent=x;m.className='msg'+(ok?' ok':'');}
+    if(!cur){return;}if(!f){say(t('pick'));return;}if(f.size>MAXB){say(t('big'));return;}
+    say(t('encr'),true);
+    try{
+      var raw=await getBin('portal/pub.json',true);if(!raw){say(t('nokey'));return;}var pk=JSON.parse(dec.decode(raw));
+      var pub=await crypto.subtle.importKey('spki',ub64(pk.pub),{name:'ECDH',namedCurve:'P-256'},false,[]);
+      var eph=await crypto.subtle.generateKey({name:'ECDH',namedCurve:'P-256'},true,['deriveKey']);
+      var k=await crypto.subtle.deriveKey({name:'ECDH',public:pub},eph.privateKey,{name:'AES-GCM',length:256},false,['encrypt']);
+      var data=new Uint8Array(await f.arrayBuffer()),dig=await crypto.subtle.digest('SHA-256',data),proof=new Uint8Array(await crypto.subtle.sign('HMAC',cur.mac,dig));
+      var payload=enc.encode(JSON.stringify({v:1,name:f.name,type:f.type||'application/octet-stream',size:f.size,note:($p('pcnote').value||'').trim().slice(0,120),at:new Date().toISOString(),fid:cur.fid,proof:b64(proof),data:b64(data)}));
+      var iv=crypto.getRandomValues(new Uint8Array(12)),c=new Uint8Array(await crypto.subtle.encrypt({name:'AES-GCM',iv:iv},k,payload));
+      var pkg=JSON.stringify({app:'milaf-doc',v:1,fp:pk.fp||'',epk:b64(await crypto.subtle.exportKey('spki',eph.publicKey)),iv:b64(iv),c:b64(c)});
+      var name='document-'+new Date().toISOString().slice(0,10)+'.milaf',file=new File([pkg],name,{type:'application/octet-stream'});
+      if(navigator.canShare&&navigator.canShare({files:[file]})){try{await navigator.share({files:[file],title:name});say(t('shared'),true);return;}catch(e){if(e&&e.name==='AbortError'){say(t('made'),true);return;}}}
+      var u=URL.createObjectURL(file),a=E('a');a.href=u;a.download=name;document.body.appendChild(a);a.click();setTimeout(function(){a.remove();URL.revokeObjectURL(u);},4000);say(t('made'),true);
+    }catch(e){say(t('err'));}
+  }
+  function hide(){var b=$p('pcbox');if(b)b.hidden=true;steps(null);cur=null;}
+  document.addEventListener('DOMContentLoaded',function(){});
+  function wire(){var g=$p('pcgo');if(g&&!g.getAttribute('data-w')){g.setAttribute('data-w','1');g.addEventListener('click',send);}}
+  return {load:load,hide:hide,wire:wire};
+})();
+async function lookup(){if(!OFFICE){$('nooff').hidden=false;try{$('nooff').scrollIntoView({block:'center'});}catch(e){}return;}
+  var r=$('trref').value,c=$('trcode').value;
+  $('trnf').hidden=true;$('trres').hidden=true;lastD='';PC.hide();
+  if(!norm(r)||!norm(c)){$('trnf').hidden=false;return;}
+  var it=null,vs=variants(r,c),use=null;
+  try{await loadReg();for(var i=0;i<vs.length&&!it;i++){var k=await keyOf(vs[i][0],vs[i][1]);if(reg.items[k]){it=reg.items[k];use=vs[i];}}}catch(x){}
+  var stp=$('steps'),upd=$('trdate').parentNode;stp.hidden=upd.hidden=!it;
+  if(it){var pos=({1:1,2:2,4:3,5:4,6:5,3:6})[it.s]||it.s;document.querySelectorAll('#steps .step').forEach(function(el,i){el.classList.toggle('on',i<pos);el.classList.toggle('cur',i===pos-1);});
+    lastD=it.d;$('trdate').textContent=fmt(it.d);}
+  $('trres').hidden=false;PC.wire();
+  /* the documents and the news of the file do not wait for the stage: they are looked for even when the stage is not yet published */
+  var res=await PC.load(use?[use].concat(vs.filter(function(v){return v!==use;})):vs);
+  if(!it&&!res.found&&!res.err){$('trres').hidden=true;$('trnf').hidden=false;}
+}
+$('trgo').addEventListener('click',lookup);
+/* the link of the office's message carries the access number (#track=…): only the code remains to be typed */
+(function(){var m=/^#track=(.+)$/.exec(location.hash||'');if(!m)return;var v='';try{v=decodeURIComponent(m[1]);}catch(e){v=m[1];}
+  try{history.replaceState(null,'',location.pathname+location.search+'#track');}catch(e){}$('trref').value=v;
+  setTimeout(function(){var t=document.getElementById('track');if(t)t.scrollIntoView();try{$('trcode').focus({preventScroll:true});}catch(e){}},300);})();
+['trref','trcode'].forEach(function(id){$(id).addEventListener('keydown',function(e){if(e.key==='Enter')lookup();});});
+
+})();
+</script>
+</body>
+</html>
