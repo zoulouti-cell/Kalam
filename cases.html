@@ -33,14 +33,12 @@ header h1:after{content:"";display:inline-block;width:62px;height:38px;backgroun
 @media(max-width:600px){header h1{font-size:30px}header h1:after{width:48px;height:30px}}
 .case-heading h1{display:block}
 header h1:after{content:none!important;display:none!important}
-header .main-home-link{display:inline-flex;align-items:center;justify-content:center;gap:7px;padding:9px 14px;border:1px solid #dfe8df;border-radius:12px;background:#f3f7f2;color:#234c3d!important;text-decoration:none;font-weight:700;white-space:nowrap}
-header .main-home-link:hover{background:#eaf1e9;border-color:#cbd9ca}
 @media(max-width:600px){.case-heading h1{font-size:31px}header .main-home-link{width:100%}}
 </style>
-<link rel="stylesheet" href="assets/qalam-theme.css?v=qalam-calibri-20261016">
+<link rel="stylesheet" href="assets/qalam-theme.css?v=qalam-cohesion-20261016">
 </head>
 <body>
-<header><div class="case-heading"><h1 id="pageSectionTitle" class="qalam-page-title">إدارة القضايا والمفكرة المهنية</h1><div class="muted">إدارة الملفات والإجراءات والمواعيد</div></div><div class="row"><a class="main-home-link" href="./index.html"><span aria-hidden="true">⌂</span> العودة إلى الصفحة الرئيسية</a></div></header>
+<header><div class="case-heading"><h1 id="pageSectionTitle" class="qalam-page-title">إدارة القضايا والمفكرة المهنية</h1><div class="muted">إدارة الملفات والإجراءات والمواعيد</div></div><div class="row"><a class="main-home-link qalam-back-link" href="./index.html"><span aria-hidden="true">⌂</span> العودة إلى الصفحة الرئيسية</a></div></header>
 <main>
 <section class="panel"><div class="row"><div style="flex:1"><h2 style="margin:0">لوحة المتابعة</h2><div class="muted">الملفات والمواعيد المسجلة في هذا المتصفح</div></div><button id="new">＋ ملف جديد</button><button id="notify" class="secondary">تفعيل تنبيهات المتصفح</button></div><div class="stats" style="margin-top:14px"><div class="stat"><span class="muted">مجموع الملفات</span><strong id="countCases">0</strong></div><div class="stat"><span class="muted">مواعيد خلال 14 يومًا</span><strong id="countUpcoming">0</strong></div><div class="stat"><span class="muted">آجال متأخرة غير منجزة</span><strong id="countOverdue">0</strong></div></div><div class="notice" style="margin-top:12px">تنبيهات المتصفح لا تضمن العمل في الخلفية أو بعد إغلاق الصفحة. تحقّق من الأجندة الرسمية ولا تعتمد على هذا النموذج وحده لحساب الآجال القانونية.</div></section>
 <section id="formWrap"></section><section id="agenda" class="panel"><h2 style="margin-top:0">المواعيد القادمة والآجال</h2><div id="upcoming" class="list"></div></section>

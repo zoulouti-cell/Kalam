@@ -102,6 +102,15 @@ for (const section of ["cases", "agenda"]) {
 }
 const indexHtml = readFileSync("index.html", "utf8");
 const workspaceHtml = readFileSync("workspace.html", "utf8");
+const workspaceHomeLinks = [...workspaceHtml.matchAll(/href=["']index\.html["']/gi)].length;
+if (workspaceHomeLinks !== 1 || /id=["']brandTitle["']|querySelector\(["']#brandTitle/.test(workspaceHtml)) {
+  failures.push("workspace.html: duplicate page title or return-to-home control is present");
+}
+for (const [file, html] of [["index.html", indexHtml], ["workspace.html", workspaceHtml], ["cases.html", casesHtml], ["login.html", readFileSync("login.html", "utf8")]]) {
+  if (file === "index.html" ? !/id=["']homeBack["'][^>]*qalam-back-link/.test(html) : !/qalam-back-link/.test(html)) {
+    failures.push(`${file}: shared return navigation style is missing`);
+  }
+}
 for (const [file, html] of [["index.html", indexHtml], ["workspace.html", workspaceHtml]]) {
   for (const section of ["cases", "agenda"]) {
     if (!html.includes(`cases.html#${section}`)) {

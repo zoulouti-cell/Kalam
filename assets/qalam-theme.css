@@ -185,8 +185,8 @@ body h6 { font-size: 16px !important; font-weight: 600 !important; line-height: 
 }
 
 /* Shared page actions and backup controls across the library and lawyer area. */
-header.top .btn,
-body > header .main-home-link {
+.qalam-back-link {
+  display: inline-flex;
   min-height: 42px;
   padding: 9px 15px;
   border: 1px solid #dfe8df;
@@ -194,13 +194,17 @@ body > header .main-home-link {
   color: var(--brand) !important;
   background: var(--soft);
   font-weight: 700;
+  font-size: 15px;
   text-decoration: none;
+  text-shadow: none;
+  backdrop-filter: none;
+  white-space: nowrap;
 }
-header.top .btn:hover,
-body > header .main-home-link:hover {
+.qalam-back-link:hover {
   border-color: #cbd9ca;
   background: #e8f0e9;
 }
+.qalam-back-link[hidden] { display: none !important; }
 body > header .row { gap: 10px; }
 body > header .row > button,
 .backup-actions > button {
@@ -227,7 +231,7 @@ body > header .row > button,
 .backup-dock p { color: var(--muted); }
 @media (max-width: 600px) {
   body > header .row { width: 100%; }
-  body > header .main-home-link { width: 100%; }
+  .qalam-back-link { width: 100%; }
   .backup-dock { margin: 22px 12px 0; padding: 16px; align-items: stretch; flex-direction: column; }
   .backup-actions > * { flex: 1; }
 }
