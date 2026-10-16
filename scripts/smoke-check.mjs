@@ -155,7 +155,7 @@ if (!casesHtml.includes('id="documentForm"') || !casesHtml.includes('data-case-d
 }
 
 const letterheadJs = readFileSync("js/letterhead.js", "utf8");
-if (!indexHtml.includes("workspace.html?section=letterhead") || !workspaceHtml.includes('id="letterheadApp"') || !letterheadJs.includes("kalam_letterhead_v1") || !letterheadJs.includes("malafati-brand") || !letterheadJs.includes("window.print()") || !letterheadJs.includes("مكتب الزلوطي للمحاماة") || !letterheadJs.includes("01/5192")) {
+if (!indexHtml.includes("workspace.html?section=letterhead") || !workspaceHtml.includes('id="letterheadApp"') || !workspaceHtml.includes('#letterheadApp [hidden]{display:none!important}') || !letterheadJs.includes("kalam_letterhead_v1") || !letterheadJs.includes("malafati-brand") || !letterheadJs.includes("window.print()") || !letterheadJs.includes("مكتب الزلوطي للمحاماة") || !letterheadJs.includes("01/5192")) {
   failures.push("Letterhead: office identity setup, import compatibility, and print workflow should be available from the editor");
 }
 
