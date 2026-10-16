@@ -49,6 +49,18 @@ checkHtml("workspace.html");
 checkHtml("cases.html");
 checkHtml("login.html");
 
+const themeVersion = [];
+for (const file of ["index.html", "workspace.html", "cases.html", "login.html"]) {
+  if (!existsSync(file)) continue;
+  const html = readFileSync(file, "utf8");
+  const themeLink = html.match(/href=["']assets\/qalam-theme\.css\?v=([^"']+)["']/i);
+  if (!themeLink) failures.push(`${file}: shared Qalam theme stylesheet is missing`);
+  else themeVersion.push(`${file}:${themeLink[1]}`);
+}
+if (new Set(themeVersion.map(item => item.split(":")[1])).size > 1) {
+  failures.push("Pages use different cached versions of the shared Qalam theme");
+}
+
 // Lawyer workspace links must land on their distinct sections in the unified
 // case-management page, rather than both opening it at the top.
 const casesHtml = readFileSync("cases.html", "utf8");

@@ -147,3 +147,41 @@ textarea:focus-visible, select:focus-visible {
   html { scroll-behavior: auto; }
   *, *::before, *::after { transition-duration: .01ms !important; }
 }
+
+/* Shared page actions and backup controls across the library and lawyer area. */
+header.top .btn,
+body > header .main-home-link {
+  min-height: 42px;
+  padding: 9px 15px;
+  border: 1px solid #dfe8df;
+  border-radius: 12px;
+  color: var(--brand) !important;
+  background: var(--soft);
+  font-weight: 700;
+  text-decoration: none;
+}
+header.top .btn:hover,
+body > header .main-home-link:hover {
+  border-color: #cbd9ca;
+  background: #e8f0e9;
+}
+body > header .row { gap: 10px; }
+body > header .row > button,
+.backup-actions > button {
+  min-height: 42px;
+  padding-inline: 16px;
+  border-radius: 12px;
+  font-weight: 700;
+}
+.backup-dock {
+  border-color: rgba(198, 161, 91, .42);
+  border-radius: 18px;
+  background: linear-gradient(110deg, #fffefa, #f5f0e5);
+  box-shadow: var(--shadow);
+}
+.backup-dock strong { color: var(--brand); }
+.backup-dock p { color: var(--muted); }
+@media (max-width: 600px) {
+  body > header .row { width: 100%; }
+  body > header .main-home-link { width: 100%; }
+}
