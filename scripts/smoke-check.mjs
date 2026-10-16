@@ -128,6 +128,9 @@ const workspaceLawyer = workspaceHtml.slice(workspaceLawyerStart, workspaceClien
 if (indexLawyerStart < 0 || indexEditorStart < 0 || /title:'قلم التحرير'|title:'الرأسية المهنية'/.test(indexLawyer)) {
   failures.push("index.html: lawyer space should not contain the editor or letterhead section");
 }
+if (/فضاء المحامي[\s\S]{0,180}وقلم التحرير/.test(indexHtml)) {
+  failures.push("index.html: homepage lawyer-space description should no longer list the editor as a lawyer-space section");
+}
 if (indexEditorStart < 0 || indexClientStart < 0 || !editorWorkspace.includes("الرأسية المهنية") || !editorWorkspace.includes("مذكرات نموذجية")) {
   failures.push("index.html: the editor section should contain letterhead and sample memos");
 }
