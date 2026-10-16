@@ -117,6 +117,29 @@ if (indexHtml.includes("space-back-inline") || /brandTitle\.innerHTML|brand-titl
 if (!/\.qalam-back-link\s*\{(?=[^}]*background:[^;}]+!important)(?=[^}]*border:[^;}]+!important)[^}]*\}/s.test(readFileSync("assets/qalam-theme.css", "utf8"))) {
   failures.push("Shared return navigation should enforce the same background and border on buttons and links");
 }
+const indexLawyerStart = indexHtml.indexOf(" lawyer:{");
+const indexEditorStart = indexHtml.indexOf(" editor:{", indexLawyerStart);
+const indexClientStart = indexHtml.indexOf(" client:{", indexEditorStart);
+const indexLawyer = indexHtml.slice(indexLawyerStart, indexEditorStart);
+const editorWorkspace = indexHtml.slice(indexEditorStart, indexClientStart);
+const workspaceLawyerStart = workspaceHtml.indexOf(" lawyer:{");
+const workspaceClientStart = workspaceHtml.indexOf(" client:{", workspaceLawyerStart);
+const workspaceLawyer = workspaceHtml.slice(workspaceLawyerStart, workspaceClientStart);
+if (indexLawyerStart < 0 || indexEditorStart < 0 || /title:'قلم التحرير'|title:'الرأسية المهنية'/.test(indexLawyer)) {
+  failures.push("index.html: lawyer space should not contain the editor or letterhead section");
+}
+if (indexEditorStart < 0 || indexClientStart < 0 || !editorWorkspace.includes("الرأسية المهنية") || !editorWorkspace.includes("مذكرات نموذجية")) {
+  failures.push("index.html: the editor section should contain letterhead and sample memos");
+}
+if (workspaceLawyerStart < 0 || workspaceClientStart < 0 || workspaceLawyer.includes("قلم التحرير") || !workspaceLawyer.includes("archive-open")) {
+  failures.push("workspace.html: lawyer section should link to the case archive and omit the editor");
+}
+if (!casesHtml.includes('id="archive" href="#archive"') || !casesHtml.includes("isArchive?'منتهٍ':''")) {
+  failures.push("cases.html: archive should show completed case records as a separate section");
+}
+if (!/addEventListener\('popstate',restoreNavigation\)/.test(indexHtml) || !indexHtml.includes("history.pushState({qalamSpace:key}")) {
+  failures.push("index.html: browser back should restore the previous workspace level");
+}
 for (const [file, html] of [["index.html", indexHtml], ["workspace.html", workspaceHtml]]) {
   for (const section of ["cases", "agenda"]) {
     if (!html.includes(`cases.html#${section}`)) {

@@ -284,7 +284,7 @@ textarea{resize:vertical}
 <button class="resource-card" data-space="lawyer" data-tone="gold"><span class="resource-icon">▤</span><strong>فضاء المحامي</strong><small>حقائب القضايا والملفات والأرشيف، المفكرة المهنية، وقلم التحرير.</small><span class="resource-status">استكشف أقسام الفضاء ↗</span></button>
 <button class="resource-card" data-space="client" data-tone="violet"><span class="resource-icon">♧</span><strong>بوابة الموكل</strong><small>الاطلاع على مستجدات الملف والمراسلة وتبادل الوثائق وفق الصلاحيات.</small><span class="resource-status">استكشف أقسام الفضاء ↗</span></button>
 <button class="resource-card" data-space="tools" data-tone="blue"><span class="resource-icon">⌗</span><strong>الأدوات المهنية</strong><small>الحاسبة، حساب الآجال، وتنبيهات المواعيد.</small><span class="resource-status">استكشف أقسام الفضاء ↗</span></button>
-<button class="resource-card" data-quick="documents" data-tone="violet"><span class="resource-icon">✎</span><strong>قلم التحرير</strong><small>ابدأ من المذكرات والقرارات المحفوظة، مع إعداد النماذج والرأسية المهنية ضمن التطوير.</small><span class="resource-status">الوثائق المحفوظة ↗</span></button>
+<button class="resource-card" data-quick="editor" data-tone="violet"><span class="resource-icon">✎</span><strong>قلم التحرير</strong><small>المذكرات والقرارات، المذكرات النموذجية، والرأسية المهنية.</small><span class="resource-status">استكشف أقسام التحرير ↗</span></button>
 <button class="resource-card" data-quick="saved" data-tone="green"><span class="resource-icon">☆</span><strong>المراجع المحفوظة</strong><small>الوصول السريع إلى النصوص والوثائق التي حفظتها.</small><span class="resource-status">متاح الآن ↗</span></button>
 <button class="resource-card" data-quick="add" data-tone="gold"><span class="resource-icon">＋</span><strong>إضافة مرجع</strong><small>أضف نصًا قانونيًا أو مذكرة مع التصنيف والكلمات المفتاحية.</small><span class="resource-status">متاح الآن ↗</span></button>
 
@@ -311,9 +311,13 @@ const spaces={
  {icon:'📚',title:'الأبحاث والدراسات',desc:'الأبحاث والمقالات والدراسات القانونية.',kind:'view',value:'documents'}]},
  lawyer:{title:'فضاء المحامي',subtitle:'أدوات تنظيم الملفات والعمل المهني.',cards:[
  {icon:'▤',title:'حقائب القضايا',desc:'ملفات القضايا والأطراف والإجراءات والأرشيف.',kind:'link',value:'cases.html#cases'},
+ {icon:'▣',title:'أرشيف القضايا',desc:'الملفات المنتهية المحفوظة في الأرشيف.',kind:'link',value:'cases.html#archive'},
  {icon:'◷',title:'المفكرة المهنية',desc:'الجلسات والمواعيد ومتابعة الإجراءات.',kind:'link',value:'cases.html#agenda'},
- {icon:'✎',title:'قلم التحرير',desc:'المذكرات والقرارات والنماذج المهنية.',kind:'view',value:'documents'},
- {icon:'▧',title:'الرأسية المهنية',desc:'إعداد رأسية المحامي للطباعة مع الوثائق.',kind:'coming'}]},
+ ]},
+ editor:{title:'قلم التحرير',subtitle:'المذكرات والقرارات والنماذج المهنية.',cards:[
+ {icon:'✎',title:'المذكرات والقرارات',desc:'عرض الوثائق والمذكرات المحفوظة.',kind:'view',value:'documents'},
+ {icon:'▧',title:'الرأسية المهنية',desc:'إعداد رأسية المحامي للوثائق المطبوعة.',kind:'coming'},
+ {icon:'▤',title:'مذكرات نموذجية',desc:'عرض وإضافة المذكرات المصنفة ضمن النماذج.',kind:'view',value:'templates'}]},
  client:{title:'بوابة الموكل',subtitle:'الأقسام المخطط لها لتسهيل التواصل مع الموكلين.',cards:[
  {icon:'▣',title:'الاطلاع على الملف',desc:'عرض مستجدات الملف والوثائق المسموح بها.',kind:'coming'},
  {icon:'✉',title:'المراسلة',desc:'تبادل الرسائل والوثائق بين المحامي والموكل.',kind:'coming'}]},
@@ -322,21 +326,25 @@ const spaces={
  {icon:'◷',title:'حساب الآجال القانونية',desc:'حساب أولي للآجال مع مراعاة قواعد كل مسطرة.',kind:'coming'},
  {icon:'⏰',title:'التنبيهات والمواعيد',desc:'تنظيم التذكير بالمواعيد المهنية.',kind:'coming'}]}
 };
-function openSpace(key){
+function renderSpace(key){
  const s=spaces[key];if(!s)return;
  homeMain.classList.add('hide');spacePage.classList.remove('hide');homeBack.hidden=false;
  document.title='قلم | '+s.title;
  spacePage.innerHTML='<div class="space-head"><div><div class="eyebrow">فضاء العمل</div><h2>'+esc(s.title)+'</h2><p class="space-subtitle">'+esc(s.subtitle)+'</p></div></div><section class="resource-grid">'+s.cards.map((x,i)=>'<button class="resource-card" data-space-action="'+esc(key)+'" data-card-index="'+i+'" data-tone="'+(['green','gold','violet','blue'][i%4])+'"><span class="resource-icon">'+x.icon+'</span><strong>'+esc(x.title)+'</strong><small>'+esc(x.desc)+'</small><span class="resource-status">'+(x.kind==='coming'?'قيد التطوير':'فتح القسم ↗')+'</span></button>').join('')+'</section>'+(key==='client'?'<div class="space-note">بوابة الموكل غير مفعّلة بعد؛ لا تُدخل بيانات سرية عبر هذه الواجهة.</div>':'')+(key==='tools'?'<div class="space-note">أدوات الحساب والآجال ستُنفّذ في مرحلة لاحقة، مع توضيح طريقة الحساب وحدودها.</div>':'');
  window.scrollTo({top:0,behavior:'auto'});
 }
-function closeSpace(){spacePage.classList.add('hide');homeMain.classList.remove('hide');homeBack.hidden=true;document.title='قلم | المكتبة القانونية';window.scrollTo({top:0,behavior:'auto'});}
+function openSpace(key,addHistory=true){if(!spaces[key])return;if(addHistory){if(!history.state)history.replaceState({qalamHome:true},'',location.href);history.pushState({qalamSpace:key},'',location.href)}renderSpace(key)}
+function showHome(){spacePage.classList.add('hide');homeMain.classList.remove('hide');homeBack.hidden=true;document.title='قلم | المكتبة القانونية';window.scrollTo({top:0,behavior:'auto'});}
+function closeSpace(){if(history.state&&history.state.qalamSpace){history.back();return}showHome()}
+function restoreNavigation(){const state=history.state||{};if(state.qalamSpace)renderSpace(state.qalamSpace);else if(state.qalamView){showHome();setView(state.qalamView,false)}else showHome()}
+if(!history.state||(!history.state.qalamHome&&!history.state.qalamSpace&&!history.state.qalamView))history.replaceState({qalamHome:true},'',location.href);
+window.addEventListener('popstate',restoreNavigation);
 homeBack.addEventListener('click',closeSpace);
 spacePage.addEventListener('click',e=>{
- if(e.target.closest('[data-home-back]')){closeSpace();return}
  const b=e.target.closest('[data-space-action]');if(!b)return;
  const s=spaces[b.dataset.spaceAction];const card=s&&s.cards[Number(b.dataset.cardIndex)];if(!card)return;
  if(card.kind==='link'){location.href=card.value;return}
- if(card.kind==='view'){closeSpace();setView(card.value);return}
+ if(card.kind==='view'){if(history.state&&history.state.qalamSpace)history.pushState({qalamView:card.value,parentSpace:history.state.qalamSpace},'',location.href);showHome();setView(card.value,false);return}
  if(card.kind==='coming'){alert('هذا القسم قيد التطوير، وسيُفعّل في مرحلة لاحقة.');}
 });
 document.querySelectorAll('[data-space]').forEach(b=>b.addEventListener('click',()=>{
@@ -350,9 +358,9 @@ function persist(){if(!storageHealthy){alert('تعذر قراءة بيانات �
 function esc(s=''){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
 function id(){return Date.now().toString(36)+Math.random().toString(36).slice(2,7)}
 function renderStats(){document.querySelector('#lawCount').textContent=db.laws.length;document.querySelector('#docCount').textContent=db.docs.length;document.querySelector('#savedCount').textContent=db.saved.length}
-function setView(v){view=v;document.querySelectorAll('.navitem').forEach(b=>b.classList.toggle('active',b.dataset.view===v));render()}
+function setView(v,pushHistory=true){if(pushHistory&&history.state?.qalamView!==v)history.pushState({qalamView:v},'',location.href);view=v;document.querySelectorAll('.navitem').forEach(b=>b.classList.toggle('active',b.dataset.view===v));render()}
 document.querySelector('#nav').addEventListener('click',e=>{const b=e.target.closest('[data-view]');if(b)setView(b.dataset.view)});
-document.querySelectorAll('[data-quick]').forEach(b=>b.addEventListener('click',()=>{const v=b.dataset.quick;if(v==='backup'){document.querySelector('#exportBtn').click();return}setView(v)}));
+document.querySelectorAll('[data-quick]').forEach(b=>b.addEventListener('click',()=>{const v=b.dataset.quick;if(v==='backup'){document.querySelector('#exportBtn').click();return}if(v==='editor'){openSpace('editor');return}setView(v)}));
 document.querySelector('#search').addEventListener('input',e=>{query=e.target.value.trim().toLowerCase();render()});
 document.querySelector('#clearSearch').onclick=()=>{document.querySelector('#search').value='';query='';render()};
 function matches(x){return !query||[x.title,x.type,x.number,x.text,x.category,x.keywords,x.law,x.part,x.section,x.chapter].join(' ').toLowerCase().includes(query)}
@@ -361,23 +369,31 @@ function itemCard(x,kind){return '<article class="item"><div class="meta">'+esc(
 function render(){renderStats();const el=document.querySelector('#content');
 if(view==='add'){el.innerHTML=addForm();return}
 if(view==='about'){el.innerHTML='<div class="sectionhead"><h2>حول قلم</h2></div><p>واجهة ويب عربية أولية لإدارة مكتبة قانونية شخصية. تدعم حاليًا إضافة النصوص والمذكرات والقرارات، والبحث، والحفظ، والتعديل، والطباعة، والنسخ الاحتياطي المحلي.</p><p>هذه النسخة لا تتضمن بعد مزامنة سحابية، أو استخراجًا آليًا للنصوص من PDF/Word، أو قاعدة بيانات قانونية جاهزة. يجب استيراد المحتوى أو إدخاله قبل البحث فيه.</p><button class="secondary" data-view="add">إضافة أول محتوى</button>';return}
+if(view==='templates'){
+ const templates=db.docs.filter(x=>x.category==='مذكرات نموذجية').filter(matches);
+ el.innerHTML=crumb()+'<div class="sectionhead"><h2>مذكرات نموذجية</h2><div class="no-print"><button data-template-add>＋ إضافة مذكرة نموذجية</button></div></div><p class="meta">تُحفظ النماذج محليًا ضمن وثائقك. أضف صياغاتك المعتمدة، وراجعها قبل استخدامها في أي ملف.</p><div class="list">'+(templates.length?templates.map(x=>itemCard(x,'docs')).join(''):'<div class="empty">لا توجد مذكرات نموذجية بعد. أضف أول نموذج لحفظه في هذا القسم.</div>')+'</div>';
+ el.querySelector('[data-template-add]').onclick=()=>{el.innerHTML=addForm({},'docs','مذكرات نموذجية')};
+ el.querySelectorAll('[data-crumb]').forEach(b=>b.onclick=()=>{trail=trail.slice(0,Number(b.dataset.crumb)+1);render()});
+ return;
+}
 let source=view==='documents'?db.docs:view==='saved'?db.saved:db.laws;
 let filtered=source.filter(matches);
 let heading=view==='documents'?'المذكرات والقرارات':view==='saved'?'المحفوظات':'المكتبة القانونية';
 el.innerHTML=crumb()+'<div class="sectionhead"><h2>'+heading+'</h2><div class="no-print"><button data-view="add">＋ إضافة</button> <button class="secondary" onclick="window.print()">طباعة القائمة</button></div></div>'+(view==='library'?'<p class="meta">يمكنك إضافة القوانين والمواد بحسب الكتاب والقسم والباب والفصل، ثم البحث داخل النصوص.</p>':'')+'<div class="list">'+(filtered.length?filtered.map(x=>itemCard(x,view==='documents'?'docs':view==='saved'?'saved':'laws')).join(''):'<div class="empty">لا توجد نتائج بعد. أضف محتوى أو غيّر كلمات البحث.</div>')+'</div>';
 el.querySelectorAll('[data-crumb]').forEach(b=>b.onclick=()=>{trail=trail.slice(0,Number(b.dataset.crumb)+1);render()});
 }
-function addForm(x={},kind='laws'){return '<div class="sectionhead"><h2>'+(x.id?'تعديل المحتوى':'إضافة محتوى جديد')+'</h2><button class="secondary" data-view="'+(kind==='docs'?'documents':'library')+'">رجوع</button></div><form id="entryForm" class="formgrid"><input type="hidden" name="id" value="'+esc(x.id||'')+'"><div><label class="label">نوع المحتوى</label><select name="kind"><option value="laws" '+(kind==='laws'?'selected':'')+'>قانون / مادة قانونية</option><option value="docs" '+(kind==='docs'?'selected':'')+'>مذكرة / قرار / وثيقة</option></select></div><div><label class="label">التصنيف</label><input name="category" placeholder="مثال: المسطرة الجنائية" value="'+esc(x.category||'')+'"></div><div class="full"><label class="label">العنوان *</label><input name="title" required placeholder="عنوان النص أو الوثيقة" value="'+esc(x.title||'')+'"></div><div><label class="label">رقم المادة أو المرجع</label><input name="number" value="'+esc(x.number||'')+'"></div><div><label class="label">القانون / المصدر</label><input name="law" value="'+esc(x.law||'')+'" placeholder="رقم القانون أو اسم المصدر"></div><div><label class="label">الكتاب أو الجزء</label><input name="part" value="'+esc(x.part||'')+'"></div><div><label class="label">القسم</label><input name="section" value="'+esc(x.section||'')+'"></div><div><label class="label">الباب</label><input name="chapter" value="'+esc(x.chapter||'')+'"></div><div><label class="label">كلمات مفتاحية</label><input name="keywords" value="'+esc(x.keywords||'')+'"></div><div class="full"><label class="label">النص / المحتوى</label><textarea name="text" rows="9" placeholder="الصق النص القانوني أو ملخص الوثيقة هنا">'+esc(x.text||'')+'</textarea></div><div class="full"><button type="submit">حفظ المحتوى</button> <button type="button" class="secondary" data-view="'+(kind==='docs'?'documents':'library')+'">إلغاء</button></div></form>'}
+function addForm(x={},kind='laws',defaultCategory=''){const backView=defaultCategory==='مذكرات نموذجية'||x.category==='مذكرات نموذجية'?'templates':kind==='docs'?'documents':'library';return '<div class="sectionhead"><h2>'+(x.id?'تعديل المحتوى':'إضافة محتوى جديد')+'</h2><button class="secondary" data-view="'+backView+'">رجوع</button></div><form id="entryForm" class="formgrid"><input type="hidden" name="id" value="'+esc(x.id||'')+'"><div><label class="label">نوع المحتوى</label><select name="kind"><option value="laws" '+(kind==='laws'?'selected':'')+'>قانون / مادة قانونية</option><option value="docs" '+(kind==='docs'?'selected':'')+'>مذكرة / قرار / وثيقة</option></select></div><div><label class="label">التصنيف</label><input name="category" placeholder="مثال: المسطرة الجنائية" value="'+esc(x.category||defaultCategory)+'"></div><div class="full"><label class="label">العنوان *</label><input name="title" required placeholder="عنوان النص أو الوثيقة" value="'+esc(x.title||'')+'"></div><div><label class="label">رقم المادة أو المرجع</label><input name="number" value="'+esc(x.number||'')+'"></div><div><label class="label">القانون / المصدر</label><input name="law" value="'+esc(x.law||'')+'" placeholder="رقم القانون أو اسم المصدر"></div><div><label class="label">الكتاب أو الجزء</label><input name="part" value="'+esc(x.part||'')+'"></div><div><label class="label">القسم</label><input name="section" value="'+esc(x.section||'')+'"></div><div><label class="label">الباب</label><input name="chapter" value="'+esc(x.chapter||'')+'"></div><div><label class="label">كلمات مفتاحية</label><input name="keywords" value="'+esc(x.keywords||'')+'"></div><div class="full"><label class="label">النص / المحتوى</label><textarea name="text" rows="9" placeholder="الصق النص أو ملخص الوثيقة هنا">'+esc(x.text||'')+'</textarea></div><div class="full"><button type="submit">حفظ المحتوى</button> <button type="button" class="secondary" data-view="'+backView+'">إلغاء</button></div></form>'}
 document.querySelector('#content').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;if(b.dataset.view){setView(b.dataset.view);return}
 if(b.dataset.save){const kind=b.dataset.kind;let arr=kind==='docs'?db.docs:kind==='saved'?db.saved:db.laws;const x=arr.find(y=>y.id===b.dataset.save)||db.saved.find(y=>y.id===b.dataset.save);if(!x)return;const i=db.saved.findIndex(y=>y.id===x.id);if(i>=0)db.saved.splice(i,1);else db.saved.push({...x});persist();render()}
 if(b.dataset.delete){if(!confirm('هل تريد حذف هذا المحتوى؟'))return;const id=b.dataset.delete;db.laws=db.laws.filter(x=>x.id!==id);db.docs=db.docs.filter(x=>x.id!==id);db.saved=db.saved.filter(x=>x.id!==id);persist();render()}
 if(b.dataset.edit){const id=b.dataset.edit;const x=[...db.laws,...db.docs].find(x=>x.id===id);if(x){view='add';document.querySelector('#content').innerHTML=addForm(x,db.docs.some(y=>y.id===id)?'docs':'laws');}}
 if(b.dataset.print){const x=[...db.laws,...db.docs].find(x=>x.id===b.dataset.print);if(x){const w=window.open('','_blank');w.document.write('<html lang="ar" dir="rtl"><meta charset="utf-8"><title>'+esc(x.title)+'</title><body style="font-family:Tahoma,Arial;padding:35px;line-height:1.9"><h1>'+esc(x.title)+'</h1><p>'+esc(x.text).replace(/\n/g,'<br>')+'</p></body></html>');w.document.close();w.print();}}
 });
-document.querySelector('#content').addEventListener('submit',e=>{if(e.target.id!=='entryForm')return;e.preventDefault();const f=new FormData(e.target);const kind=f.get('kind');const idv=f.get('id')||id();const x={id:idv,type:kind==='docs'?'وثيقة':'نص قانوني',title:f.get('title').trim(),category:f.get('category').trim(),number:f.get('number').trim(),law:f.get('law').trim(),part:f.get('part').trim(),section:f.get('section').trim(),chapter:f.get('chapter').trim(),keywords:f.get('keywords').trim(),text:f.get('text').trim(),updatedAt:new Date().toISOString()};db.laws=db.laws.filter(y=>y.id!==idv);db.docs=db.docs.filter(y=>y.id!==idv);db[kind].push(x);db.saved=db.saved.map(y=>y.id===idv?{...x}:y);persist();setView(kind==='docs'?'documents':'library')});
+document.querySelector('#content').addEventListener('submit',e=>{if(e.target.id!=='entryForm')return;e.preventDefault();const f=new FormData(e.target);const kind=f.get('kind');const idv=f.get('id')||id();const x={id:idv,type:kind==='docs'?'وثيقة':'نص قانوني',title:f.get('title').trim(),category:f.get('category').trim(),number:f.get('number').trim(),law:f.get('law').trim(),part:f.get('part').trim(),section:f.get('section').trim(),chapter:f.get('chapter').trim(),keywords:f.get('keywords').trim(),text:f.get('text').trim(),updatedAt:new Date().toISOString()};db.laws=db.laws.filter(y=>y.id!==idv);db.docs=db.docs.filter(y=>y.id!==idv);db[kind].push(x);db.saved=db.saved.map(y=>y.id===idv?{...x}:y);persist();setView(kind==='docs'?(x.category==='مذكرات نموذجية'?'templates':'documents'):'library')});
 document.querySelector('#exportBtn').onclick=()=>window.KalamStorage.exportJson('kalam-backup.json',db);
 document.querySelector('#importBtn').onclick=()=>document.querySelector('#importFile').click();
 document.querySelector('#importFile').onchange=async e=>{const f=e.target.files[0];if(!f)return;try{const d=window.KalamBackup.parseLibrary(await f.text());if(!confirm('سيتم استبدال البيانات الحالية بالنسخة المستوردة. متابعة؟'))return;db=window.KalamLibrary.normalize(d);persist();render();alert('تم استيراد النسخة.')}catch{alert('تعذر قراءة النسخة الاحتياطية.')}e.target.value=''};
 renderStats();render();
+if(history.state&&history.state.qalamSpace)renderSpace(history.state.qalamSpace);else if(history.state&&history.state.qalamView)setView(history.state.qalamView,false);
 if("serviceWorker" in navigator && location.protocol.startsWith("http")) navigator.serviceWorker.register("./sw.js").catch(()=>{});
 </script></body></html>

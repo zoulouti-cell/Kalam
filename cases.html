@@ -32,6 +32,7 @@ header h1:after{content:"";display:inline-block;width:62px;height:38px;backgroun
 .qalam-mark{display:none!important}
 @media(max-width:600px){header h1{font-size:30px}header h1:after{width:48px;height:30px}}
 .case-heading h1{display:block}
+.case-subnav{display:flex;gap:10px;flex-wrap:wrap;margin:0 0 16px}.case-subnav a{display:inline-flex;padding:9px 14px;border:1px solid var(--line);border-radius:11px;background:var(--soft);color:var(--brand);text-decoration:none;font-weight:700}.case-subnav a:hover{background:#e8f0e9}
 header h1:after{content:none!important;display:none!important}
 @media(max-width:600px){.case-heading h1{font-size:31px}header .main-home-link{width:100%}}
 </style>
@@ -42,7 +43,7 @@ header h1:after{content:none!important;display:none!important}
 <main>
 <section class="panel"><div class="row"><div style="flex:1"><h2 style="margin:0">لوحة المتابعة</h2><div class="muted">الملفات والمواعيد المسجلة في هذا المتصفح</div></div><button id="new">＋ ملف جديد</button><button id="notify" class="secondary">تفعيل تنبيهات المتصفح</button></div><div class="stats" style="margin-top:14px"><div class="stat"><span class="muted">مجموع الملفات</span><strong id="countCases">0</strong></div><div class="stat"><span class="muted">مواعيد خلال 14 يومًا</span><strong id="countUpcoming">0</strong></div><div class="stat"><span class="muted">آجال متأخرة غير منجزة</span><strong id="countOverdue">0</strong></div></div><div class="notice" style="margin-top:12px">تنبيهات المتصفح لا تضمن العمل في الخلفية أو بعد إغلاق الصفحة. تحقّق من الأجندة الرسمية ولا تعتمد على هذا النموذج وحده لحساب الآجال القانونية.</div></section>
 <section id="formWrap"></section><section id="agenda" class="panel"><h2 style="margin-top:0">المواعيد القادمة والآجال</h2><div id="upcoming" class="list"></div></section>
-<section id="cases" class="panel"><h2 style="margin-top:0">ملفات القضايا</h2><div class="row"><input id="search" class="field" placeholder="ابحث برقم الملف أو العنوان أو المحكمة أو الأطراف"><select id="filterStatus" class="field" style="max-width:220px"><option value="">كل الحالات</option><option>قيد المعالجة</option><option>مؤجل</option><option>محجوز للمداولة</option><option>منتهٍ</option></select></div><div id="list" class="list" style="margin-top:12px"></div></section>
+<section id="cases" class="panel"><nav class="case-subnav" aria-label="أقسام حقائب القضايا"><a href="#cases">حقائب القضايا</a><a id="archive" href="#archive">الأرشيف</a></nav><h2 id="casesSectionHeading" style="margin-top:0">حقائب القضايا</h2><div class="row"><input id="search" class="field" placeholder="ابحث برقم الملف أو العنوان أو المحكمة أو الأطراف"><select id="filterStatus" class="field" style="max-width:220px"><option value="">كل الحالات</option><option>قيد المعالجة</option><option>مؤجل</option><option>محجوز للمداولة</option><option>منتهٍ</option></select></div><div id="list" class="list" style="margin-top:12px"></div></section>
 <section class="backup-dock no-print" aria-label="النسخ الاحتياطي"><div><strong>حماية ملفاتك المهنية</strong><p>صدّر نسخة من بيانات القضايا أو استعد نسخة محفوظة على جهازك.</p></div><div class="backup-actions"><button id="export" type="button">تصدير نسخة احتياطية</button><button id="importBtn" class="secondary" type="button">استيراد نسخة</button><input id="importFile" type="file" accept="application/json" class="hide"></div></section>
 </main>
 <script src="./js/core/storage.js"></script>
@@ -50,8 +51,8 @@ header h1:after{content:none!important;display:none!important}
 <script src="./js/cases/model.js"></script>
 <script>
 const KEY=window.KalamCases.storageKey;let currentTab='cases';
-function updatePageSectionTitle(){const title=document.querySelector('#pageSectionTitle');if(!title)return;title.textContent=location.hash==='#agenda'?'المفكرة المهنية':location.hash==='#cases'?'حقائب القضايا':'إدارة القضايا والمفكرة المهنية'}
-updatePageSectionTitle();window.addEventListener('hashchange',updatePageSectionTitle);
+function updatePageSectionTitle(){const title=document.querySelector('#pageSectionTitle');if(!title)return;const isArchive=location.hash==='#archive';title.textContent=location.hash==='#agenda'?'المفكرة المهنية':isArchive?'أرشيف القضايا':location.hash==='#cases'?'حقائب القضايا':'إدارة القضايا والمفكرة المهنية';const sectionTitle=document.querySelector('#casesSectionHeading');if(sectionTitle)sectionTitle.textContent=isArchive?'أرشيف القضايا':'حقائب القضايا';const filter=document.querySelector('#filterStatus');if(filter)filter.value=isArchive?'منتهٍ':''}
+updatePageSectionTitle();window.addEventListener('hashchange',()=>{updatePageSectionTitle();if(typeof render==='function')render()});
 const storedCases=window.KalamStorage.read(KEY,[],window.KalamStorage.isCases);let storageHealthy=storedCases.ok;
 let cases=window.KalamCases.normalize(storedCases.value);
 if(!storedCases.ok&&storedCases.error==='invalid-shape')console.warn('Kalam case data has an unexpected shape; restore a valid backup if records are missing.');
