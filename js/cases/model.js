@@ -7,7 +7,10 @@
   function normalize(cases) {
     if (!Array.isArray(cases)) return [];
     return cases.map(function (item) {
-      return Object.assign({}, item, { events: Array.isArray(item.events) ? item.events : [] });
+      return Object.assign({}, item, {
+        events: Array.isArray(item.events) ? item.events : [],
+        documents: Array.isArray(item.documents) ? item.documents : []
+      });
     });
   }
 

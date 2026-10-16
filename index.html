@@ -292,7 +292,7 @@ textarea{resize:vertical}
 
 <section class="stats"><div class="stat"><small>النصوص القانونية</small><strong id="lawCount">0</strong></div><div class="stat"><small>المذكرات والقرارات</small><strong id="docCount">0</strong></div><div class="stat"><small>المحفوظات</small><strong id="savedCount">0</strong></div></section>
 <div class="layout"><aside class="panel"><h3>الفضاءات الرئيسية</h3><div class="navlist" id="nav">
-<button class="navitem active" data-view="library">⚖ المكتبة القانونية</button><a class="navitem" href="cases.html" style="display:block;text-decoration:none">▣ فضاء المحامي</a><button class="navitem" data-view="documents">✎ قلم التحرير</button><button class="navitem" data-view="saved">☆ المراجع المحفوظة</button><button class="navitem" data-view="add">＋ إضافة محتوى</button><button class="navitem" data-view="about">ⓘ حول التطبيق</button></div><div class="notice">تُحفظ البيانات التي تضيفها محليًا في هذا المتصفح. لا تُرفع تلقائيًا إلى خادم أو إلى GitHub.</div></aside>
+<button class="navitem active" data-view="library">⚖ المكتبة القانونية</button><a class="navitem" href="cases.html#bags" style="display:block;text-decoration:none">▣ فضاء المحامي</a><button class="navitem" data-view="documents">▤ الوثائق المحفوظة</button><button class="navitem" data-view="saved">☆ المراجع المحفوظة</button><button class="navitem" data-view="add">＋ إضافة محتوى</button><button class="navitem" data-view="about">ⓘ حول التطبيق</button></div><div class="notice">تُحفظ البيانات التي تضيفها محليًا في هذا المتصفح. لا تُرفع تلقائيًا إلى خادم أو إلى GitHub.</div></aside>
 <section class="panel" id="content" aria-live="polite"></section></div>
 </main><section id="spacePage" class="space-page hide" aria-live="polite"></section><section class="backup-dock no-print" aria-label="النسخ الاحتياطي"><div><strong>حماية مكتبتك القانونية</strong><p>صدّر نسخة من بياناتك أو استعد نسخة محفوظة على جهازك.</p></div><div class="backup-actions"><button id="exportBtn" type="button">تصدير نسخة احتياطية</button><button id="importBtn" class="secondary" type="button">استيراد نسخة</button><input id="importFile" type="file" accept="application/json" class="hide"></div></section><footer class="footer">قلم · نسخة ويب أولية · بياناتك المحلية تبقى في هذا المتصفح</footer><dialog id="loginDialog" class="login-dialog"><form method="dialog" id="loginForm"><button class="dialog-close" value="cancel" aria-label="إغلاق">×</button><div class="login-emblem">ق</div><h2>تسجيل الدخول إلى قلم</h2><p>واجهة الدخول قيد الإعداد. لا يوجد حتى الآن حساب مستخدم أو مصادقة خادمية.</p><label class="label" for="loginEmail">البريد الإلكتروني</label><input id="loginEmail" type="email" autocomplete="email" placeholder="name@example.com" disabled><label class="label" for="loginPassword">كلمة المرور</label><input id="loginPassword" type="password" autocomplete="current-password" placeholder="كلمة المرور" disabled><button class="secondary" value="cancel" type="submit">إغلاق</button></form></dialog></div>
 <script>/* workspace navigation */</script>
@@ -310,12 +310,11 @@ const spaces={
  {icon:'🏛',title:'الاجتهادات القضائية',desc:'الأحكام والقرارات القضائية المصنفة.',kind:'view',value:'documents'},
  {icon:'📚',title:'الأبحاث والدراسات',desc:'الأبحاث والمقالات والدراسات القانونية.',kind:'view',value:'documents'}]},
  lawyer:{title:'فضاء المحامي',subtitle:'أدوات تنظيم الملفات والعمل المهني.',cards:[
- {icon:'▤',title:'حقائب القضايا',desc:'ملفات القضايا والأطراف والإجراءات والأرشيف.',kind:'link',value:'cases.html#cases'},
+ {icon:'▤',title:'حقائب القضايا',desc:'مدخل إلى ملفات القضايا والوثائق المرتبطة بها.',kind:'link',value:'cases.html#bags'},
  {icon:'▣',title:'أرشيف القضايا',desc:'الملفات المنتهية المحفوظة في الأرشيف.',kind:'link',value:'cases.html#archive'},
  {icon:'◷',title:'المفكرة المهنية',desc:'الجلسات والمواعيد ومتابعة الإجراءات.',kind:'link',value:'cases.html#agenda'},
  ]},
- editor:{title:'قلم التحرير',subtitle:'المذكرات والقرارات والنماذج المهنية.',cards:[
- {icon:'✎',title:'المذكرات والقرارات',desc:'عرض الوثائق والمذكرات المحفوظة.',kind:'view',value:'documents'},
+ editor:{title:'قلم التحرير',subtitle:'الأدوات المهنية للرأسية وصياغة المذكرات النموذجية.',cards:[
  {icon:'▧',title:'الرأسية المهنية',desc:'إعداد رأسية المحامي للوثائق المطبوعة.',kind:'coming'},
  {icon:'▤',title:'مذكرات نموذجية',desc:'عرض وإضافة المذكرات المصنفة ضمن النماذج.',kind:'view',value:'templates'}]},
  client:{title:'بوابة الموكل',subtitle:'الأقسام المخطط لها لتسهيل التواصل مع الموكلين.',cards:[
@@ -378,7 +377,7 @@ if(view==='templates'){
 }
 let source=view==='documents'?db.docs:view==='saved'?db.saved:db.laws;
 let filtered=source.filter(matches);
-let heading=view==='documents'?'المذكرات والقرارات':view==='saved'?'المحفوظات':'المكتبة القانونية';
+let heading=view==='documents'?'الوثائق المحفوظة':view==='saved'?'المحفوظات':'المكتبة القانونية';
 el.innerHTML=crumb()+'<div class="sectionhead"><h2>'+heading+'</h2><div class="no-print"><button data-view="add">＋ إضافة</button> <button class="secondary" onclick="window.print()">طباعة القائمة</button></div></div>'+(view==='library'?'<p class="meta">يمكنك إضافة القوانين والمواد بحسب الكتاب والقسم والباب والفصل، ثم البحث داخل النصوص.</p>':'')+'<div class="list">'+(filtered.length?filtered.map(x=>itemCard(x,view==='documents'?'docs':view==='saved'?'saved':'laws')).join(''):'<div class="empty">لا توجد نتائج بعد. أضف محتوى أو غيّر كلمات البحث.</div>')+'</div>';
 el.querySelectorAll('[data-crumb]').forEach(b=>b.onclick=()=>{trail=trail.slice(0,Number(b.dataset.crumb)+1);render()});
 }

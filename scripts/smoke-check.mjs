@@ -95,10 +95,8 @@ const mainEndAt = casesHtml.indexOf("</main>");
 if (backupDockAt < 0 || exportAt < backupDockAt || importAt < backupDockAt || exportAt > mainEndAt || importAt > mainEndAt) {
   failures.push("cases.html: backup export/import controls should be grouped at the bottom of the page");
 }
-for (const section of ["cases", "agenda"]) {
-  if (!new RegExp(`\\bid=["']${section}["']`, "i").test(casesHtml)) {
-    failures.push(`cases.html: missing lawyer workspace destination #${section}`);
-  }
+for (const section of ["bags", "cases", "documents", "archive", "agenda"]) {
+  if (!new RegExp(`\\bid=["']${section}["']`, "i").test(casesHtml)) failures.push(`cases.html: missing case-management branch #${section}`);
 }
 const indexHtml = readFileSync("index.html", "utf8");
 const workspaceHtml = readFileSync("workspace.html", "utf8");
@@ -137,18 +135,23 @@ if (indexEditorStart < 0 || indexClientStart < 0 || !editorWorkspace.includes("�
 if (workspaceLawyerStart < 0 || workspaceClientStart < 0 || workspaceLawyer.includes("قلم التحرير") || !workspaceLawyer.includes("archive-open")) {
   failures.push("workspace.html: lawyer section should link to the case archive and omit the editor");
 }
-if (!casesHtml.includes('id="archive" href="#archive"') || !casesHtml.includes("isArchive?'منتهٍ':''")) {
+if (!casesHtml.includes('href="#archive"') || !casesHtml.includes("c.status==='منتهٍ'") || !casesHtml.includes('id="archiveList"')) {
   failures.push("cases.html: archive should show completed case records as a separate section");
 }
 if (!/addEventListener\('popstate',restoreNavigation\)/.test(indexHtml) || !indexHtml.includes("history.pushState({qalamSpace:key}")) {
   failures.push("index.html: browser back should restore the previous workspace level");
 }
 for (const [file, html] of [["index.html", indexHtml], ["workspace.html", workspaceHtml]]) {
-  for (const section of ["cases", "agenda"]) {
-    if (!html.includes(`cases.html#${section}`)) {
-      failures.push(`${file}: lawyer destination cases.html#${section} is missing`);
-    }
-  }
+  for (const section of ["bags", "archive", "agenda"]) if (!html.includes(`cases.html#${section}`)) failures.push(`${file}: lawyer destination cases.html#${section} is missing`);
+}
+if (!casesHtml.includes('href="#cases"') || !casesHtml.includes('href="#documents"') || !casesHtml.includes('documents:old.documents||[]')) {
+  failures.push("cases.html: case bags should contain file and document branches without dropping documents during case edits");
+}
+if (!editorWorkspace.includes("مذكرات نموذجية") || editorWorkspace.includes("المذكرات والقرارات")) {
+  failures.push("index.html: editor section should contain sample memos and omit the memos-and-decisions card");
+}
+if (!casesHtml.includes('id="documentForm"') || !casesHtml.includes('data-case-documents=') || !readFileSync("js/cases/model.js", "utf8").includes("documents: Array.isArray(item.documents) ? item.documents : []")) {
+  failures.push("cases.html: documents should be attachable to existing cases while legacy cases remain compatible");
 }
 
 for (const file of ["js/core/storage.js", "js/core/backup.js", "js/library/model.js", "js/cases/model.js"]) {
