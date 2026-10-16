@@ -15,7 +15,8 @@
 <body>
 <header class="top"><div class="brand"><div class="mark" aria-label="قلم">ق</div></div><a class="btn qalam-back-link" href="index.html">← العودة إلى الصفحة الرئيسية</a></header>
 <main class="wrap"><section class="hero"><div class="eyebrow">QALAM · WORKSPACE JURIDIQUE</div><h1 id="title" class="qalam-page-title">فضاء العمل</h1><p id="subtitle">اختر القسم الذي تريد الانتقال إليه.</p></section>
-<div class="section-title"><h2 id="sectionHeading">الأقسام</h2></div><section id="grid" class="grid" aria-live="polite"></section><div id="notice" class="notice" hidden></div></main><footer class="footer">قلم · فضاء العمل القانوني</footer>
+<div class="section-title"><h2 id="sectionHeading">الأقسام</h2></div><section id="grid" class="grid" aria-live="polite"></section><div id="notice" class="notice" hidden></div><section id="letterheadApp" class="lh-app" hidden aria-label="الرأسية المهنية"></section></main><footer class="footer">قلم · فضاء العمل القانوني</footer>
+<script src="js/letterhead.js"></script>
 <script>
 const P={
  library:{title:'المكتبة القانونية',subtitle:'المراجع القانونية مصنفة في فضاءات واضحة.',cards:[['⚖','النصوص القانونية','القوانين والمواد والفصول.','legal-texts'],['🏛','الاجتهادات القضائية','الأحكام والقرارات والاتجاهات القضائية.','jurisprudence'],['📚','الأبحاث والدراسات','الأبحاث والمقالات والدراسات القانونية.','research']]},
@@ -43,5 +44,6 @@ const params=new URLSearchParams(location.search);const key=params.get('section'
 document.title='قلم | '+data.title;document.querySelector('#title').textContent=data.title;document.querySelector('#subtitle').textContent=data.subtitle;document.querySelector('#sectionHeading').textContent='الأقسام';
 function routeHref(route){const direct={'bags-open':'cases.html#bags','cases-open':'cases.html#cases','archive-open':'cases.html#archive','agenda-open':'cases.html#agenda','library-open':'index.html?view=library','documents-open':'index.html?view=documents','templates-open':'index.html?view=templates','saved-open':'index.html?view=saved','add-reference':'index.html?view=add'};return direct[route]||('workspace.html?section='+encodeURIComponent(route))}
 document.querySelector('#grid').innerHTML=data.cards.map(c=>'<a class="card" href="'+routeHref(c[3])+'"><span class="icon">'+c[0]+'</span><strong>'+c[1]+'</strong><small>'+c[2]+'</small><span class="status">فتح القسم ↗</span></a>').join('');
-if(data.notice){const n=document.querySelector('#notice');n.textContent=data.notice;n.hidden=false}
+if(key==='letterhead'){document.querySelector('#grid').hidden=true;document.querySelector('#notice').hidden=true;document.querySelector('#sectionHeading').parentElement.hidden=true;document.querySelector('#letterheadApp').hidden=false;document.querySelector('#letterheadApp').innerHTML=window.KalamLetterhead.template();window.KalamLetterhead.init(document.querySelector('#letterheadApp'))}
+if(data.notice&&key!=='letterhead'){const n=document.querySelector('#notice');n.textContent=data.notice;n.hidden=false}
 </script></body></html>

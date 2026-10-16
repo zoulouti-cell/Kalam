@@ -2,7 +2,7 @@ import { readFileSync, existsSync } from "node:fs";
 import { resolve } from "node:path";
 import vm from "node:vm";
 
-const required = ["index.html", "workspace.html", "cases.html", "login.html", "manifest.webmanifest", "sw.js", "js/core/storage.js", "js/core/backup.js", "js/library/model.js", "js/cases/model.js"];
+const required = ["index.html", "workspace.html", "cases.html", "login.html", "manifest.webmanifest", "sw.js", "js/core/storage.js", "js/core/backup.js", "js/library/model.js", "js/cases/model.js", "js/letterhead.js"];
 const failures = [];
 for (const file of required) {
   if (!existsSync(resolve(file))) failures.push("Missing required file: " + file);
@@ -154,7 +154,12 @@ if (!casesHtml.includes('id="documentForm"') || !casesHtml.includes('data-case-d
   failures.push("cases.html: documents should be attachable to existing cases while legacy cases remain compatible");
 }
 
-for (const file of ["js/core/storage.js", "js/core/backup.js", "js/library/model.js", "js/cases/model.js"]) {
+const letterheadJs = readFileSync("js/letterhead.js", "utf8");
+if (!indexHtml.includes("workspace.html?section=letterhead") || !workspaceHtml.includes('id="letterheadApp"') || !letterheadJs.includes("kalam_letterhead_v1") || !letterheadJs.includes("malafati-brand") || !letterheadJs.includes("window.print()") || !letterheadJs.includes("مكتب الزلوطي للمحاماة") || !letterheadJs.includes("01/5192")) {
+  failures.push("Letterhead: office identity setup, import compatibility, and print workflow should be available from the editor");
+}
+
+for (const file of ["js/core/storage.js", "js/core/backup.js", "js/library/model.js", "js/cases/model.js", "js/letterhead.js"]) {
   if (!existsSync(file)) continue;
   try {
     new vm.Script(readFileSync(file, "utf8"), { filename: file });
