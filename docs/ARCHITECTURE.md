@@ -6,7 +6,12 @@ Kalam is a static, Arabic RTL web application published from the `web-app-v1` br
 
 - `index.html`: legal library, legal articles, notes/decisions, saved items, search, printing and JSON backup. Data is stored under `kalam_kalam_v1` in browser LocalStorage.
 - `cases.html`: case records and case-linked hearings/deadlines/actions, reminders, printing, calendar export and JSON backup. Data is stored separately under `kalam_cases_v1`.
-- `login.html`: visual login prototype only. It is not real authentication and must not be treated as a security boundary.
+- `login.html`: now forwards to `app.html`, where the real sign-in to an office's encrypted space happens (no server: the office's data is encrypted in its own GitHub repository).
+- `app.html`: the lawyer's office space (agenda, case files, deadlines, calculators, legal library, letterhead, client portal settings, backups, office sync), organised in Qalam's spaces with `QNAV`; office identity on first sign-in (`QID`) and other offices' letterheads.
+- `portal.html`: the client portal (case stage, news and shared documents; encrypted document upload), in Arabic, French and English. The office is named in the link: `portal.html?o=account/repo`.
+- `apk/`: the Android app (Capacitor), built by `.github/workflows/build-apk.yml`; native plugins in `apk/native/`.
+- `data/lex/`, `data/fonts/`, `fonts/`, `lib/pdfjs/`, `icons/`: public legal texts, free (OFL) fonts, pdf.js and Qalam's icons.
+- See `docs/OFFICE-SPACE.md`.
 - `manifest.webmanifest` and `sw.js`: installability and offline caching.
 - `.github/workflows/deploy-pages.yml`: deploys the root of `web-app-v1` to GitHub Pages.
 - `scripts/smoke-check.mjs`: low-cost checks that run before deployment.
@@ -51,7 +56,7 @@ Before multi-device use or sensitive client records, decide on a secured backend
 ## Release acceptance checklist
 
 - Smoke check passes.
-- Both primary pages load and retain Arabic RTL layout.
+- Both primary pages load and retain Arabic RTL layout; `app.html` and `portal.html` load without errors.
 - Existing LocalStorage records remain readable.
 - Export then import preserves record counts and key fields.
 - Case-linked events remain linked after backup/restore.

@@ -1,0 +1,62 @@
+{
+ "v": 8,
+ "texts": [
+  {
+   "id": "zl-cpc",
+   "file": "zl-cpc.json",
+   "v": 1
+  },
+  {
+   "id": "zl-cpp",
+   "file": "zl-cpp.json",
+   "v": 1
+  },
+  {
+   "id": "zl-route",
+   "file": "zl-route.json",
+   "v": 1
+  },
+  {
+   "id": "zl-cp",
+   "file": "zl-cp.json",
+   "v": 1
+  },
+  {
+   "id": "zl-ccom",
+   "file": "zl-ccom.json",
+   "v": 1
+  },
+  {
+   "id": "zl-fam",
+   "file": "zl-fam.json",
+   "v": 1
+  },
+  {
+   "id": "zl-doc",
+   "file": "zl-doc.json",
+   "v": 1
+  },
+  {
+   "id": "zl-trav",
+   "file": "zl-trav.json",
+   "v": 1
+  },
+  {
+   "id": "zl-alt",
+   "file": "zl-alt.json",
+   "v": 1
+  }
+ ],
+ "cases": [
+  {
+   "file": "jur-refs.json",
+   "v": 1
+  }
+ ],
+ "docs": [
+  {
+   "file": "zl-models.json",
+   "v": 1
+  }
+ ]
+}

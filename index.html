@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="theme-color" content="#102b28"><meta name="description" content="قلم — مكتبة قانونية عربية لتنظيم النصوص والمواد والمذكرات والقرارات">
-<link rel="manifest" href="manifest.webmanifest">
+<link rel="manifest" href="manifest.webmanifest"><link rel="icon" type="image/png" sizes="48x48" href="icons/favicon-48.png"><link rel="icon" type="image/png" sizes="192x192" href="icons/icon-192.png"><link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
 <title>قلم | المكتبة القانونية</title>
 <style>
 :root{--bg:#f4f6f5;--panel:#fff;--ink:#182724;--muted:#657570;--brand:#123d36;--accent:#c49a54;--line:#dfe7e3;--soft:#eaf1ee;--danger:#a33b37;--shadow:0 10px 30px #163c3210}
@@ -275,7 +275,7 @@ textarea{resize:vertical}
 <header class="top"><div class="brand"><span class="qalam-mark" aria-label="قلم">
 <svg viewBox="0 0 64 64" role="img" aria-hidden="true"><defs><linearGradient id="qalamGold" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f4d99a"/><stop offset=".55" stop-color="#c99a4b"/><stop offset="1" stop-color="#936a2c"/></linearGradient></defs><path d="M47 8C34 12 17 26 13 42c-2 7 2 11 8 8C36 44 47 25 47 8Z" fill="url(#qalamGold)"/><path d="M17 48 43 15M22 38l-1-9m8 2 8-1m-3 12 8-1" fill="none" stroke="#fff7df" stroke-width="1.5" stroke-linecap="round"/><path d="M11 54c10-3 17-10 22-17" fill="none" stroke="#f4d99a" stroke-width="2" stroke-linecap="round"/><path d="M7 56c6-1 10-3 14-7" fill="none" stroke="#c99a4b" stroke-width="1.4" stroke-linecap="round"/></svg>
 </span><div class="brand-copy" id="brandTitle"><img class="qalam-header-art" src="assets/qalam-logo.png" alt="شعار قلم العربي المزخرف باللونين الأخضر والذهبي" width="420" height="160">
-</div></div><div class="actions"><button id="homeBack" class="secondary qalam-back-link" type="button" hidden>← العودة إلى الصفحة الرئيسية</button><a class="login-btn" href="login.html" style="display:inline-block;text-decoration:none;padding:10px 14px;border-radius:10px">تسجيل الدخول</a></div></header>
+</div></div><div class="actions"><button id="homeBack" class="secondary qalam-back-link" type="button" hidden>← العودة إلى الصفحة الرئيسية</button><a class="login-btn" href="app.html" style="display:inline-block;text-decoration:none;padding:10px 14px;border-radius:10px">تسجيل الدخول</a></div></header>
 <main class="wrap">
 <section class="hero"><div style="position:relative;z-index:1;color:#3978e8;font-size:11px;font-weight:800;letter-spacing:1.5px">QALAM · WORKSPACE JURIDIQUE</div><h2 class="qalam-page-title">فضاءك القانوني المتكامل</h2><p>أربعة فضاءات رئيسية: المكتبة القانونية، فضاء المحامي، بوابة الموكل، والأدوات المهنية. واجهة عربية موحدة تتطور تدريجيًا مع الحفاظ على بياناتك.</p><div class="searchrow"><input id="search" placeholder="ابحث في عناوين مكتبتك ونصوصك وأرقام المواد…"><button id="clearSearch" class="secondary">مسح البحث</button></div></section>
 <section class="resource-heading"><div><div class="eyebrow">مساحة العمل</div><h2>ماذا تريد أن تنجز اليوم؟</h2><p>اختر الفضاء الذي تريد العمل فيه، ثم انتقل مباشرة إلى أدواته.</p></div></section>
@@ -292,7 +292,7 @@ textarea{resize:vertical}
 
 <section class="stats"><div class="stat"><small>النصوص القانونية</small><strong id="lawCount">0</strong></div><div class="stat"><small>المذكرات والقرارات</small><strong id="docCount">0</strong></div><div class="stat"><small>المحفوظات</small><strong id="savedCount">0</strong></div></section>
 <div class="layout"><aside class="panel"><h3>الفضاءات الرئيسية</h3><div class="navlist" id="nav">
-<button class="navitem active" data-view="library">⚖ المكتبة القانونية</button><a class="navitem" href="cases.html#bags" style="display:block;text-decoration:none">▣ فضاء المحامي</a><button class="navitem" data-view="documents">▤ الوثائق المحفوظة</button><button class="navitem" data-view="saved">☆ المراجع المحفوظة</button><button class="navitem" data-view="add">＋ إضافة محتوى</button><button class="navitem" data-view="about">ⓘ حول التطبيق</button></div><div class="notice">تُحفظ البيانات التي تضيفها محليًا في هذا المتصفح. لا تُرفع تلقائيًا إلى خادم أو إلى GitHub.</div></aside>
+<button class="navitem active" data-view="library">⚖ المكتبة القانونية</button><a class="navitem" href="app.html#files" style="display:block;text-decoration:none">▣ فضاء المحامي</a><button class="navitem" data-view="documents">▤ الوثائق المحفوظة</button><button class="navitem" data-view="saved">☆ المراجع المحفوظة</button><button class="navitem" data-view="add">＋ إضافة محتوى</button><button class="navitem" data-view="about">ⓘ حول التطبيق</button></div><div class="notice">تُحفظ البيانات التي تضيفها محليًا في هذا المتصفح. لا تُرفع تلقائيًا إلى خادم أو إلى GitHub.</div></aside>
 <section class="panel" id="content" aria-live="polite"></section></div>
 </main><section id="spacePage" class="space-page hide" aria-live="polite"></section><section class="backup-dock no-print" aria-label="النسخ الاحتياطي"><div><strong>حماية مكتبتك القانونية</strong><p>صدّر نسخة من بياناتك أو استعد نسخة محفوظة على جهازك.</p></div><div class="backup-actions"><button id="exportBtn" type="button">تصدير نسخة احتياطية</button><button id="importBtn" class="secondary" type="button">استيراد نسخة</button><input id="importFile" type="file" accept="application/json" class="hide"></div></section><footer class="footer">قلم · نسخة ويب أولية · بياناتك المحلية تبقى في هذا المتصفح</footer><dialog id="loginDialog" class="login-dialog"><form method="dialog" id="loginForm"><button class="dialog-close" value="cancel" aria-label="إغلاق">×</button><div class="login-emblem">ق</div><h2>تسجيل الدخول إلى قلم</h2><p>واجهة الدخول قيد الإعداد. لا يوجد حتى الآن حساب مستخدم أو مصادقة خادمية.</p><label class="label" for="loginEmail">البريد الإلكتروني</label><input id="loginEmail" type="email" autocomplete="email" placeholder="name@example.com" disabled><label class="label" for="loginPassword">كلمة المرور</label><input id="loginPassword" type="password" autocomplete="current-password" placeholder="كلمة المرور" disabled><button class="secondary" value="cancel" type="submit">إغلاق</button></form></dialog></div>
 <script>/* workspace navigation */</script>
@@ -308,22 +308,23 @@ const spaces={
  library:{title:'المكتبة القانونية',subtitle:'اختر القسم الذي تريد العمل فيه.',cards:[
  {icon:'⚖',title:'النصوص القانونية',desc:'القوانين والمواد والفصول القانونية.',kind:'view',value:'library'},
  {icon:'🏛',title:'الاجتهادات القضائية',desc:'الأحكام والقرارات القضائية المصنفة.',kind:'view',value:'documents'},
- {icon:'📚',title:'الأبحاث والدراسات',desc:'الأبحاث والمقالات والدراسات القانونية.',kind:'view',value:'documents'}]},
+ {icon:'📚',title:'الأبحاث والدراسات',desc:'الأبحاث والمقالات والدراسات القانونية.',kind:'view',value:'documents'},
+ {icon:'📖',title:'مكتبة النصوص المغربية',desc:'المساطر والمدونات، فهرس القوانين، القرارات والمذكرات النموذجية، داخل فضاء المحامي.',kind:'link',value:'app.html#lex'}]},
  lawyer:{title:'فضاء المحامي',subtitle:'أدوات تنظيم الملفات والعمل المهني.',cards:[
- {icon:'▤',title:'حقائب القضايا',desc:'مدخل إلى ملفات القضايا والوثائق المرتبطة بها.',kind:'link',value:'cases.html#bags'},
- {icon:'▣',title:'أرشيف القضايا',desc:'الملفات المنتهية المحفوظة في الأرشيف.',kind:'link',value:'cases.html#archive'},
- {icon:'◷',title:'المفكرة المهنية',desc:'الجلسات والمواعيد ومتابعة الإجراءات.',kind:'link',value:'cases.html#agenda'},
+ {icon:'▤',title:'حقائب القضايا',desc:'الملفات والجلسات والآجال، ومحفظة وثائق كل ملف.',kind:'link',value:'app.html#files'},
+ {icon:'▣',title:'أرشيف القضايا',desc:'أرشيف المكتب والملفات المغلقة.',kind:'link',value:'app.html#arch'},
+ {icon:'◷',title:'المفكرة المهنية',desc:'الجلسات والمواعيد الإجرائية ومتابعة الإجراءات.',kind:'link',value:'app.html#agenda'},
  ]},
  editor:{title:'قلم التحرير',subtitle:'الأدوات المهنية للرأسية وصياغة المذكرات النموذجية.',cards:[
- {icon:'▧',title:'الرأسية المهنية',desc:'تهيئة هوية المكتب وإنشاء مستندات مهنية قابلة للطباعة.',kind:'link',value:'workspace.html?section=letterhead'},
+ {icon:'▧',title:'الرأسية المهنية',desc:'رأسية المكتب ورأسيات المكاتب الأخرى: معاينة وطباعة وPDF وWord.',kind:'link',value:'app.html#lh'},
  {icon:'▤',title:'مذكرات نموذجية',desc:'عرض وإضافة المذكرات المصنفة ضمن النماذج.',kind:'view',value:'templates'}]},
- client:{title:'بوابة الموكل',subtitle:'الأقسام المخطط لها لتسهيل التواصل مع الموكلين.',cards:[
- {icon:'▣',title:'الاطلاع على الملف',desc:'عرض مستجدات الملف والوثائق المسموح بها.',kind:'coming'},
- {icon:'✉',title:'المراسلة',desc:'تبادل الرسائل والوثائق بين المحامي والموكل.',kind:'coming'}]},
+ client:{title:'بوابة الموكل',subtitle:'ما يطّلع عليه الموكل من ملفه، وما يرسله إلى المكتب.',cards:[
+ {icon:'▣',title:'الاطلاع على الملف',desc:'مرحلة الملف ومستجداته والوثائق التي يشاركها المكتب، برقم الاطلاع ورمزه.',kind:'link',value:'portal.html'},
+ {icon:'✉',title:'إرسال وثيقة إلى المكتب',desc:'وثيقة تُشفَّر على جهاز الموكل فلا يفتحها إلا المكتب.',kind:'link',value:'portal.html'}]},
  tools:{title:'الأدوات المهنية',subtitle:'أدوات مساعدة للعمل القانوني اليومي.',cards:[
- {icon:'＋',title:'الحاسبة',desc:'عمليات حسابية سريعة ضمن مساحة العمل.',kind:'coming'},
- {icon:'◷',title:'حساب الآجال القانونية',desc:'حساب أولي للآجال مع مراعاة قواعد كل مسطرة.',kind:'coming'},
- {icon:'⏰',title:'التنبيهات والمواعيد',desc:'تنظيم التذكير بالمواعيد المهنية.',kind:'coming'}]}
+ {icon:'＋',title:'الحاسبة',desc:'حوادث السير، حوادث الشغل، الإرث، ورموز الملفات.',kind:'link',value:'app.html#calc'},
+ {icon:'◷',title:'حساب الآجال القانونية',desc:'آجال الطعن والإجراءات وفق قانون المسطرة المدنية 58.25.',kind:'link',value:'app.html#dl'},
+ {icon:'⏰',title:'التنبيهات والمواعيد',desc:'المفكرة وتنبيهات الجلسات والآجال.',kind:'link',value:'app.html#agenda'}]}
 };
 function renderSpace(key){
  const s=spaces[key];if(!s)return;

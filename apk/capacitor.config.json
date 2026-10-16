@@ -1,0 +1,11 @@
+{
+  "appId": "ma.qalam.app",
+  "appName": "قلم",
+  "webDir": "www",
+  "plugins": {
+    "LocalNotifications": {
+      "smallIcon": "ic_stat_qalam",
+      "iconColor": "#234c3d"
+    }
+  }
+}
