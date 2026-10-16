@@ -7,7 +7,7 @@ name: Build Qalam Android APK
 on:
   workflow_dispatch:
   push:
-    branches: [main, qalam-app]
+    branches: [main]
     paths:
       - 'apk/**'
       - 'data/**'
@@ -58,8 +58,9 @@ jobs:
           du -sh www
 
       # The signing key: the repository's secret when it is set (QALAM_KEYSTORE_B64, QALAM_KEYSTORE_PASSWORD,
-      # QALAM_KEY_ALIAS, QALAM_KEY_PASSWORD); otherwise a key kept in this repository's Actions cache, made once,
-      # so that each new APK installs over the previous one. The key is never written into the repository.
+      # QALAM_KEY_ALIAS, QALAM_KEY_PASSWORD); otherwise the key kept in this repository's Actions cache, made once
+      # and kept alive by keep-signing-key.yml, so that each new APK installs over the previous one as an update.
+      # The key is never written into the repository (it is public).
       - name: Signing key from the repository's secret
         if: env.HAS_KEY == 'true'
         env:

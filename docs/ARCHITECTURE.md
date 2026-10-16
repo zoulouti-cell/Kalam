@@ -2,7 +2,7 @@
 
 ## Current shape
 
-Kalam is a static, Arabic RTL web application published from the `web-app-v1` branch through GitHub Pages. It deliberately has no server or external runtime dependency yet.
+Kalam is a static, Arabic RTL web application published from `main` through GitHub Pages. It deliberately has no server or external runtime dependency yet.
 
 - `index.html`: legal library, legal articles, notes/decisions, saved items, search, printing and JSON backup. Data is stored under `kalam_kalam_v1` in browser LocalStorage.
 - `cases.html`: case records and case-linked hearings/deadlines/actions, reminders, printing, calendar export and JSON backup. Data is stored separately under `kalam_cases_v1`.
@@ -13,7 +13,8 @@ Kalam is a static, Arabic RTL web application published from the `web-app-v1` br
 - `data/lex/`, `data/fonts/`, `fonts/`, `lib/pdfjs/`, `icons/`: public legal texts, free (OFL) fonts, pdf.js and Qalam's icons.
 - See `docs/OFFICE-SPACE.md`.
 - `manifest.webmanifest` and `sw.js`: installability and offline caching.
-- `.github/workflows/deploy-pages.yml`: deploys the root of `web-app-v1` to GitHub Pages.
+- `.github/workflows/deploy-pages.yml`: deploys the root of `main` to GitHub Pages.
+- `.github/workflows/build-apk.yml`: builds the Android app on every push to `main` that touches it, signed with the same key each time; `keep-signing-key.yml` keeps that key alive.
 - `scripts/smoke-check.mjs`: low-cost checks that run before deployment.
 
 ## Current architectural risks
@@ -29,7 +30,7 @@ Kalam is a static, Arabic RTL web application published from the `web-app-v1` br
 ## Target architecture (incremental, no risky rewrite)
 
 ### Stage 1 — Stabilize the static release
-- Keep Pages deployment tied to `web-app-v1`; do not merge into `main` without explicit approval.
+- Since 17 October 2026, by the owner's decision, tested changes are pushed directly to `main` (no branches); Pages and the APK build follow automatically.
 - Run smoke checks before every deployment.
 - Use network-first for HTML and cache-first for static assets.
 - Keep backup/import flows visible and document their limits.
@@ -61,4 +62,4 @@ Before multi-device use or sensitive client records, decide on a secured backend
 - Export then import preserves record counts and key fields.
 - Case-linked events remain linked after backup/restore.
 - New HTML is fetched after deployment; offline fallback still works.
-- No change is pushed to `main` and the `Milafati` repository remains untouched.
+- The `Milafati` repository remains untouched.

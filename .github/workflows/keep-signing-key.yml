@@ -1,0 +1,25 @@
+name: Keep the app's signing key
+
+# GitHub drops an Actions cache that has not been used for seven days. The app's signing key is kept in that cache
+# (when no signing secret is set), so this job uses it every five days: every new APK keeps installing over the old one.
+
+on:
+  schedule:
+    - cron: '23 4 */5 * *'
+  workflow_dispatch:
+
+jobs:
+  keep:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - name: Use the cached key
+        id: k
+        uses: actions/cache/restore@v4
+        with:
+          path: apk/qalam-ci.keystore
+          key: qalam-signing-v1
+      - name: Report
+        run: |
+          if [ "${{ steps.k.outputs.cache-hit }}" = "true" ]; then echo "The signing key is in the cache."; else echo "::warning::The signing key is not in the cache: the next APK will be signed with a new key unless the QALAM_KEYSTORE_* secrets are set."; fi
