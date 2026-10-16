@@ -52,6 +52,10 @@ checkHtml("login.html");
 // Lawyer workspace links must land on their distinct sections in the unified
 // case-management page, rather than both opening it at the top.
 const casesHtml = readFileSync("cases.html", "utf8");
+if (!/id=["']pageSectionTitle["']/.test(casesHtml)) failures.push("cases.html: visible lawyer section title is missing");
+if (!/class=["'][^"']*main-home-link[^"']*["'][^>]*href=["']\.\/index\.html["']/.test(casesHtml) || !casesHtml.includes("العودة إلى الصفحة الرئيسية")) {
+  failures.push("cases.html: visible return-to-home link is missing");
+}
 for (const section of ["cases", "agenda"]) {
   if (!new RegExp(`\\bid=["']${section}["']`, "i").test(casesHtml)) {
     failures.push(`cases.html: missing lawyer workspace destination #${section}`);
