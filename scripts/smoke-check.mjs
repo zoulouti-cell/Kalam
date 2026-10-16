@@ -2,7 +2,7 @@ import { readFileSync, existsSync } from "node:fs";
 import { resolve } from "node:path";
 import vm from "node:vm";
 
-const required = ["index.html", "workspace.html", "cases.html", "login.html", "manifest.webmanifest", "sw.js", "js/core/storage.js", "js/core/backup.js", "js/library/model.js", "js/cases/model.js", "js/letterhead.js"];
+const required = ["index.html", "workspace.html", "cases.html", "login.html", "manifest.webmanifest", "sw.js", "assets/qalam-letterhead-emblem.png", "js/core/storage.js", "js/core/backup.js", "js/library/model.js", "js/cases/model.js", "js/letterhead.js"];
 const failures = [];
 for (const file of required) {
   if (!existsSync(resolve(file))) failures.push("Missing required file: " + file);
@@ -155,8 +155,8 @@ if (!casesHtml.includes('id="documentForm"') || !casesHtml.includes('data-case-d
 }
 
 const letterheadJs = readFileSync("js/letterhead.js", "utf8");
-if (!indexHtml.includes("workspace.html?section=letterhead") || !workspaceHtml.includes('id="letterheadApp"') || !workspaceHtml.includes('#letterheadApp [hidden]{display:none!important}') || !letterheadJs.includes("kalam_letterhead_v1") || !letterheadJs.includes("malafati-brand") || !letterheadJs.includes("window.print()") || !letterheadJs.includes("مكتب الزلوطي للمحاماة") || !letterheadJs.includes("01/5192")) {
-  failures.push("Letterhead: office identity setup, import compatibility, and print workflow should be available from the editor");
+if (!indexHtml.includes("workspace.html?section=letterhead") || !workspaceHtml.includes('id="letterheadApp"') || !workspaceHtml.includes('#letterheadApp [hidden]{display:none!important}') || !letterheadJs.includes("kalam_letterhead_v1") || !letterheadJs.includes("malafati-brand") || !letterheadJs.includes("window.print()") || !letterheadJs.includes("مكتب الزلوطي للمحاماة") || !letterheadJs.includes("01/5192") || !letterheadJs.includes('id="lhEditor"') || !letterheadJs.includes('contenteditable="true"') || !letterheadJs.includes("kalam_letterhead_draft_v1") || !letterheadJs.includes("sanitizeEditorHtml") || !letterheadJs.includes("data-command=\"bold\"") || !letterheadJs.includes("lhPaperHearing") || !letterheadJs.includes("qalam-letterhead-emblem.png")) {
+  failures.push("Letterhead: office identity, template emblem and case details, rich-text editing, local draft persistence, and print workflow should be available");
 }
 
 for (const file of ["js/core/storage.js", "js/core/backup.js", "js/library/model.js", "js/cases/model.js", "js/letterhead.js"]) {
@@ -177,6 +177,7 @@ try {
 
 const sw = existsSync("sw.js") ? readFileSync("sw.js", "utf8") : "";
 if (!/kalam-static-v\d+/.test(sw)) failures.push("sw.js: cache version is missing");
+if (!sw.includes("./assets/qalam-letterhead-emblem.png")) failures.push("sw.js: professional letterhead emblem should be precached");
 if (!/request\.mode === ["']navigate["']/.test(sw)) failures.push("sw.js: HTML navigation should use network-first strategy");
 
 if (failures.length) {
