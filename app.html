@@ -8210,11 +8210,11 @@ var QNAV=(function(){
       ['lock','الأمان',function(){setCards(['قفل التطبيق']);}],
       ['share','مشاركة المكتبة',function(){setCards(['libsharecard']);}],
       ['more','روابط وأدوات',function(){setCards(['الأدوات في الصفحة الرئيسية','رابط موقع المكتب','تطبيق محاكم']);}]]}];
-  var cur={s:'law',i:'agenda'},side,bot,sub,crumb;
+  var cur={s:'law',i:'agenda'},side,bot,sub,crumb,LOCK=0;
   function spOf(k){return SP.filter(function(x){return x.k===k;})[0];}
   function open(sk,ik,quiet){var s=spOf(sk);if(!s)return;var it=s.items.filter(function(x){return x[0]===ik;})[0]||s.items[0];
     if(it[3]){it[2]();return;}  /* an action (a window or another page): the section shown stays the same */
-    cur={s:s.k,i:it[0]};if(s.k!=='set'&&['portal','prof','notif'].indexOf(it[0])<0)setAll();it[2]();draw();if(!quiet)try{window.scrollTo({top:0,behavior:'smooth'});}catch(e){}}
+    LOCK=Date.now()+1500;cur={s:s.k,i:it[0]};if(s.k!=='set'&&['portal','prof','notif'].indexOf(it[0])<0)setAll();it[2]();draw();if(!quiet)try{window.scrollTo({top:0,behavior:'smooth'});}catch(e){}}
   function draw(){var s=spOf(cur.s);
     if(side){[].slice.call(side.querySelectorAll('.qsp')).forEach(function(b){var on=b.getAttribute('data-s')===cur.s;b.classList.toggle('on',on);b.setAttribute('aria-expanded',on?'true':'false');});
       [].slice.call(side.querySelectorAll('.qit')).forEach(function(b){b.classList.toggle('on',b.getAttribute('data-s')===cur.s&&b.getAttribute('data-i')===cur.i);});
@@ -8238,7 +8238,7 @@ var QNAV=(function(){
     /* the settings, in the bar */
     var bar=document.querySelector('header.bar'),home=bar&&bar.querySelector('a.hb');if(bar){var g=E('button','hb qsetb');g.type='button';g.setAttribute('aria-label','الإعدادات');g.title='الإعدادات';g.innerHTML=svg('set');g.addEventListener('click',function(){open('set',cur.s==='set'?cur.i:'brand');});if(home)bar.insertBefore(g,home);else bar.appendChild(g);}
     /* a tab opened from inside the space (a file's card, a link): the space follows */
-    var nt0=document.querySelector('nav.tabs:not(.qbot)');if(nt0&&window.MutationObserver)new MutationObserver(function(){var a=nt0.querySelector('[aria-selected=true]');if(!a)return;var k=a.getAttribute('data-tab');
+    var nt0=document.querySelector('nav.tabs:not(.qbot)');if(nt0&&window.MutationObserver)new MutationObserver(function(){if(Date.now()<LOCK||document.querySelector('.lxsheet,.anv,.lhview,.rpview'))return;var a=nt0.querySelector('[aria-selected=true]');if(!a)return;var k=a.getAttribute('data-tab');
       var want={agenda:['law','agenda'],files:['law','files'],lex:['lib','t'],dl:['tools','dl'],set:['set','brand']}[k];if(!want)return;
       var s=spOf(cur.s),ok=false;if(k==='agenda'&&cur.s==='law'&&(cur.i==='agenda'||cur.i==='misc'))ok=true;if(k==='files'&&((cur.s==='law'&&['files','arch','add'].indexOf(cur.i)>=0)||(cur.s==='edit'&&cur.i==='lh')))ok=true;
       if(k==='lex'&&((cur.s==='lib')||(cur.s==='edit'&&(cur.i==='d'||cur.i==='ref'))))ok=true;if(k==='dl'&&cur.s==='tools')ok=true;if(k==='set'&&(cur.s==='set'||['portal','prof','notif'].indexOf(cur.i)>=0))ok=true;
