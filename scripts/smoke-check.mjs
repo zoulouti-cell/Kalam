@@ -73,9 +73,17 @@ for (const [file, id] of [["workspace.html", "title"], ["login.html", "loginTitl
   const titleTag = html.match(new RegExp(`<h1\\b[^>]*id=["']${id}["'][^>]*>`));
   if (!titleTag || !/class=["'][^"']*qalam-page-title/.test(titleTag[0])) failures.push(`${file}: page title is missing the shared Qalam title style`);
 }
-if (!/\.qalam-page-title\s*\{[\s\S]*font-family:\s*"Aref Ruqaa"[\s\S]*font-size:\s*clamp\(32px, 3\.2vw, 40px\)/.test(readFileSync("assets/qalam-theme.css", "utf8")) ||
-    !/:where\(h1, h2, h3\)\s*\{[\s\S]*font-family:\s*"Aref Ruqaa"/.test(readFileSync("assets/qalam-theme.css", "utf8"))) {
-  failures.push("Shared Qalam typography for page and section titles is missing");
+const themeCss = readFileSync("assets/qalam-theme.css", "utf8");
+if (!/--qalam-font:\s*Calibri,\s*"Calibri Arabic"/.test(themeCss) ||
+    !/body\s*\{[\s\S]*font-family:\s*var\(--qalam-font\)/.test(themeCss) ||
+    !/\.qalam-page-title\s*\{[\s\S]*font-family:\s*var\(--qalam-font\)[\s\S]*font-size:\s*clamp\(32px, 3\.2vw, 40px\)/.test(themeCss) ||
+    !/:where\(h1, h2, h3, h4, h5, h6\)\s*\{[\s\S]*font-family:\s*var\(--qalam-font\)/.test(themeCss) ||
+    !/body h2:not\(\.qalam-page-title\)[\s\S]*font-size:\s*clamp\(23px, 2\.2vw, 28px\)/.test(themeCss) ||
+    !/body h3\s*\{[\s\S]*font-size:\s*clamp\(21px, 1\.8vw, 24px\)/.test(themeCss) ||
+    !/body h4\s*\{[\s\S]*font-size:\s*21px/.test(themeCss) ||
+    !/body h5\s*\{[\s\S]*font-size:\s*18px/.test(themeCss) ||
+    !/body h6\s*\{[\s\S]*font-size:\s*16px/.test(themeCss)) {
+  failures.push("Shared Calibri Arabic typography hierarchy for all page headings is missing");
 }
 if (!/class=["'][^"']*main-home-link[^"']*["'][^>]*href=["']\.\/index\.html["']/.test(casesHtml) || !casesHtml.includes("العودة إلى الصفحة الرئيسية")) {
   failures.push("cases.html: visible return-to-home link is missing");
