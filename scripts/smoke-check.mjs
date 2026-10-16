@@ -73,8 +73,9 @@ for (const [file, id] of [["workspace.html", "title"], ["login.html", "loginTitl
   const titleTag = html.match(new RegExp(`<h1\\b[^>]*id=["']${id}["'][^>]*>`));
   if (!titleTag || !/class=["'][^"']*qalam-page-title/.test(titleTag[0])) failures.push(`${file}: page title is missing the shared Qalam title style`);
 }
-if (!/\.qalam-page-title\s*\{[\s\S]*font-family:\s*"Aref Ruqaa"[\s\S]*font-size:\s*clamp\(32px, 3\.2vw, 40px\)/.test(readFileSync("assets/qalam-theme.css", "utf8"))) {
-  failures.push("Shared Qalam page title style or responsive title size is missing");
+if (!/\.qalam-page-title\s*\{[\s\S]*font-family:\s*"Aref Ruqaa"[\s\S]*font-size:\s*clamp\(32px, 3\.2vw, 40px\)/.test(readFileSync("assets/qalam-theme.css", "utf8")) ||
+    !/:where\(h1, h2, h3\)\s*\{[\s\S]*font-family:\s*"Aref Ruqaa"/.test(readFileSync("assets/qalam-theme.css", "utf8"))) {
+  failures.push("Shared Qalam typography for page and section titles is missing");
 }
 if (!/class=["'][^"']*main-home-link[^"']*["'][^>]*href=["']\.\/index\.html["']/.test(casesHtml) || !casesHtml.includes("العودة إلى الصفحة الرئيسية")) {
   failures.push("cases.html: visible return-to-home link is missing");
