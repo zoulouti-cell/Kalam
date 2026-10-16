@@ -111,6 +111,12 @@ for (const [file, html] of [["index.html", indexHtml], ["workspace.html", worksp
     failures.push(`${file}: shared return navigation style is missing`);
   }
 }
+if (indexHtml.includes("space-back-inline") || /brandTitle\.innerHTML|brand-title-text/.test(indexHtml)) {
+  failures.push("index.html: lawyer overlay should use one title and the shared header return control");
+}
+if (!/\.qalam-back-link\s*\{(?=[^}]*background:[^;}]+!important)(?=[^}]*border:[^;}]+!important)[^}]*\}/s.test(readFileSync("assets/qalam-theme.css", "utf8"))) {
+  failures.push("Shared return navigation should enforce the same background and border on buttons and links");
+}
 for (const [file, html] of [["index.html", indexHtml], ["workspace.html", workspaceHtml]]) {
   for (const section of ["cases", "agenda"]) {
     if (!html.includes(`cases.html#${section}`)) {

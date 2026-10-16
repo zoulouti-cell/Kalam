@@ -85,11 +85,11 @@ button, .btn, .primary {
   font-family: inherit;
   transition: transform .16s ease, box-shadow .16s ease, background-color .16s ease;
 }
-button:not(.secondary):not(.ghost):not(.danger):not(.resource-card):not(.navitem):not(.show):not(.dialog-close):not(.space-back-inline), .primary {
+button:not(.secondary):not(.ghost):not(.danger):not(.resource-card):not(.navitem):not(.show):not(.dialog-close), .primary {
   background-color: var(--brand);
   color: #fff;
 }
-button:not(.secondary):not(.ghost):not(.danger):not(.resource-card):not(.navitem):not(.show):not(.dialog-close):not(.space-back-inline):hover, .primary:hover {
+button:not(.secondary):not(.ghost):not(.danger):not(.resource-card):not(.navitem):not(.show):not(.dialog-close):hover, .primary:hover {
   background-color: var(--brand-deep);
   box-shadow: 0 6px 15px rgba(35, 76, 61, .16);
 }
@@ -189,10 +189,10 @@ body h6 { font-size: 16px !important; font-weight: 600 !important; line-height: 
   display: inline-flex;
   min-height: 42px;
   padding: 9px 15px;
-  border: 1px solid #dfe8df;
+  border: 1px solid #dfe8df !important;
   border-radius: 12px;
   color: var(--brand) !important;
-  background: var(--soft);
+  background: var(--soft) !important;
   font-weight: 700;
   font-size: 15px;
   text-decoration: none;
@@ -201,8 +201,8 @@ body h6 { font-size: 16px !important; font-weight: 600 !important; line-height: 
   white-space: nowrap;
 }
 .qalam-back-link:hover {
-  border-color: #cbd9ca;
-  background: #e8f0e9;
+  border-color: #cbd9ca !important;
+  background: #e8f0e9 !important;
 }
 .qalam-back-link[hidden] { display: none !important; }
 body > header .row { gap: 10px; }
