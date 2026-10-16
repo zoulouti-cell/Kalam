@@ -67,6 +67,7 @@ main:not(.shell) { padding-inline: clamp(12px, 2.4vw, 28px); }
 .resource-card, .grid > .card {
   transition: transform .16s ease, box-shadow .16s ease, border-color .16s ease;
 }
+.grid > .card { color: var(--ink); text-decoration: none; }
 .resource-card:hover, .grid > .card:hover {
   border-color: #cbd9ca;
   box-shadow: 0 14px 30px rgba(29, 65, 47, .11);
