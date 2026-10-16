@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Aref+Ruqaa:wght@400;700&display=swap');
+
 /* Shared Qalam visual system: emerald, warm gold, soft ivory, and quiet blue. */
 :root {
   --bg: #f5f7f4;
@@ -122,6 +124,17 @@ textarea:focus-visible, select:focus-visible {
   border-radius: 12px;
 }
 .footer { color: #829087; }
+
+/* One calligraphic title treatment, sized consistently on every page. */
+.qalam-page-title {
+  margin-block: 0;
+  color: var(--brand) !important;
+  font-family: "Aref Ruqaa", "Amiri", "Noto Naskh Arabic", serif !important;
+  font-size: clamp(32px, 3.2vw, 40px) !important;
+  font-weight: 700 !important;
+  line-height: 1.4 !important;
+  letter-spacing: 0 !important;
+}
 
 /* The workspace mark matches the green and gold signature used elsewhere. */
 .mark {

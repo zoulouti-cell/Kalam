@@ -65,8 +65,16 @@ if (new Set(themeVersion.map(item => item.split(":")[1])).size > 1) {
 // case-management page, rather than both opening it at the top.
 const casesHtml = readFileSync("cases.html", "utf8");
 if (!/id=["']pageSectionTitle["']/.test(casesHtml)) failures.push("cases.html: visible lawyer section title is missing");
-if (!/\.case-heading h1\{font:700 38px/.test(casesHtml) || /قَلَم\s*<small[^>]*id=["']pageSectionTitle/.test(casesHtml)) {
+if (!/class=["'][^"']*qalam-page-title/.test(casesHtml) || /قَلَم\s*<small[^>]*id=["']pageSectionTitle/.test(casesHtml)) {
   failures.push("cases.html: lawyer section title should be prominent without a Qalam label above it");
+}
+for (const [file, id] of [["workspace.html", "title"], ["login.html", "loginTitle"]]) {
+  const html = readFileSync(file, "utf8");
+  const titleTag = html.match(new RegExp(`<h1\\b[^>]*id=["']${id}["'][^>]*>`));
+  if (!titleTag || !/class=["'][^"']*qalam-page-title/.test(titleTag[0])) failures.push(`${file}: page title is missing the shared Qalam title style`);
+}
+if (!/\.qalam-page-title\s*\{[\s\S]*font-family:\s*"Aref Ruqaa"[\s\S]*font-size:\s*clamp\(32px, 3\.2vw, 40px\)/.test(readFileSync("assets/qalam-theme.css", "utf8"))) {
+  failures.push("Shared Qalam page title style or responsive title size is missing");
 }
 if (!/class=["'][^"']*main-home-link[^"']*["'][^>]*href=["']\.\/index\.html["']/.test(casesHtml) || !casesHtml.includes("العودة إلى الصفحة الرئيسية")) {
   failures.push("cases.html: visible return-to-home link is missing");
